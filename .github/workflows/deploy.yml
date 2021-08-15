@@ -10,6 +10,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.17.3
+
+      - name: Install yarn and dependencies
+        run: |
+          npm install -g yarn
+          yarn
+          yarn --check-files
+
+      - name: Build storybook
+        run: |
+          yarn build:storybook
+
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
