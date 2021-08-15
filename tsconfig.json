@@ -18,7 +18,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@Atoms": [
+        "./src/atoms/index.ts"
+      ],
+      "@Molecules": [
+        "./src/molecules/index.ts"
+      ],
+      "@Organisms": [
+        "./src/organisms/index.ts"
+      ]
+    }
   },
   "include": [
     "src"
