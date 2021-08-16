@@ -1,7 +1,8 @@
 {
   "name": "@cig-platform/ui",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,7 +22,10 @@
     "build:storybook": "build-storybook -s public",
     "build": "yarn tsc src/index.ts --jsx react-jsx --outDir build --declaration",
     "lint": "eslint src",
-    "heroku-postbuild": "yarn build:storybook"
+    "heroku-postbuild": "yarn build:storybook",
+    "prepare": "npm run build",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "eslintConfig": {
     "extends": [
