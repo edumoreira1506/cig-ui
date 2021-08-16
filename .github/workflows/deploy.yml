@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - CHICKEN-11
 
 jobs:
   build:
