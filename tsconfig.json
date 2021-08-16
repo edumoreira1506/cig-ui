@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2020",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,19 +19,25 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "baseUrl": "./src",
     "paths": {
       "@Atoms": [
-        "./src/atoms/index.ts"
+        "atoms/index.ts"
       ],
       "@Molecules": [
-        "./src/molecules/index.ts"
+        "molecules/index.ts"
       ],
       "@Organisms": [
-        "./src/organisms/index.ts"
+        "organisms/index.ts"
       ]
     }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/**/*.test.js"
   ]
 }
