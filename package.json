@@ -19,8 +19,9 @@
   "scripts": {
     "test": "react-scripts test",
     "start": "start-storybook -p 6006 -s public",
-    "build": "build-storybook -s public",
-    "lint": "eslint src"
+    "build:storybook": "build-storybook -s public",
+    "lint": "eslint src",
+    "heroku-postbuild": "yarn build:storybook"
   },
   "eslintConfig": {
     "extends": [
