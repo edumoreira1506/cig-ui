@@ -5,7 +5,7 @@ import Label from '../Label/Label';
 import { StyledContainer, StyledInput } from './Input.styles';
 
 export interface InputProps extends FieldProps {
-  type?: 'text' | 'number' | 'email';
+  type?: 'text' | 'number' | 'email' | 'date' | 'password';
 }
 
 export default function Input({ value, onChange, type = 'text', label, name, placeholder, inputTestId, required = false }: InputProps) {
