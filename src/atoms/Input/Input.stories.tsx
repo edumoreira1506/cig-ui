@@ -1,18 +1,19 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import TextField from './TextField';
+import Input from './Input';
 
 export default {
-  title: 'Organisms/TextField',
-  component: TextField,
-} as ComponentMeta<typeof TextField>;
+  title: 'Atoms/Input',
+  component: Input,
+} as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Example = Template.bind({});
 Example.args = {
   value: '',
   label: 'E-mail',
   name: 'email',
+  type: 'email',
   placeholder: 'email@teste.com'
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors, MAIN_FONT } from '../../constants/styles';
+import { Colors, DEFAULT_BORDER_RADIUS, MAIN_FONT } from '../../constants/styles';
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const StyledInput = styled.input`
   border: none;
   width: 100%;
   padding: 10px 0 10px 10px;
-  border-radius: 5px;
+  border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.DarkGrey};
 
   &:focus {
