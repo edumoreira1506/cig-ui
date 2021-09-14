@@ -1,19 +1,19 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import * as React from 'react';
 
 import { StyledContainer, StyledHeader, StyledTabTitle, StyledBody } from './Tabs.styles';
 
 interface TabsProps {
-  children: ReactNode[];
+  children: React.ReactNode[];
 }
 
 export default function Tabs({ children }: TabsProps) {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = React.useState(0);
   
-  const tabsTitles = useMemo(() => React.Children.map(children, (child: any) => child?.props?.title ?? ''), [children]);
+  const tabsTitles = React.useMemo(() => React.Children.map(children, (child: any) => child?.props?.title ?? ''), [children]);
 
-  const selectedTabContent = useMemo(() => children[selectedTab], [children, selectedTab]);
+  const selectedTabContent = React.useMemo(() => children[selectedTab], [children, selectedTab]);
 
-  const widthPercentage = useMemo(() => 100 / (tabsTitles?.length ?? 1), [tabsTitles]);
+  const widthPercentage = React.useMemo(() => 100 / (tabsTitles?.length ?? 1), [tabsTitles]);
 
   return (
     <StyledContainer>
