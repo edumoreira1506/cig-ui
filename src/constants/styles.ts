@@ -4,3 +4,5 @@ export enum Colors {
 }
 
 export const MAIN_FONT = '\'Raleway\', sans-serif';
+
+export const DEFAULT_TRANSITION = 'ease 0.2s';
