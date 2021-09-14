@@ -5,4 +5,5 @@ export interface FieldProps {
   name?: string;
   placeholder?: string;
   inputTestId?: string;
+  required?: boolean;
 }

@@ -8,13 +8,13 @@ export interface InputProps extends FieldProps {
   type?: 'text' | 'number' | 'email';
 }
 
-export default function Input({ value, onChange, type = 'text', label, name, placeholder, inputTestId }: InputProps) {
+export default function Input({ value, onChange, type = 'text', label, name, placeholder, inputTestId, required = false }: InputProps) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
 
   return (
     <StyledContainer>
       {label && <Label text={label} htmlFor={name} />}
-      <StyledInput data-testid={inputTestId} placeholder={placeholder} id={name} name={name} value={value} onChange={handleChange} type={type} />
+      <StyledInput required={required} data-testid={inputTestId} placeholder={placeholder} id={name} name={name} value={value} onChange={handleChange} type={type} />
     </StyledContainer>
   );
 }
