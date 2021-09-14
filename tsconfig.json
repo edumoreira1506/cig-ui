@@ -21,19 +21,14 @@
     "jsx": "react-jsx",
     "outDir": "./build",
     "rootDir": "./src",
-    "baseUrl": "./src",
-    "paths": {
-      "@Atoms": [
-        "atoms/index.ts"
-      ],
-      "@Molecules": [
-        "molecules/index.ts"
-      ],
-      "@Organisms": [
-        "organisms/index.ts"
-      ]
-    }
+    "baseUrl": "./src"
   },
-  "include": ["src/**/*.tsx", "src/**/*.ts"],
-  "exclude": ["src/**/*.test.js", "src/**/*.stories.tsx"]
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.js",
+    "src/**/*.stories.tsx"
+  ]
 }
