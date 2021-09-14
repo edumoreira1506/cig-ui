@@ -10,13 +10,14 @@ export const StyledContainer = styled.div`
   font-family: ${MAIN_FONT};
 `;
 
-export const StyledInput = styled.input`
+export const StyledTextArea = styled.textarea`
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;
   padding: 10px 0 10px 10px;
   border-radius: 5px;
   color: ${Colors.DarkGrey};
+  resize: none;
 
   &:focus {
     outline: none;
