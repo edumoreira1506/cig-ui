@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { DeviceSizes } from '../../constants/device';
 import { Colors, MAIN_FONT } from '../../constants/styles';
+import { createMinWidthMediaQuery } from '../../utils/styles';
 
 export const StyledTitle = styled.h2`
   font-family: ${MAIN_FONT};
@@ -23,16 +23,15 @@ export const StyledTitle = styled.h2`
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
 
-    @media (min-width: ${DeviceSizes.MOBILE_WIDTH}) {
+    ${createMinWidthMediaQuery(`
       left: 50%;
       transform: translate(-50%, 50%);
-    }
+    `)}
   }
 
-  @media (min-width: ${DeviceSizes.MOBILE_WIDTH}) {
+  ${createMinWidthMediaQuery(`
     text-align: center;
     font-size: 3em;
     padding: 0 0 15px 0;
-  }
-}
+  `)}
 `;
