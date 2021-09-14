@@ -10,13 +10,6 @@ export const StyledContainer = styled.div`
   font-family: ${MAIN_FONT};
 `;
 
-export const StyledLabel = styled.label`
-  color: ${Colors.DarkGrey};
-  font-size: 1.5em;
-  margin-bottom: 5px;
-  font-weight: bold;
-`;
-
 export const StyledInput = styled.input`
   background-color: ${Colors.LightGrey};
   border: none;

@@ -1,15 +1,11 @@
 import { useCallback } from 'react';
 
-import { StyledContainer, StyledInput, StyledLabel } from './Input.styles';
+import { FieldProps } from '../../@types/form';
+import Label from '../Label/Label';
+import { StyledContainer, StyledInput } from './Input.styles';
 
-export interface InputProps {
-  value: string | number;
-  onChange: (value: string | number) => void;
+export interface InputProps extends FieldProps {
   type?: 'text' | 'number' | 'email';
-  label?: string;
-  name?: string;
-  placeholder?: string;
-  inputTestId?: string;
 }
 
 export default function Input({ value, onChange, type = 'text', label, name, placeholder, inputTestId }: InputProps) {
@@ -17,7 +13,7 @@ export default function Input({ value, onChange, type = 'text', label, name, pla
 
   return (
     <StyledContainer>
-      {label && <StyledLabel htmlFor={name}>{label}</StyledLabel>}
+      {label && <Label text={label} htmlFor={name} />}
       <StyledInput data-testid={inputTestId} placeholder={placeholder} id={name} name={name} value={value} onChange={handleChange} type={type} />
     </StyledContainer>
   );
