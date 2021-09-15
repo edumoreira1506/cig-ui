@@ -4,9 +4,10 @@ import { StyledContainer, StyledHeader, StyledTabTitle, StyledBody } from './Tab
 
 interface TabsProps {
   children: React.ReactNode[];
+  tab?: number;
 }
 
-export default function Tabs({ children }: TabsProps) {
+export default function Tabs({ children, tab = 0 }: TabsProps) {
   const [selectedTab, setSelectedTab] = React.useState(0);
   
   const tabsTitles = React.useMemo(() => React.Children.map(children, (child: any) => child?.props?.title ?? ''), [children]);
@@ -14,6 +15,10 @@ export default function Tabs({ children }: TabsProps) {
   const selectedTabContent = React.useMemo(() => children[selectedTab], [children, selectedTab]);
 
   const widthPercentage = React.useMemo(() => 100 / (tabsTitles?.length ?? 1), [tabsTitles]);
+
+  React.useEffect(() => {
+    setSelectedTab(tab);
+  }, [tab]);
 
   return (
     <StyledContainer>
