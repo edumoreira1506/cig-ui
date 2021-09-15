@@ -45,6 +45,7 @@ export default function Tabs({ children, tab = 0, setTab = () => null }: TabsPro
             width={widthPercentage}
             key={tabProp.title}
             onClick={() => handleSelectTab(index)}
+            isDisabled={!tabProp.active}
           >
             {tabProp.title}
           </StyledTabTitle>
