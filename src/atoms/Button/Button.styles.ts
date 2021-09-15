@@ -13,4 +13,8 @@ export const StyledButton = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 `;

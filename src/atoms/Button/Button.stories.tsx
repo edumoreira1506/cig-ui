@@ -13,3 +13,9 @@ export const Example = Template.bind({});
 Example.args = {
   label: 'Click me!'
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Click me!',
+  disabled: true,
+};
