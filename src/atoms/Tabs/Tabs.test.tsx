@@ -39,4 +39,30 @@ describe('<Tabs />', () => {
     expect(screen.queryByText('Tab 0')).not.toBeInTheDocument();
     expect(screen.getByText('Tab 1')).toBeInTheDocument();
   });
+
+  it('switch the tab when change tab value', () => {
+    const tabTitles = ['First title', 'Second title'];
+
+    const { rerender } = render(
+      <Tabs>
+        {tabTitles.map((tab, index) => (
+          <h1 key={tab} title={tab}>{`Tab ${index}`}</h1>
+        ))}
+      </Tabs>
+    );
+
+    expect(screen.getByText('Tab 0')).toBeInTheDocument();
+    expect(screen.queryByText('Tab 1')).not.toBeInTheDocument();
+
+    rerender(
+      <Tabs tab={1}>
+        {tabTitles.map((tab, index) => (
+          <h1 key={tab} title={tab}>{`Tab ${index}`}</h1>
+        ))}
+      </Tabs>
+    );
+
+    expect(screen.queryByText('Tab 0')).not.toBeInTheDocument();
+    expect(screen.getByText('Tab 1')).toBeInTheDocument();
+  });
 });
