@@ -11,11 +11,22 @@ interface TabsProps {
 export default function Tabs({ children, tab = 0, setTab = () => null }: TabsProps) {
   const [selectedTab, setSelectedTab] = React.useState(0);
   
-  const tabsTitles = React.useMemo(() => React.Children.map(children, (child: any) => child?.props?.title ?? ''), [children]);
+  const tabsProps = React.useMemo(() => React.Children.map(children, (child: any) => ({
+    title: child?.props?.title ?? '',
+    active: child?.props?.['data-active'] ?? true
+  })), [children]);
 
   const selectedTabContent = React.useMemo(() => children[selectedTab], [children, selectedTab]);
 
-  const widthPercentage = React.useMemo(() => 100 / (tabsTitles?.length ?? 1), [tabsTitles]);
+  const widthPercentage = React.useMemo(() => 100 / (tabsProps?.length ?? 1), [tabsProps]);
+
+  const handleSelectTab = React.useCallback((index: number) => {
+    const isTabActive = tabsProps?.[index]?.active ?? false;
+
+    if (!isTabActive) return;
+
+    setSelectedTab(index);
+  }, [tabsProps]);
 
   React.useEffect(() => {
     setSelectedTab(tab);
@@ -28,8 +39,15 @@ export default function Tabs({ children, tab = 0, setTab = () => null }: TabsPro
   return (
     <StyledContainer>
       <StyledHeader>
-        {tabsTitles?.map((title, index) => (
-          <StyledTabTitle opened={index === selectedTab} width={widthPercentage} key={title} onClick={() => setSelectedTab(index)}>{title}</StyledTabTitle>
+        {tabsProps?.map((tabProp, index) => (
+          <StyledTabTitle
+            opened={index === selectedTab}
+            width={widthPercentage}
+            key={tabProp.title}
+            onClick={() => handleSelectTab(index)}
+          >
+            {tabProp.title}
+          </StyledTabTitle>
         ))}
       </StyledHeader>
       <StyledBody>
