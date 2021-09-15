@@ -2,7 +2,7 @@
   "name": "@cig-platform/ui",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
