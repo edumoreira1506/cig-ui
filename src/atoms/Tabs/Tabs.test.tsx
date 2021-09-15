@@ -65,4 +65,26 @@ describe('<Tabs />', () => {
     expect(screen.queryByText('Tab 0')).not.toBeInTheDocument();
     expect(screen.getByText('Tab 1')).toBeInTheDocument();
   });
+
+  it('calls setTab when switch the tab of the component', () => {
+    const setTab = jest.fn();
+    const tabTitles = ['First title', 'Second title', 'Third title'];
+
+    render(
+      <Tabs setTab={setTab}>
+        {tabTitles.map((tab, index) => (
+          <h1 key={tab} title={tab}>{`Tab ${index}`}</h1>
+        ))}
+      </Tabs>
+    );
+
+    userEvent.click(screen.getByText(tabTitles[1]));
+    userEvent.click(screen.getByText(tabTitles[2]));
+    userEvent.click(screen.getByText(tabTitles[0]));
+
+    expect(setTab).toHaveBeenCalledTimes(4);
+    expect(setTab).toHaveBeenCalledWith(0);
+    expect(setTab).toHaveBeenCalledWith(1);
+    expect(setTab).toHaveBeenCalledWith(2);
+  });
 });
