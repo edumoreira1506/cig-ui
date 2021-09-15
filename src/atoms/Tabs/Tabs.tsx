@@ -5,9 +5,10 @@ import { StyledContainer, StyledHeader, StyledTabTitle, StyledBody } from './Tab
 interface TabsProps {
   children: React.ReactNode[];
   tab?: number;
+  setTab?: (newTab: number) => void;
 }
 
-export default function Tabs({ children, tab = 0 }: TabsProps) {
+export default function Tabs({ children, tab = 0, setTab = () => null }: TabsProps) {
   const [selectedTab, setSelectedTab] = React.useState(0);
   
   const tabsTitles = React.useMemo(() => React.Children.map(children, (child: any) => child?.props?.title ?? ''), [children]);
@@ -19,6 +20,10 @@ export default function Tabs({ children, tab = 0 }: TabsProps) {
   React.useEffect(() => {
     setSelectedTab(tab);
   }, [tab]);
+
+  React.useEffect(() => {
+    setTab(selectedTab);
+  }, [selectedTab]);
 
   return (
     <StyledContainer>

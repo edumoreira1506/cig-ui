@@ -13,7 +13,7 @@ export default function Input({ value, onChange, type = 'text', label, name, pla
 
   return (
     <StyledContainer>
-      {label && <Label text={label} htmlFor={name} />}
+      {label && <Label text={label} htmlFor={name} required={required} />}
       <StyledInput required={required} data-testid={inputTestId} placeholder={placeholder} id={name} name={name} value={value} onChange={handleChange} type={type} />
     </StyledContainer>
   );
