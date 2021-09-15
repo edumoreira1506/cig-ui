@@ -28,14 +28,17 @@ export const StyledTabTitle = styled.div`
 
   &:hover {
     border-color: ${Colors.DarkGrey};
+    opacity: 1;
   }
 
-  ${({ width, opened }: { width: number; opened: boolean }) => `
+  ${({ width, opened, isDisabled }: { width: number; opened: boolean; isDisabled: boolean; }) => `
     width: calc(${width}% - 1%);
 
-    ${opened && `
+    ${isDisabled ? 'opacity: 0.5;' : ''}
+
+    ${opened ? `
       border-color: ${Colors.DarkGrey};
-    `}
+    ` : ''}
   `}
 `;
 
