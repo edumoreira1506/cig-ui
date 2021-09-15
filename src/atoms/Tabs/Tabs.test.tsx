@@ -87,4 +87,28 @@ describe('<Tabs />', () => {
     expect(setTab).toHaveBeenCalledWith(1);
     expect(setTab).toHaveBeenCalledWith(2);
   });
+
+  it('does not change the tab when the tab is not active', () => {
+    const firstTab = { title: 'First title', content: 'First content' };
+    const secondTab = { title: 'Second title', content: 'Second content' };
+
+    render(
+      <Tabs>
+        <div title={firstTab.title}>
+          {firstTab.content}
+        </div>
+        <div title={secondTab.title} data-active={false}>
+          {secondTab.content}
+        </div>
+      </Tabs>
+    );
+
+    expect(screen.getByText(firstTab.content)).toBeInTheDocument();
+    expect(screen.queryByText(secondTab.content)).not.toBeInTheDocument();
+
+    userEvent.click(screen.getByText(secondTab.title));
+
+    expect(screen.getByText(firstTab.content)).toBeInTheDocument();
+    expect(screen.queryByText(secondTab.content)).not.toBeInTheDocument();
+  });
 });
