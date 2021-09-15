@@ -17,3 +17,13 @@ Example.args = {
   type: 'email',
   placeholder: 'email@teste.com'
 };
+
+export const Required = Template.bind({});
+Required.args = {
+  value: '',
+  label: 'E-mail',
+  name: 'email',
+  type: 'email',
+  placeholder: 'email@teste.com',
+  required: true,
+};
