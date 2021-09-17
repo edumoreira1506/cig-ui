@@ -19,3 +19,9 @@ Disabled.args = {
   label: 'Click me!',
   disabled: true,
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  label: 'Click me!',
+  isLoading: true
+};
