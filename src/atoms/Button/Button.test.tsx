@@ -27,4 +27,13 @@ describe('<Button />', () => {
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it('renders loading', () => {
+    const label = 'label';
+
+    render(<Button {...DEFAULT_PROPS} isLoading label={label} />);
+
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
+    expect(screen.queryByText(label)).not.toBeInTheDocument();
+  });
 });

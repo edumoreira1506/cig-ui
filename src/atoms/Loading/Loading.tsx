@@ -6,7 +6,7 @@ export interface LoadingProps {
 
 export default function Loading({ color = 'black' }: LoadingProps) {
   return (
-    <StyledLoading className="loading" color={color}>
+    <StyledLoading data-testid="loading" className="loading" color={color}>
       <div />
       <div />
       <div />

@@ -21,7 +21,7 @@ export default function Button({
   isLoading = false,
 }: ButtonProps) {
   return (
-    <StyledButton data-testid="loading" isLoading={isLoading} type={type} onClick={onClick} disabled={disabled}>
+    <StyledButton isLoading={isLoading} type={type} onClick={onClick} disabled={disabled}>
       {isLoading ? <Loading color={Colors.White} /> : label}
     </StyledButton>
   );
