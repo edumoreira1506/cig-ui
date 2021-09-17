@@ -1,5 +1,8 @@
 import * as React from 'react';
 
+import { Colors } from '../../constants/styles';
+import Loading from '../../atoms/Loading/Loading';
+
 import { StyledButton } from './Button.styles';
 
 export interface ButtonProps {
@@ -7,12 +10,19 @@ export interface ButtonProps {
   label: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
+  isLoading?: boolean;
 }
 
-export default function Button({ onClick, label, type = 'button', disabled = false }: ButtonProps) {
+export default function Button({
+  onClick,
+  label,
+  type = 'button',
+  disabled = false,
+  isLoading = false,
+}: ButtonProps) {
   return (
-    <StyledButton type={type} onClick={onClick} disabled={disabled}>
-      {label}
+    <StyledButton isLoading={isLoading} type={type} onClick={onClick} disabled={disabled}>
+      {isLoading ? <Loading color={Colors.White} /> : label}
     </StyledButton>
   );
 }
