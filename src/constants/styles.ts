@@ -2,7 +2,8 @@ export enum Colors {
   DarkGrey = '#484848',
   LightGrey = '#d7d7d7',
   DarkBlue = '#2a3c5a',
-  White = '#ffffff'
+  White = '#ffffff',
+  DarkGreyBlue = '#2b3c5a'
 }
 
 export const MAIN_FONT = '\'Raleway\', sans-serif';
