@@ -25,7 +25,7 @@ const inputStyles = css`
   }
 `;
 
-export const StyledMaskedInput = styled(InputMask)`${inputStyles}`;
+export const StyledMaskedInput = styled(props => <InputMask {...props} />)`${inputStyles}`;
 
 export const StyledInput = styled.input`${inputStyles}`;
 
