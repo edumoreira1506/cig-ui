@@ -27,3 +27,14 @@ Required.args = {
   placeholder: 'email@teste.com',
   required: true,
 };
+
+
+export const Loading = Template.bind({});
+Loading.args = {
+  value: '',
+  label: 'E-mail',
+  name: 'email',
+  type: 'email',
+  placeholder: 'email@teste.com',
+  isLoading: true,
+};

@@ -8,6 +8,7 @@ export const StyledContainer = styled.div`
   width: 100%;
   height: 100%;
   font-family: ${MAIN_FONT};
+  position: relative;
 `;
 
 export const StyledInput = styled.input`
@@ -21,4 +22,11 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const StyledInputLoading = styled.span`
+  position: absolute;
+  right: 0;
+  transform: scale(0.3) translate(155%, -53%);
+  top: 0;
 `;

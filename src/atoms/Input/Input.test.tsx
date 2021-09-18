@@ -29,4 +29,10 @@ describe('<Input />', () => {
 
     expect(onChange).toHaveBeenCalledWith(text);
   });
+
+  it('renders the loading', () => {
+    render(<Input {...DEFAULT_PROPS} isLoading />);
+
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
+  });
 });
