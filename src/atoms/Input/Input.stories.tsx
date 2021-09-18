@@ -20,7 +20,7 @@ Example.args = {
 
 export const Required = Template.bind({});
 Required.args = {
-  value: '',
+  value: 'email@teste.com',
   label: 'E-mail',
   name: 'email',
   type: 'email',
@@ -43,8 +43,8 @@ export const WithMask = Template.bind({});
 WithMask.args = {
   value: '11111111111',
   label: 'Mask',
-  name: 'number',
-  type: 'text',
+  name: 'mask',
+  type: 'number',
   placeholder: '111.111.111-11',
   mask: '###.###.###-##'
 };

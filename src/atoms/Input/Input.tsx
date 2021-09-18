@@ -1,10 +1,10 @@
-import { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import Loading from '../Loading/Loading';
 import { FieldProps } from '../../@types/form';
 import Label from '../Label/Label';
 
-import { StyledContainer, StyledInput, StyledInputLoading } from './Input.styles';
+import { StyledContainer, StyledInput, StyledMaskedInput , StyledInputLoading } from './Input.styles';
 
 export interface InputProps extends FieldProps {
   type?: 'text' | 'number' | 'email' | 'date' | 'password';
@@ -27,7 +27,61 @@ export default function Input({
   isLoading = false,
   mask
 }: InputProps) {
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
+  const formatNumber = useMemo(() => type === 'number' && Boolean(mask), [type, mask]);
+
+  const handleChangeInputValue = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
+
+  const handleChangeFormattedNumberValue = useCallback(({ formattedValue }: { formattedValue: string; }) =>
+    onChange(formattedValue)
+  , [onChange]);
+
+  const { props: inputProps, component: Component  } = useMemo(() => {
+    const commonProps = {
+      required,
+      'data-testid': inputTestId,
+      placeholder,
+      id: name,
+      name,
+      value,
+      autoComplete,
+      onBlur,
+    };
+
+    if (formatNumber) {
+      return {
+        props: {
+          ...commonProps,
+          onValueChange: handleChangeFormattedNumberValue,
+          displaytext: 'input',
+          format: mask,
+          type: 'text'
+        },
+        component: StyledMaskedInput
+      };
+    }
+
+    return {
+      props: {
+        ...commonProps,
+        onChange: handleChangeInputValue,
+        type,
+      },
+      component: StyledInput
+    };
+  }, [
+    required,
+    inputTestId,
+    placeholder,
+    name,
+    value,
+    type,
+    autoComplete,
+    onBlur,
+    mask,
+    handleChangeFormattedNumberValue,
+    formatNumber,
+    handleChangeInputValue
+  ]);
 
   return (
     <StyledContainer>
@@ -37,19 +91,7 @@ export default function Input({
           <Loading />
         </StyledInputLoading>
       )}
-      <StyledInput
-        required={required}
-        data-testid={inputTestId}
-        placeholder={placeholder}
-        id={name}
-        name={name}
-        value={value}
-        onChange={handleChange}
-        type={type}
-        autoComplete={autoComplete}
-        onBlur={onBlur}
-        format={mask}
-      />
+      <Component {...inputProps} />
     </StyledContainer>
   );
 }

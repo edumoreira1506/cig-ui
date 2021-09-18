@@ -12,7 +12,7 @@ export const StyledContainer = styled.div`
   position: relative;
 `;
 
-export const StyledInput = styled(InputMask)`
+const inputStyles = `
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;
@@ -24,6 +24,10 @@ export const StyledInput = styled(InputMask)`
     outline: none;
   }
 `;
+
+export const StyledMaskedInput = styled(InputMask)`${inputStyles}`;
+
+export const StyledInput = styled.input`${inputStyles}`;
 
 export const StyledInputLoading = styled.span`
   position: absolute;
