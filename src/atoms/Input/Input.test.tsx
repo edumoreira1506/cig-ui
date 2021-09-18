@@ -35,4 +35,14 @@ describe('<Input />', () => {
 
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
+
+  it('applies the mask', () => {
+    const unformatted = '11111111111';
+    const formatted = '111.111.111-11';
+    const mask = '###.###.###-##';
+
+    render(<Input {...DEFAULT_PROPS} type="number" value={unformatted} mask={mask} />);
+
+    expect(screen.getByDisplayValue(formatted)).toBeInTheDocument();
+  });
 });
