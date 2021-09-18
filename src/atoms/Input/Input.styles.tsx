@@ -1,9 +1,9 @@
-import * as styled from 'styled-components';
+import styled from 'styled-components';
 import InputMask from 'react-number-format';
 
 import { Colors, DEFAULT_BORDER_RADIUS, MAIN_FONT } from '../../constants/styles';
 
-export const StyledContainer = styled.default.div`
+export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -12,7 +12,7 @@ export const StyledContainer = styled.default.div`
   position: relative;
 `;
 
-const inputStyles = styled.css`
+export const StyledMaskedInput = styled(InputMask)`
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;
@@ -25,11 +25,20 @@ const inputStyles = styled.css`
   }
 `;
 
-export const StyledMaskedInput = styled.default(props => <InputMask {...props} />)`${inputStyles}`;
+export const StyledInput = styled.input`
+  background-color: ${Colors.LightGrey};
+  border: none;
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  color: ${Colors.DarkGrey};
 
-export const StyledInput = styled.default.input`${inputStyles}`;
+  &:focus {
+    outline: none;
+  }
+`;
 
-export const StyledInputLoading = styled.default.span`
+export const StyledInputLoading = styled.span`
   position: absolute;
   right: 0;
   transform: scale(0.3) translate(155%, -53%);
