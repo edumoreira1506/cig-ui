@@ -6,4 +6,5 @@ export interface FieldProps {
   placeholder?: string;
   inputTestId?: string;
   required?: boolean;
+  onBlur?: () => void;
 }

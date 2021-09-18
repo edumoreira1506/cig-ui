@@ -9,7 +9,18 @@ export interface InputProps extends FieldProps {
   autoComplete?: string;
 }
 
-export default function Input({ autoComplete, value, onChange, type = 'text', label, name, placeholder, inputTestId, required = false }: InputProps) {
+export default function Input({
+  autoComplete,
+  value,
+  onChange,
+  type = 'text',
+  label,
+  name,
+  placeholder,
+  inputTestId,
+  required = false,
+  onBlur
+}: InputProps) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
 
   return (
@@ -25,6 +36,7 @@ export default function Input({ autoComplete, value, onChange, type = 'text', la
         onChange={handleChange}
         type={type}
         autoComplete={autoComplete}
+        onBlur={onBlur}
       />
     </StyledContainer>
   );
