@@ -12,7 +12,7 @@ export const StyledContainer = styled.div`
   position: relative;
 `;
 
-export const StyledMaskedInput = styled(InputMask)`
+export const StyledMaskedInput = styled(props => <InputMask {...props} />)`
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;
