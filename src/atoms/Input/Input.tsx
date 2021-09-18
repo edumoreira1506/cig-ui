@@ -10,6 +10,7 @@ export interface InputProps extends FieldProps {
   type?: 'text' | 'number' | 'email' | 'date' | 'password';
   autoComplete?: string;
   isLoading?: boolean;
+  mask?: string;
 }
 
 export default function Input({
@@ -23,7 +24,8 @@ export default function Input({
   inputTestId,
   required = false,
   onBlur,
-  isLoading = false
+  isLoading = false,
+  mask
 }: InputProps) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
 
@@ -46,6 +48,7 @@ export default function Input({
         type={type}
         autoComplete={autoComplete}
         onBlur={onBlur}
+        format={mask}
       />
     </StyledContainer>
   );

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import InputMask from 'react-number-format';
 
 import { Colors, DEFAULT_BORDER_RADIUS, MAIN_FONT } from '../../constants/styles';
 
@@ -11,7 +12,7 @@ export const StyledContainer = styled.div`
   position: relative;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(InputMask)`
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;

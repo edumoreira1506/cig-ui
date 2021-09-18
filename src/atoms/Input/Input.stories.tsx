@@ -38,3 +38,13 @@ Loading.args = {
   placeholder: 'email@teste.com',
   isLoading: true,
 };
+
+export const WithMask = Template.bind({});
+WithMask.args = {
+  value: '11111111111',
+  label: 'Mask',
+  name: 'number',
+  type: 'text',
+  placeholder: '111.111.111-11',
+  mask: '###.###.###-##'
+};
