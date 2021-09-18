@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import * as React from 'react';
 
 import Loading from '../Loading/Loading';
 import { FieldProps } from '../../@types/form';
@@ -27,15 +27,15 @@ export default function Input({
   isLoading = false,
   mask
 }: InputProps) {
-  const formatNumber = useMemo(() => type === 'number' && Boolean(mask), [type, mask]);
+  const formatNumber = React.useMemo(() => type === 'number' && Boolean(mask), [type, mask]);
 
-  const handleChangeInputValue = useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
+  const handleChangeInputValue = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
 
-  const handleChangeFormattedNumberValue = useCallback(({ formattedValue }: { formattedValue: string; }) =>
+  const handleChangeFormattedNumberValue = React.useCallback(({ formattedValue }: { formattedValue: string; }) =>
     onChange(formattedValue)
   , [onChange]);
 
-  const { props: inputProps, component: Component  } = useMemo(() => {
+  const { props: inputProps, component: Component  } = React.useMemo(() => {
     const commonProps = {
       required,
       'data-testid': inputTestId,
