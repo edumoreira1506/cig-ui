@@ -34,6 +34,6 @@ describe('LinkButton', () => {
 
     userEvent.click(screen.getByText(title));
 
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledWith(title);
   });
 });
