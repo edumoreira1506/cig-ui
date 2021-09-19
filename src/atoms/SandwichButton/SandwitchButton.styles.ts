@@ -13,8 +13,8 @@ export const StyledButton = styled.button`
   }
 
   ${createMinWidthMediaQuery(`
-    width: 65px;
-    height: 65px;
+    width: 45px;
+    height: 45px;
   `)}
 `;
 
@@ -26,10 +26,6 @@ export const StyledButtonBar = styled.span`
   position: relative;
   transition: all 0.2s ease;
 
-  ${createMinWidthMediaQuery(`
-    height: 5px;
-  `)}
-
   &::before, &::after {
     content: "";
     position: absolute;
@@ -39,17 +35,13 @@ export const StyledButtonBar = styled.span`
     left: 0;
     border-radius: 15%;
     transition: all 0.2s ease;
-
-    ${createMinWidthMediaQuery(`
-      height: 5px;
-    `)}
   }
 
   &::before {
     transform: translateY(7px);
 
     ${createMinWidthMediaQuery(`
-      transform: translateY(15px);
+      transform: translateY(10px);
     `)}
   }
 
@@ -57,7 +49,7 @@ export const StyledButtonBar = styled.span`
     transform: translateY(-7px);
 
     ${createMinWidthMediaQuery(`
-      transform: translateY(-15px);
+      transform: translateY(-10px);
     `)}
   }
 
