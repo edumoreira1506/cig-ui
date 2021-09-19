@@ -24,6 +24,7 @@ export const StyledContainer = styled.ul`
 
 export const StyledItem = styled.li`
   margin-bottom: 2px;
+  list-style: none;
 
   &:first-child {
     margin-top: 8px;
