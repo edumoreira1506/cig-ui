@@ -1,6 +1,6 @@
-import { Colors } from 'index';
 import { useCallback, useState } from 'react';
 
+import { Colors } from '../../constants/styles';
 import { StyledButton, StyledButtonBar } from './SandwitchButton.styles';
 
 export interface SandwitchButtonProps {

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { createMinWidthMediaQuery } from 'utils';
+
+import { createMinWidthMediaQuery } from '../../utils';
 
 export const StyledButton = styled.button`
   width: 40px;
