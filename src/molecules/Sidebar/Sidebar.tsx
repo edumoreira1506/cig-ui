@@ -1,6 +1,6 @@
 import LinkButton, { LinkButtonProps } from '../../atoms/LinkButton/LinkButton';
 
-import { StyledContainer } from './Sidebar.styles';
+import { StyledContainer, StyledItem } from './Sidebar.styles';
 
 export interface SidebarItem {
   title: LinkButtonProps['title'],
@@ -17,7 +17,9 @@ export default function Sidebar({ items, onClick, isOpen = true }: SidebarProps)
   return (
     <StyledContainer isOpen={isOpen}>
       {items.map((item) => (
-        <LinkButton key={item.title} {...item} onClick={onClick} />
+        <StyledItem key={item.title}>
+          <LinkButton {...item} onClick={onClick} />
+        </StyledItem>
       ))}
     </StyledContainer>
   );

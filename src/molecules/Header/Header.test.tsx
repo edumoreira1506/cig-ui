@@ -1,4 +1,5 @@
 import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Header from './Header';
 
@@ -7,7 +8,8 @@ const DEFAULT_PROPS = {
     name: 'Rodolfo',
     image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
   },
-  title: 'CIG'
+  title: 'CIG',
+  onToggleMenu: jest.fn(),
 };
 
 describe('Header', () => {
@@ -28,5 +30,15 @@ describe('Header', () => {
     render(<Header {...DEFAULT_PROPS} title={title} />);
 
     expect(screen.getByText(title)).toBeInTheDocument();
+  });
+
+  it('calls onToggleMenu', () => {
+    const onToggleMenu = jest.fn();
+
+    render(<Header {...DEFAULT_PROPS} onToggleMenu={onToggleMenu} />);
+
+    userEvent.click(screen.getByTestId('sandwich-button'));
+
+    expect(onToggleMenu).toHaveBeenCalledWith(true);
   });
 });

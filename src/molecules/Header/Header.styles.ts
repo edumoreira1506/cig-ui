@@ -9,6 +9,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 50px;
   background-color: ${Colors.DarkBlue};
+  box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
 `;
 
 export const StyledContainer = styled.div`
