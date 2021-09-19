@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { FieldProps } from '../../@types/form';
-import Label from '../Label/Label';
+import Label from '../../atoms/Label/Label';
 import { StyledContainer, StyledTextArea } from './TextField.styles';
 
 export default function TextField({ value, onChange, label, name, placeholder, inputTestId, required = false }: FieldProps) {

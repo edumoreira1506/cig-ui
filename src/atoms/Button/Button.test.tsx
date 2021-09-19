@@ -36,4 +36,12 @@ describe('<Button />', () => {
     expect(screen.getByTestId('loading')).toBeInTheDocument();
     expect(screen.queryByText(label)).not.toBeInTheDocument();
   });
+
+  it('renders the children', () => {
+    const children = 'children';
+
+    render(<Button {...DEFAULT_PROPS}>{children}</Button>);
+
+    expect(screen.getByText(children)).toBeInTheDocument();
+  });
 });

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { FieldProps } from '../../@types/form';
-import Label from '../Label/Label';
+import Label from '../../atoms/Label/Label';
 
 import { StyledContainer, StyledSelect } from './Select.styles';
 

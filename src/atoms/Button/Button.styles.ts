@@ -16,17 +16,28 @@ export const StyledButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: center;
+  transition: background-color ease 0.5s;
+
+  &:hover {
+    background-color: ${Colors.DarkBlueHover};
+  }
 
   &[disabled] {
     cursor: not-allowed;
   }
 
-  ${({ isLoading }: { isLoading: ButtonProps['isLoading'] }) => isLoading && `
-    .loading {
-      transform: scale(0.3);
-      position: absolute;
-      top: -50px;
-      left: 4%;
-    }
+  ${({ isLoading, alignment }: { isLoading: ButtonProps['isLoading']; alignment: ButtonProps['alignment'] }) => `
+    justify-content: ${alignment};
+
+    ${isLoading && `
+      .loading {
+        transform: scale(0.3);
+        position: absolute;
+        top: -50px;
+        left: 4%;
+      }
+    `}
   `}
 `;

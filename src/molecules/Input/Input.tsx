@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Loading from '../Loading/Loading';
+import Loading from '../../atoms/Loading/Loading';
 import { FieldProps } from '../../@types/form';
-import Label from '../Label/Label';
+import Label from '../../atoms/Label/Label';
 
 import { StyledContainer, StyledInput, StyledMaskedInput , StyledInputLoading } from './Input.styles';
 
