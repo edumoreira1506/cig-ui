@@ -22,4 +22,12 @@ describe('RoundImage', () => {
 
     expect(screen.getByTestId('round-image-container')).toHaveStyle({ borderColor });
   });
+
+  it('applies the border width style', () => {
+    const borderWidth = 1;
+
+    render(<RoundImage {...DEFAULT_PROPS} borderWidth={borderWidth} />);
+
+    expect(screen.getByTestId('round-image-container')).toHaveStyle({ borderWidth });
+  });
 });

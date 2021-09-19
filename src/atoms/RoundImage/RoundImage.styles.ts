@@ -10,8 +10,8 @@ export const StyledContainer = styled.figure`
   border-radius: 100%;
   overflow: hidden;
 
-  ${({ borderColor }: { borderColor: string }) => `
-    border-width: 5px;
+  ${({ borderColor, borderWidth }: { borderColor: string; borderWidth: number }) => `
+    border-width: ${borderWidth}px;
     border-color: ${borderColor};
     border-style: inset;
   `}

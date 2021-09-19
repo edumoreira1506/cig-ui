@@ -11,5 +11,6 @@ const Template: ComponentStory<typeof RoundImage> = (args) => <div style={{ widt
 
 export const Example = Template.bind({});
 Example.args = {
-  src: 'https://via.placeholder.com/150'
+  src: 'https://via.placeholder.com/150',
+  borderWidth: 3
 };
