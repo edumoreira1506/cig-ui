@@ -1,8 +1,8 @@
 import { Colors } from '../../constants/styles';
 import SandwitchButton, { SandwitchButtonProps } from '../../atoms/SandwichButton/SandwichButton';
+import RoundImage from '../../atoms/RoundImage/RoundImage';
 
 import { StyledContainer, StyledHeader, StyledImageContainer, StyledTitle } from './Header.styles';
-import { RoundImage } from 'atoms';
 
 export interface HeaderProps {
   user: {
