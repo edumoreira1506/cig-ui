@@ -3,6 +3,8 @@ import InputMask from 'react-number-format';
 
 import { Colors, DEFAULT_BORDER_RADIUS, MAIN_FONT } from '../../constants/styles';
 
+import { InputProps } from './Input';
+
 export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@ export const StyledContainer = styled.div`
 
 export const StyledMaskedInput = styled(props => <InputMask {...props} />)`
   background-color: ${Colors.LightGrey};
-  border: none;
+  border: solid 2px transparent;
   width: 100%;
   padding: 10px 0 10px 10px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
@@ -23,12 +25,16 @@ export const StyledMaskedInput = styled(props => <InputMask {...props} />)`
   &:focus {
     outline: none;
   }
+
+  ${({ requiredError }: { requiredError: InputProps['required'] }) => requiredError && `
+    border-color: ${Colors.LightRed};
+  `}
 `;
 
 export const StyledInput = styled.input`
   background-color: ${Colors.LightGrey};
-  border: none;
   width: 100%;
+  border: solid 2px transparent;
   padding: 10px 0 10px 10px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.DarkGrey};
@@ -36,6 +42,10 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  ${({ requiredError }: { requiredError: InputProps['required'] }) => requiredError && `
+    border-color: ${Colors.LightRed};
+  `}
 `;
 
 export const StyledInputLoading = styled.span`
@@ -43,4 +53,12 @@ export const StyledInputLoading = styled.span`
   right: 0;
   transform: scale(0.3) translate(155%, -53%);
   top: 0;
+`;
+
+export const StyledRequiredMessage = styled.span`
+  color: ${Colors.LightRed};
+  position: absolute;
+  bottom: -35%;
+  font-size: 0.8em;
+  font-weight: bold;
 `;

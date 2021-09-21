@@ -4,13 +4,20 @@ import Loading from '../../atoms/Loading/Loading';
 import { FieldProps } from '../../@types/form';
 import Label from '../../atoms/Label/Label';
 
-import { StyledContainer, StyledInput, StyledMaskedInput , StyledInputLoading } from './Input.styles';
+import {
+  StyledContainer,
+  StyledInput,
+  StyledMaskedInput,
+  StyledInputLoading,
+  StyledRequiredMessage,
+} from './Input.styles';
 
 export interface InputProps extends FieldProps {
   type?: 'text' | 'number' | 'email' | 'date' | 'password';
   autoComplete?: string;
   isLoading?: boolean;
   mask?: string;
+  requiredMessage?: string;
 }
 
 export default function Input({
@@ -25,8 +32,11 @@ export default function Input({
   required = false,
   onBlur,
   isLoading = false,
-  mask
+  mask,
+  requiredMessage
 }: InputProps) {
+  const [showRequiredMessage, setShowRequiredMessage] = React.useState(false);
+
   const formatNumber = React.useMemo(() => type === 'number' && Boolean(mask), [type, mask]);
 
   const handleChangeInputValue = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value), [onChange]);
@@ -34,6 +44,14 @@ export default function Input({
   const handleChangeFormattedNumberValue = React.useCallback(({ formattedValue }: { formattedValue: string; }) =>
     onChange(formattedValue)
   , [onChange]);
+
+  const handleBlur = React.useCallback(() => {
+    if (onBlur) onBlur();
+
+    if (required && requiredMessage) {
+      setShowRequiredMessage(!value);
+    }
+  }, [onBlur, required, requiredMessage, value]);
 
   const { props: inputProps, component: Component  } = React.useMemo(() => {
     const commonProps = {
@@ -44,7 +62,8 @@ export default function Input({
       name,
       value,
       autoComplete,
-      onBlur,
+      onBlur: handleBlur,
+      requiredError: showRequiredMessage,
     };
 
     if (formatNumber) {
@@ -76,11 +95,12 @@ export default function Input({
     value,
     type,
     autoComplete,
-    onBlur,
     mask,
     handleChangeFormattedNumberValue,
     formatNumber,
-    handleChangeInputValue
+    handleChangeInputValue,
+    handleBlur,
+    showRequiredMessage
   ]);
 
   return (
@@ -91,6 +111,7 @@ export default function Input({
           <Loading />
         </StyledInputLoading>
       )}
+      {showRequiredMessage && <StyledRequiredMessage>{requiredMessage}</StyledRequiredMessage>}
       <Component {...inputProps} />
     </StyledContainer>
   );
