@@ -61,4 +61,5 @@ export const StyledRequiredMessage = styled.span`
   bottom: -35%;
   font-size: 0.8em;
   font-weight: bold;
+  right: 0;
 `;
