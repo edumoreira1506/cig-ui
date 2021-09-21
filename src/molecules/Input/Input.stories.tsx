@@ -26,6 +26,7 @@ Required.args = {
   type: 'email',
   placeholder: 'email@teste.com',
   required: true,
+  requiredMessage: 'Required!'
 };
 
 

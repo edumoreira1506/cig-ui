@@ -45,4 +45,53 @@ describe('<Input />', () => {
 
     expect(screen.getByDisplayValue(formatted)).toBeInTheDocument();
   });
+
+  it('calls onBlur', () => {
+    const onBlur = jest.fn();
+    const value = 'value';
+    const testId = 'test-id';
+
+    render(<Input {...DEFAULT_PROPS} inputTestId={testId} onBlur={onBlur} value={value} />);
+
+    userEvent.tab();
+
+    expect(screen.getByTestId(testId)).toHaveFocus();
+
+    userEvent.tab();
+
+    expect(onBlur).toHaveBeenCalled();
+  });
+
+  it('shows the required error message', () => {
+    const required = true;
+    const requiredMessage = 'Error!';
+    const value = '';
+
+    render(<Input {...DEFAULT_PROPS} value={value} required={required} requiredMessage={requiredMessage} />);
+
+    userEvent.tab();
+    userEvent.tab();
+
+    expect(screen.getByText(requiredMessage)).toBeInTheDocument();
+  });
+
+  it('hides the required error message', () => {
+    const required = true;
+    const requiredMessage = 'Error!';
+    const value = '';
+
+    const { rerender } = render(<Input {...DEFAULT_PROPS} value={value} required={required} requiredMessage={requiredMessage} />);
+
+    userEvent.tab();
+    userEvent.tab();
+
+    expect(screen.getByText(requiredMessage)).toBeInTheDocument();
+
+    rerender(<Input {...DEFAULT_PROPS} value="a" requiredMessage={requiredMessage} required={required} />);
+
+    userEvent.tab();
+    userEvent.tab();
+
+    expect(screen.queryByText(requiredMessage)).not.toBeInTheDocument();
+  });
 });
