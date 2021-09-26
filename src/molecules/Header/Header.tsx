@@ -10,18 +10,20 @@ export interface HeaderProps {
     name: string;
   }
   title: string;
-  onToggleMenu: SandwitchButtonProps['onToggle']
+  onToggleMenu: SandwitchButtonProps['onToggle'];
+  sandwichButtonIsToggled: boolean;
 }
 
 export default function Header({
   user: { name: userName, image: userImage },
   title,
   onToggleMenu,
+  sandwichButtonIsToggled
 }: HeaderProps ) {
   return (
     <StyledHeader>
       <StyledContainer>
-        <SandwitchButton onToggle={onToggleMenu} color={Colors.White} />
+        <SandwitchButton onToggle={onToggleMenu} color={Colors.White} toggled={sandwichButtonIsToggled} />
         <StyledTitle>{title}</StyledTitle>
         <StyledImageContainer>
           <RoundImage borderWidth={2} src={userImage} alt={userName} />
