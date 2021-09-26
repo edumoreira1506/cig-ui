@@ -3,7 +3,7 @@ import { ReactNode, useCallback, useState } from 'react';
 import Header, { HeaderProps } from '../../molecules/Header/Header';
 import Sidebar, { SidebarProps } from '../../molecules/Sidebar/Sidebar';
 
-import { StyledSidebarContainer, StyledHeaderContainer, StyledContent } from './Container.styles';
+import { StyledContainer, StyledSidebarContainer, StyledHeaderContainer, StyledContent } from './Container.styles';
 
 export interface ContainerProps {
   children: ReactNode;
@@ -25,16 +25,16 @@ export default function Container({ title, children, user, items, onMenuClick }:
   }, []);
 
   return (
-    <>
+    <StyledContainer>
       <StyledHeaderContainer>
         <Header sandwichButtonIsToggled={menuIsOpen} onToggleMenu={toggleMenu} title={title} user={user} />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
         <Sidebar onClick={onMenuClick} items={items} isOpen={menuIsOpen} />
       </StyledSidebarContainer>
-      <StyledContent onClick={handleContentClick}>
+      <StyledContent onClick={handleContentClick} menuIsOpen={menuIsOpen}>
         {children}
       </StyledContent>
-    </>
+    </StyledContainer>
   );
 }
