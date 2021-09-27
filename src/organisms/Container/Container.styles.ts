@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { createMinWidthMediaQuery } from 'utils';
+import { createMinWidthMediaQuery } from '../../utils';
 
 export const StyledContainer = styled.div`
   display: flex;
