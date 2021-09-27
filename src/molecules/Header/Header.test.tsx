@@ -10,6 +10,7 @@ const DEFAULT_PROPS = {
   },
   title: 'CIG',
   onToggleMenu: jest.fn(),
+  sandwichButtonIsToggled: false,
 };
 
 describe('Header', () => {
@@ -39,6 +40,6 @@ describe('Header', () => {
 
     userEvent.click(screen.getByTestId('sandwich-button'));
 
-    expect(onToggleMenu).toHaveBeenCalledWith(true);
+    expect(onToggleMenu).toHaveBeenCalled();
   });
 });

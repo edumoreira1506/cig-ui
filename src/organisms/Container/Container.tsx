@@ -1,9 +1,9 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 
 import Header, { HeaderProps } from '../../molecules/Header/Header';
 import Sidebar, { SidebarProps } from '../../molecules/Sidebar/Sidebar';
 
-import { StyledSidebarContainer, StyledHeaderContainer, StyledContent } from './Container.styles';
+import { StyledContainer, StyledSidebarContainer, StyledHeaderContainer, StyledContent } from './Container.styles';
 
 export interface ContainerProps {
   children: ReactNode;
@@ -16,17 +16,25 @@ export interface ContainerProps {
 export default function Container({ title, children, user, items, onMenuClick }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+  const toggleMenu = useCallback(() => {
+    setMenuIsOpen(prevMenuIsOpen => !prevMenuIsOpen );
+  }, []);
+
+  const handleContentClick = useCallback(() => {
+    setMenuIsOpen(false);
+  }, []);
+
   return (
-    <>
+    <StyledContainer>
       <StyledHeaderContainer>
-        <Header onToggleMenu={setMenuIsOpen} title={title} user={user} />
+        <Header sandwichButtonIsToggled={menuIsOpen} onToggleMenu={toggleMenu} title={title} user={user} />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
         <Sidebar onClick={onMenuClick} items={items} isOpen={menuIsOpen} />
       </StyledSidebarContainer>
-      <StyledContent>
+      <StyledContent onClick={handleContentClick} menuIsOpen={menuIsOpen}>
         {children}
       </StyledContent>
-    </>
+    </StyledContainer>
   );
 }

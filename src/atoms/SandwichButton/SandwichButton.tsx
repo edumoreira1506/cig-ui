@@ -1,28 +1,15 @@
-import { useCallback, useState } from 'react';
-
 import { Colors } from '../../constants/styles';
 import { StyledButton, StyledButtonBar } from './SandwitchButton.styles';
 
 export interface SandwitchButtonProps {
-  onToggle?: (toggle: boolean) => void;
+  onToggle: () => void;
   color?: string;
+  toggled: boolean;
 }
 
-export default function SandwitchButton({ onToggle = () => null, color = Colors.Black }: SandwitchButtonProps) {
-  const [toggled, setToggled] = useState(false);
-
-  const handleClickButton = useCallback(() => {
-    setToggled((prevToggled) => {
-      const newToggled = !prevToggled;
-
-      onToggle(newToggled);
-
-      return newToggled;
-    });
-  }, [onToggle]);
-
+export default function SandwitchButton({ onToggle, color = Colors.Black, toggled }: SandwitchButtonProps) {
   return (
-    <StyledButton data-testid="sandwich-button" onClick={handleClickButton}>
+    <StyledButton role="checkbox" aria-checked={toggled} data-testid="sandwich-button" onClick={onToggle}>
       <StyledButtonBar data-testid="sandwich-button-bar" color={color} toggled={toggled} />
     </StyledButton>
   );
