@@ -15,7 +15,7 @@ export interface SidebarProps {
 
 export default function Sidebar({ items, onClick, isOpen = true }: SidebarProps) {
   return (
-    <StyledContainer isOpen={isOpen}>
+    <StyledContainer data-testid="sidabar-container" isOpen={isOpen}>
       {items.map((item) => (
         <StyledItem key={item.title}>
           <LinkButton {...item} onClick={onClick} />

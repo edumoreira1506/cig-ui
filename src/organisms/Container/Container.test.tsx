@@ -67,4 +67,51 @@ describe('Container', () => {
 
     expect(onMenuClick).toHaveBeenCalled();
   });
+
+  it('opens the menu', () => {
+    render(<Container {...DEFAULT_PROPS} />);
+
+    const sandwichButton = screen.getByRole('checkbox');
+
+    expect(sandwichButton).not.toBeChecked();
+
+    userEvent.click(sandwichButton);
+
+    expect(sandwichButton).toBeChecked();
+    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'translateX(-10%)' });
+  });
+
+  it('closes the menu', () => {
+    render(<Container {...DEFAULT_PROPS} />);
+
+    const sandwichButton = screen.getByRole('checkbox');
+
+    userEvent.click(sandwichButton);
+
+    expect(sandwichButton).toBeChecked();
+
+    userEvent.click(sandwichButton);
+
+    expect(sandwichButton).not.toBeChecked();
+
+    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+  });
+
+  it('closes the menu when click on content', () => {
+    const children = 'i am the children';
+
+    render(<Container {...DEFAULT_PROPS}>{children}</Container>);
+
+    const sandwichButton = screen.getByRole('checkbox');
+
+    userEvent.click(sandwichButton);
+
+    expect(sandwichButton).toBeChecked();
+
+    userEvent.click(screen.getByText(children));
+
+    expect(sandwichButton).not.toBeChecked();
+
+    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+  });
 });

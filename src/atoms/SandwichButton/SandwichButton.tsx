@@ -9,7 +9,7 @@ export interface SandwitchButtonProps {
 
 export default function SandwitchButton({ onToggle, color = Colors.Black, toggled }: SandwitchButtonProps) {
   return (
-    <StyledButton data-testid="sandwich-button" onClick={onToggle}>
+    <StyledButton role="checkbox" aria-checked={toggled} data-testid="sandwich-button" onClick={onToggle}>
       <StyledButtonBar data-testid="sandwich-button-bar" color={color} toggled={toggled} />
     </StyledButton>
   );
