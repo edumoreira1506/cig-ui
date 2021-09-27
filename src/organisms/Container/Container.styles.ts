@@ -24,7 +24,7 @@ export const StyledSidebarContainer = styled.div`
 
 export const StyledContent = styled.div`
   padding-top: 50px;
-  transition: width 1s ease;
+  transition: width 0.4s ease;
   width: 100%;
 
   ${({ menuIsOpen }: { menuIsOpen: boolean }) => `
