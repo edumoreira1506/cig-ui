@@ -1,14 +1,29 @@
-import { useCallback, useMemo } from 'react';
-import { StyledContainer, StyledImage, StyledImageContainer, StyledInput } from './RoundFileInput.styles';
+import { useCallback, useMemo, useState } from 'react';
+import { AiOutlineCloudUpload } from 'react-icons/ai';
+
+import {
+  StyledContainer,
+  StyledImage,
+  StyledImageContainer,
+  StyledInput,
+  StyledOverlay,
+  StyledUploadMessage,
+} from './RoundFileInput.styles';
 
 export interface RoundFileInputProps {
   onUpload: (file: File) => void;
   file?: File;
   baseUrl: string;
   imagePlaceholderPath: string;
+  uploadMessage?: string;
 }
 
-export default function RoundFileInput({ onUpload, file, baseUrl, imagePlaceholderPath }: RoundFileInputProps) {
+export default function RoundFileInput({ onUpload, file, baseUrl, imagePlaceholderPath, uploadMessage }: RoundFileInputProps) {
+  const [overlayLayer, setShowOverlayLayer] = useState(false);
+
+  const hideOverlayLayer = useCallback(() => setShowOverlayLayer(false), []);
+  const showOverlayLayer = useCallback(() => setShowOverlayLayer(true), []);
+
   const handleUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       onUpload(e.target.files[0]);
@@ -18,7 +33,13 @@ export default function RoundFileInput({ onUpload, file, baseUrl, imagePlacehold
   const imagePath = useMemo(() => file ? `${baseUrl}/${file.name}` : imagePlaceholderPath, [file]);
 
   return (
-    <StyledContainer>
+    <StyledContainer onMouseOver={showOverlayLayer} onMouseOut={hideOverlayLayer}>
+      {overlayLayer && (
+        <StyledOverlay>
+          <AiOutlineCloudUpload />
+          {uploadMessage && <StyledUploadMessage>{uploadMessage}</StyledUploadMessage>}
+        </StyledOverlay>
+      )}
       <StyledImageContainer>
         <StyledImage src={imagePath} />
         <StyledInput onChange={handleUpload} type="file" />

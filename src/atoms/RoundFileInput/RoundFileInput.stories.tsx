@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof RoundFileInput> = (args) => <div style={{ 
 export const Example = Template.bind({});
 Example.args = {
   baseUrl: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com',
-  imagePlaceholderPath: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com/breeders/profile/placeholder-user.png'
+  imagePlaceholderPath: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com/breeders/profile/placeholder-user.png',
+  uploadMessage: 'Selecionar arquivo'
 };
