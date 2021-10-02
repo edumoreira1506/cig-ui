@@ -35,14 +35,14 @@ export default function RoundFileInput({ onUpload, file, baseUrl, imagePlacehold
   return (
     <StyledContainer onMouseOver={showOverlayLayer} onMouseOut={hideOverlayLayer}>
       {overlayLayer && (
-        <StyledOverlay>
+        <StyledOverlay data-testid="round-file-input-overlay">
           <AiOutlineCloudUpload />
           {uploadMessage && <StyledUploadMessage>{uploadMessage}</StyledUploadMessage>}
         </StyledOverlay>
       )}
       <StyledImageContainer>
-        <StyledImage src={imagePath} />
-        <StyledInput onChange={handleUpload} type="file" />
+        <StyledImage src={imagePath} alt={imagePath} />
+        <StyledInput data-testid="file-input" onChange={handleUpload} type="file" />
       </StyledImageContainer>
     </StyledContainer>
   );
