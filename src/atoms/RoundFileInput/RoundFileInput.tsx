@@ -30,7 +30,7 @@ export default function RoundFileInput({ onUpload, file, baseUrl, imagePlacehold
     }
   }, [onUpload]);
 
-  const imagePath = useMemo(() => file ? `${baseUrl}/${file.name}` : imagePlaceholderPath, [file]);
+  const imagePath = useMemo(() => file ? `${baseUrl}/${file.name}` : imagePlaceholderPath, [file, imagePlaceholderPath, baseUrl]);
 
   return (
     <StyledContainer onMouseOver={showOverlayLayer} onMouseOut={hideOverlayLayer}>
