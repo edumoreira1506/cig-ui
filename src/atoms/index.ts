@@ -8,3 +8,4 @@ export { default as Title } from './Title/Title';
 export { default as RoundImage } from './RoundImage/RoundImage';
 export { default as SandwichButton } from './SandwichButton/SandwichButton';
 export { default as LinkButton } from './LinkButton/LinkButton';
+export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
