@@ -30,9 +30,15 @@ describe('RoundFileInput', () => {
   it('renders the overlay', () => {
     render(<RoundFileInput {...DEFAULT_PROPS} />);
 
-    userEvent.hover(screen.getByTestId('file-input'));
+    const fileInput = screen.getByTestId('file-input');
+
+    userEvent.hover(fileInput);
 
     expect(screen.getByTestId('round-file-input-overlay')).toBeInTheDocument();
+
+    userEvent.unhover(fileInput);
+
+    expect(screen.queryByTestId('round-file-input-overlay')).not.toBeInTheDocument();
   });
 
   it('renders the upload message', () => {
@@ -40,8 +46,14 @@ describe('RoundFileInput', () => {
 
     render(<RoundFileInput {...DEFAULT_PROPS} uploadMessage={uploadMessage} />);
 
-    userEvent.hover(screen.getByTestId('file-input'));
+    const fileInput = screen.getByTestId('file-input');
+
+    userEvent.hover(fileInput);
 
     expect(screen.getByText(uploadMessage)).toBeInTheDocument();
+
+    userEvent.unhover(fileInput);
+    
+    expect(screen.queryByText(uploadMessage)).not.toBeInTheDocument();
   });
 });
