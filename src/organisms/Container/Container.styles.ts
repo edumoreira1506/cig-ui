@@ -8,7 +8,7 @@ export const StyledContainer = styled.div`
 
 export const StyledHeaderContainer = styled.div`
   & > header {
-    z-index: 2;
+    z-index: 11;
   }
 `;
 
@@ -16,6 +16,7 @@ export const StyledSidebarContainer = styled.div`
   position: fixed;
   left: 20px;
   bottom: 0;
+  z-index: 10;
 
   & > ul {
     height: calc(100% - 60px);
