@@ -1,6 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 
+import { FileInputProps } from '../../@types/file';
+
 import {
   StyledContainer,
   StyledImage,
@@ -10,12 +12,10 @@ import {
   StyledUploadMessage,
 } from './RoundFileInput.styles';
 
-export interface RoundFileInputProps {
-  onUpload: (file: File) => void;
+export interface RoundFileInputProps extends FileInputProps {
   file?: File;
   baseUrl: string;
   imagePlaceholderPath: string;
-  uploadMessage?: string;
 }
 
 export default function RoundFileInput({ onUpload, file, baseUrl, imagePlaceholderPath, uploadMessage }: RoundFileInputProps) {
