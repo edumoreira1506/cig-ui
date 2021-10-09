@@ -6,7 +6,6 @@ export const StyledContainer = styled.div`
   box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
   width: 100%;
   height: 100%;
-  padding: 20px;
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +23,7 @@ export const StyledContainer = styled.div`
   `}
 
   > * {
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
+    width: 100%;
+    height: 100%;
   }
 `;

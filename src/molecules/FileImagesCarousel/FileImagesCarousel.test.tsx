@@ -55,4 +55,15 @@ describe('FileImagesCarousel', () => {
 
     expect(onUpload).toHaveBeenCalledWith(file);
   });
+
+  it('calls onDeleteImage', () => {
+    const image = { alt: 'alt', src: 'src' };
+    const onDeleteImage = jest.fn();
+
+    render(<FileImagesCarousel {...DEFAULT_PROPS} onDeleteImage={onDeleteImage} images={[image]} />);
+
+    userEvent.click(screen.getByTestId('round'));
+
+    expect(onDeleteImage).toHaveBeenCalledTimes(1);
+  });
 });

@@ -19,5 +19,6 @@ Example.args = {
   images: Array(10).fill({
     src: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
     alt: ''
-  })
+  }),
+  onRemoveImage: console.log 
 };
