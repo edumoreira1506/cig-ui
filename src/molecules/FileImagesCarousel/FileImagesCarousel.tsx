@@ -6,7 +6,7 @@ import { AiTwotoneDelete } from 'react-icons/ai';
 import SquareFileInput from '../../atoms/SquareFileInput/SquareFileInput';
 import { FileInputProps } from '../../@types/file';
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
-import Round, { RoundProps } from '../../atoms/Round/Round';
+import Round from '../../atoms/Round/Round';
 import { Colors } from '../../constants';
 
 import { StyledContainer, StyledItem, StyledIcon } from './FileImagesCarousel.styles';
@@ -20,7 +20,7 @@ export interface FileImagesCarouselProps extends FileInputProps {
     src: SquareImageProps['src'];
     alt: SquareImageProps['src']
   }[];
-  onDeleteImage?: RoundProps['onClick'];
+  onDeleteImage?: (src: string) => void;
 }
 
 const CAROUSEL_SETTINGS = {
@@ -78,7 +78,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
             <StyledItem key={image.src}>
               {onDeleteImage && (
                 <StyledIcon>
-                  <Round onClick={onDeleteImage} backgroundColor={Colors.White}>
+                  <Round onClick={() => onDeleteImage(image.src)} backgroundColor={Colors.White}>
                     <AiTwotoneDelete />
                   </Round>
                 </StyledIcon>
