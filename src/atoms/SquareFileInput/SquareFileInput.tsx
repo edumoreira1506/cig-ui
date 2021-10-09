@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import * as React from 'react';
 import { BsFillCloudArrowUpFill } from 'react-icons/bs';
 
 import { FileInputProps } from '../../@types/file';
@@ -6,7 +6,7 @@ import { FileInputProps } from '../../@types/file';
 import { StyledContainer, StyledInput, StyledIcon, StyledText } from './SquareFileInput.styles';
 
 export default function SquareFileInput({ onUpload, uploadMessage }: FileInputProps) {
-  const handleUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUpload = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       onUpload(e.target.files[0]);
     }
