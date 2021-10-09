@@ -48,4 +48,17 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledItem = styled.div`
+  position: relative;
+`;
+
+export const StyledIcon = styled.div`
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 5px;
+  top: 5px;
+
+  svg {
+    width: 70%;
+  }
 `;
