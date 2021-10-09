@@ -11,3 +11,4 @@ export { default as SquareFileInput } from './SquareFileInput/SquareFileInput';
 export { default as Subtitle } from './Subtitle/Subtitle';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Title } from './Title/Title';
+export { default as Round } from './Round/Round';
