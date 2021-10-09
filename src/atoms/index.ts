@@ -1,11 +1,13 @@
 export { default as Button } from './Button/Button';
 export { default as FormField } from './FormField/FormField';
+export { default as ImageGallery } from './ImageGallery/ImageGallery';
 export { default as Label } from './Label/Label';
+export { default as LinkButton } from './LinkButton/LinkButton';
 export { default as Loading } from './Loading/Loading';
+export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
+export { default as RoundImage } from './RoundImage/RoundImage';
+export { default as SandwichButton } from './SandwichButton/SandwichButton';
+export { default as SquareFileInput } from './SquareFileInput/SquareFileInput';
 export { default as Subtitle } from './Subtitle/Subtitle';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Title } from './Title/Title';
-export { default as RoundImage } from './RoundImage/RoundImage';
-export { default as SandwichButton } from './SandwichButton/SandwichButton';
-export { default as LinkButton } from './LinkButton/LinkButton';
-export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
