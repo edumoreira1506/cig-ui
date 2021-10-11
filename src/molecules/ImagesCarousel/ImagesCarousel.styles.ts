@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
-import { Colors, DEFAULT_TRANSITION } from '../../constants';
+import { Colors, DEFAULT_TRANSITION } from '../../constants/styles';
 
 export const StyledContainer = styled.div`
-  width: 100%;
-  height: 150px;
-
   .slick-slider, .slick-list, .slick-track, .slick-slide {
     height: 100%;
   }
@@ -16,11 +13,6 @@ export const StyledContainer = styled.div`
     & > div {
       height: 100%;
     }
-  }
-
-  .slick-slide {
-	  padding: 0 4px;
-    box-sizing: border-box;
   }
 
   .slick-arrow {
@@ -42,20 +34,12 @@ export const StyledContainer = styled.div`
   .slick-prev {
     left: 0;
   }
+
+  .slick-slide {
+	  padding: 0 8px;
+    box-sizing: border-box;
+  }
 `;
 
 export const StyledItem = styled.div`
-  position: relative;
-`;
-
-export const StyledIcon = styled.div`
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: 5px;
-  top: 5px;
-
-  svg {
-    width: 70%;
-  }
 `;
