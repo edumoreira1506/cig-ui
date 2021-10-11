@@ -4,7 +4,7 @@ import { StyledContainer, StyledImage } from './SquareImage.styles';
 export interface SquareImageProps {
   alt?: string;
   src: string;
-  onClick: (src: string) => void;
+  onClick?: (src: string) => void;
 }
 
 export default function SquareImage({ src, alt = '', onClick = () => undefined }: SquareImageProps) {
