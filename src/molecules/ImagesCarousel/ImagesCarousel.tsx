@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 
-import { FileInputProps } from '../../@types/file';
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
 
 import { StyledContainer, StyledItem } from './ImagesCarousel.styles';
@@ -10,7 +9,7 @@ import { StyledContainer, StyledItem } from './ImagesCarousel.styles';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export interface FileImagesCarouselProps extends FileInputProps {
+export interface FileImagesCarouselProps {
   images: {
     src: SquareImageProps['src'];
     alt: SquareImageProps['src']
