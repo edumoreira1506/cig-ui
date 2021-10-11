@@ -19,11 +19,8 @@ export const StyledContainer = styled.div`
   }
 
   .slick-slide {
-    margin: 0 10px;
-  }
-
-  .slick-list {
-    margin: 0 -10px;
+	  padding: 0 4px;
+    box-sizing: border-box;
   }
 
   .slick-arrow {
