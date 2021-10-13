@@ -42,13 +42,15 @@ export const StyledShortcutContainer = styled.ul`
   list-style: none;
   position: absolute;
   right: 0;
-  bottom: -140%;
+  bottom: 0;
+  transform: translateY(100%);
   background-color: ${Colors.DarkBlue};
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.White};
   padding: 5px 10px;
   width: 100px;
   text-align: right;
+  box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
 `;
 
 export const StyledShortcut = styled.li`

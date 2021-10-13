@@ -47,7 +47,13 @@ export default function Header({
           {Boolean(shortcuts.length) && onClickShortcut && isOpenShortcuts && (
             <StyledShortcutContainer>
               {shortcuts.map(shortcut => (
-                <StyledShortcut key={shortcut} onClick={() => onClickShortcut(shortcut)}>
+                <StyledShortcut
+                  key={shortcut}
+                  onClick={() => {
+                    onClickShortcut(shortcut);
+                    setIsOpenShortcuts(false);
+                  }}
+                >
                   {shortcut}
                 </StyledShortcut>
               ))}

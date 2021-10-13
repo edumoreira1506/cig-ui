@@ -82,6 +82,7 @@ describe('Header', () => {
 
     expect(onClickShortcut).toHaveBeenCalledWith(firstShortcut);
 
+    userEvent.click(screen.getByAltText(DEFAULT_PROPS.user.name));
     userEvent.click(screen.getByText(secondShortcut));
 
     expect(onClickShortcut).toHaveBeenCalledWith(secondShortcut);
