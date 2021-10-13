@@ -7,7 +7,7 @@ export interface RoundImageProps {
   borderColor?: string;
   alt?: string;
   borderWidth?: number;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function RoundImage({

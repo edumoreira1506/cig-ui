@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import RoundImage from './RoundImage';
 
@@ -29,5 +30,16 @@ describe('RoundImage', () => {
     render(<RoundImage {...DEFAULT_PROPS} borderWidth={borderWidth} />);
 
     expect(screen.getByTestId('round-image-container')).toHaveStyle({ borderWidth });
+  });
+
+  it('calls onClick', () => {
+    const alt = 'alt';
+    const onClick = jest.fn();
+
+    render(<RoundImage {...DEFAULT_PROPS} alt={alt} onClick={onClick} />);
+
+    userEvent.click(screen.getByAltText(alt));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

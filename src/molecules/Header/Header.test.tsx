@@ -42,4 +42,49 @@ describe('Header', () => {
 
     expect(onToggleMenu).toHaveBeenCalled();
   });
+
+  it('renders the shortcuts', () => {
+    const onClickShortcut = jest.fn();
+    const shortcuts = ['Teste', 'Teste dois'];
+
+    render(<Header {...DEFAULT_PROPS} onClickShortcut={onClickShortcut} shortcuts={shortcuts} />);
+
+    userEvent.click(screen.getByAltText(DEFAULT_PROPS.user.name));
+
+    shortcuts.forEach((s) => {
+      expect(screen.getByText(s)).toBeInTheDocument();
+    });
+  });
+
+  it('closes the shortcuts', () => {
+    const onClickShortcut = jest.fn();
+    const shortcuts = ['Teste', 'Teste dois'];
+
+    render(<Header {...DEFAULT_PROPS} onClickShortcut={onClickShortcut} shortcuts={shortcuts} />);
+
+    userEvent.click(screen.getByAltText(DEFAULT_PROPS.user.name));
+    userEvent.click(screen.getByAltText(DEFAULT_PROPS.user.name));
+
+    shortcuts.forEach((s) => {
+      expect(screen.queryByText(s)).not.toBeInTheDocument();
+    });
+  });
+
+  it('calls onClickShortcut', () => {
+    const onClickShortcut = jest.fn();
+    const firstShortcut = 'Teste 1';
+    const secondShortcut = 'Teste 2';
+
+    render(<Header {...DEFAULT_PROPS} onClickShortcut={onClickShortcut} shortcuts={[firstShortcut, secondShortcut]} />);
+
+    userEvent.click(screen.getByAltText(DEFAULT_PROPS.user.name));
+    userEvent.click(screen.getByText(firstShortcut));
+
+    expect(onClickShortcut).toHaveBeenCalledWith(firstShortcut);
+
+    userEvent.click(screen.getByText(secondShortcut));
+
+    expect(onClickShortcut).toHaveBeenCalledWith(secondShortcut);
+    expect(onClickShortcut).toHaveBeenCalledTimes(2);
+  });
 });
