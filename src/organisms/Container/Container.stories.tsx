@@ -60,5 +60,8 @@ Example.args = {
       title: 'Suporte'
     }
   ],
-  onClick: console.log
+  onClick: console.log,
+  onMenuClick: console.log,
+  onShortcutClick: console.log,
+  shortcuts: ['Sair'] 
 };

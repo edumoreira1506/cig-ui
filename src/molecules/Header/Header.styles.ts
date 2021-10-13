@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors, MAIN_FONT } from '../../constants/styles';
+import { Colors, MAIN_FONT, DEFAULT_BORDER_RADIUS } from '../../constants/styles';
 
 export const StyledHeader = styled.header`
   position: fixed;
@@ -24,6 +24,8 @@ export const StyledContainer = styled.div`
 export const StyledImageContainer = styled.div`
   width: 32px;
   height: 32px;
+  position: relative;
+  cursor: pointer;
 `;
 
 export const StyledTitle = styled.p`
@@ -32,5 +34,24 @@ export const StyledTitle = styled.p`
   font-size: 1.5em;
   margin: 0;
   padding: 0;
+  font-family: ${MAIN_FONT};
+`;
+
+export const StyledShortcutContainer = styled.ul`
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  right: 0;
+  bottom: -140%;
+  background-color: ${Colors.DarkBlue};
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  color: ${Colors.White};
+  padding: 5px 10px;
+  width: 100px;
+  text-align: right;
+`;
+
+export const StyledShortcut = styled.li`
+  font-weight: bold;
   font-family: ${MAIN_FONT};
 `;

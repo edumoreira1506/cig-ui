@@ -11,9 +11,19 @@ export interface ContainerProps {
   user: HeaderProps['user'];
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
+  shortcuts: HeaderProps['shortcuts'];
+  onShortcutClick: HeaderProps['onClickShortcut'];
 }
 
-export default function Container({ title, children, user, items, onMenuClick }: ContainerProps) {
+export default function Container({
+  title,
+  children,
+  user,
+  items,
+  onMenuClick,
+  shortcuts,
+  onShortcutClick
+}: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const toggleMenu = useCallback(() => {
@@ -27,7 +37,14 @@ export default function Container({ title, children, user, items, onMenuClick }:
   return (
     <StyledContainer>
       <StyledHeaderContainer>
-        <Header sandwichButtonIsToggled={menuIsOpen} onToggleMenu={toggleMenu} title={title} user={user} />
+        <Header
+          sandwichButtonIsToggled={menuIsOpen}
+          onToggleMenu={toggleMenu}
+          title={title}
+          user={user}
+          shortcuts={shortcuts}
+          onClickShortcut={onShortcutClick}
+        />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
         <Sidebar onClick={onMenuClick} items={items} isOpen={menuIsOpen} />
