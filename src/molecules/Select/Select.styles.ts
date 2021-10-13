@@ -17,6 +17,7 @@ export const StyledSelect = styled.select`
   padding: 10px 0 10px 10px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.DarkGrey};
+  height: 100%;
 
   &:focus {
     outline: none;
