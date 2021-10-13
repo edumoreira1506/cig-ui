@@ -7,16 +7,18 @@ export interface RoundImageProps {
   borderColor?: string;
   alt?: string;
   borderWidth?: number;
+  onClick: () => void;
 }
 
 export default function RoundImage({
   src,
   borderColor = Colors.White,
   alt = '',
-  borderWidth = 5
+  borderWidth = 5,
+  onClick = () => undefined,
 }: RoundImageProps) {
   return (
-    <StyledContainer borderWidth={borderWidth} data-testid="round-image-container" borderColor={borderColor}>
+    <StyledContainer onClick={onClick} borderWidth={borderWidth} data-testid="round-image-container" borderColor={borderColor}>
       <StyledImage src={src} alt={alt} />
     </StyledContainer>
   );
