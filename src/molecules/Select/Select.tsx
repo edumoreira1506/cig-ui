@@ -23,7 +23,8 @@ export default function Select({
   options = [],
   showEmptyOption = false,
   emptyOptionText,
-  inputTestId
+  inputTestId,
+  disabled = false
 }: SelectProps) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value), [onChange]);
 
@@ -36,6 +37,7 @@ export default function Select({
         name={name}
         value={value}
         onChange={handleChange}
+        disabled={disabled}
         data-testid={inputTestId}
       >
         {showEmptyOption && <option>{emptyOptionText ?? ''}</option>}
