@@ -65,3 +65,12 @@ export const StyledRequiredMessage = styled.span`
   font-weight: bold;
   right: 0;
 `;
+
+export const StyledHeader = styled.div`
+  display: flex;
+`;
+
+export const StyledHelpButton = styled.div`
+  margin-left: 5px;
+  margin-top: 2px;
+`;

@@ -3,6 +3,7 @@ import * as React from 'react';
 import Loading from '../../atoms/Loading/Loading';
 import { FieldProps } from '../../@types/form';
 import Label from '../../atoms/Label/Label';
+import Help from '../../atoms/Help/Help';
 
 import {
   StyledContainer,
@@ -10,6 +11,8 @@ import {
   StyledMaskedInput,
   StyledInputLoading,
   StyledRequiredMessage,
+  StyledHeader,
+  StyledHelpButton
 } from './Input.styles';
 
 export interface InputProps extends FieldProps {
@@ -18,6 +21,7 @@ export interface InputProps extends FieldProps {
   isLoading?: boolean;
   mask?: string;
   requiredMessage?: string;
+  helpMessage?: string;
 }
 
 export default function Input({
@@ -34,7 +38,8 @@ export default function Input({
   isLoading = false,
   mask,
   requiredMessage,
-  disabled = false
+  disabled = false,
+  helpMessage
 }: InputProps) {
   const [showRequiredMessage, setShowRequiredMessage] = React.useState(false);
 
@@ -108,7 +113,14 @@ export default function Input({
 
   return (
     <StyledContainer>
-      {label && <Label text={label} htmlFor={name} required={required} />}
+      <StyledHeader>
+        {label && <Label text={label} htmlFor={name} required={required} />}
+        {helpMessage && (
+          <StyledHelpButton>
+            <Help text={helpMessage} />
+          </StyledHelpButton>
+        )}
+      </StyledHeader>
       {isLoading && (
         <StyledInputLoading>
           <Loading />

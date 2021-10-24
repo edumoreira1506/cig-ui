@@ -49,3 +49,12 @@ WithMask.args = {
   placeholder: '111.111.111-11',
   mask: '###.###.###-##'
 };
+
+export const WithHelpButton = Template.bind({});
+WithHelpButton.args = {
+  value: 'aaaaa',
+  label: 'Help button',
+  name: 'help',
+  type: 'text',
+  helpMessage: 'Help text here!'
+};

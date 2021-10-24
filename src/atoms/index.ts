@@ -1,5 +1,6 @@
 export { default as Button } from './Button/Button';
 export { default as FormField } from './FormField/FormField';
+export { default as Help } from './Help/Help';
 export { default as ImageGallery } from './ImageGallery/ImageGallery';
 export { default as Label } from './Label/Label';
 export { default as LinkButton } from './LinkButton/LinkButton';

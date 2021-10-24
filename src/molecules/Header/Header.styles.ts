@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-import { Colors, MAIN_FONT, DEFAULT_BORDER_RADIUS } from '../../constants/styles';
+import {
+  Colors,
+  MAIN_FONT,
+  DEFAULT_BORDER_RADIUS,
+  DEFAULT_BOX_SHADOW,
+} from '../../constants/styles';
 
 export const StyledHeader = styled.header`
   position: fixed;
@@ -9,7 +14,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 50px;
   background-color: ${Colors.DarkBlue};
-  box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
+  box-shadow: ${DEFAULT_BOX_SHADOW};
 `;
 
 export const StyledContainer = styled.div`
@@ -50,7 +55,7 @@ export const StyledShortcutContainer = styled.ul`
   padding: 5px 10px;
   width: 100px;
   text-align: right;
-  box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
+  box-shadow: ${DEFAULT_BOX_SHADOW};
 `;
 
 export const StyledShortcut = styled.li`
