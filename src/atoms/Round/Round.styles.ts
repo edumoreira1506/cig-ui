@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
+import { DEFAULT_BOX_SHADOW } from '../../constants';
 import { RoundProps } from './Round';
 
 export const StyledContainer = styled.div`
-  box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
+  box-shadow: ${DEFAULT_BOX_SHADOW};
   width: 100%;
   height: 100%;
   border-radius: 100%;

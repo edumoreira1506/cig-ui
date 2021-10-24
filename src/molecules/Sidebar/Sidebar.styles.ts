@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../constants/styles';
+import { Colors, DEFAULT_BOX_SHADOW } from '../../constants/styles';
 
 import { SidebarProps } from './Sidebar';
 
@@ -18,7 +18,7 @@ export const StyledContainer = styled.ul`
 
   ${({ isOpen }: { isOpen: SidebarProps['isOpen'] }) => isOpen && `
     transform: translateX(-10%);
-    box-shadow: 3px 0px 15px -2px rgba(0,0,0,0.72);
+    box-shadow: ${DEFAULT_BOX_SHADOW};
   `}
 `;
 
