@@ -21,6 +21,7 @@ export const StyledMaskedInput = styled(props => <InputMask {...props} />)`
   padding: 10px 0 10px 10px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.DarkGrey};
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
@@ -38,6 +39,7 @@ export const StyledInput = styled.input`
   padding: 10px 0 10px 10px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.DarkGrey};
+  box-sizing: border-box;
 
   &:focus {
     outline: none;

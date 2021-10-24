@@ -11,6 +11,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledTextArea = styled.textarea`
+  box-sizing: border-box;
   background-color: ${Colors.LightGrey};
   border: none;
   width: 100%;
