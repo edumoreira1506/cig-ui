@@ -66,7 +66,11 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
         <Slider {...CAROUSEL_SETTINGS}>
           {poultries.map(poultry => (
             <StyledItem key={poultry.id}>
-              <SquareImage src={poultry.mainImage} alt={poultry.name} onClick={onClickImage} />
+              <SquareImage
+                src={poultry.mainImage}
+                alt={poultry.name}
+                onClick={() => onClickImage?.(poultry.id)}
+              />
             </StyledItem>
           ))}
         </Slider>
