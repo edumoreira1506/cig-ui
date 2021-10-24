@@ -47,3 +47,22 @@ export const StyledContainer = styled.div`
 export const StyledItem = styled.div`
   position: relative;
 `;
+
+export const StyledIcons = styled.div`
+  position: absolute;
+  height: 25px;
+  width: auto;
+  right: 5px;
+  top: 5px;
+  display: flex;
+`;
+
+export const StyledIcon = styled.div`
+  width: 25px;
+  height: 100%;
+  margin-left: 5px;
+
+  svg {
+    width: 70%;
+  }
+`;
