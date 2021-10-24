@@ -4,11 +4,19 @@ import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
 
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
+import Round from '../../atoms/Round/Round';
+import { Colors } from '../../constants';
 
-import { StyledContainer, StyledItem } from './PoultriesCarousel.styles';
+import {
+  StyledContainer,
+  StyledItem,
+  StyledIcon,
+  StyledIcons
+} from './PoultriesCarousel.styles';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { AiFillEye, AiFillEdit } from 'react-icons/ai';
 
 interface Poultry extends IPoultry {
   mainImage: string;
@@ -16,6 +24,8 @@ interface Poultry extends IPoultry {
 
 export interface FileImagesCarouselProps {
   onClickImage: SquareImageProps['onClick'];
+  onEditPoultry?: (poultryId: string) => void;
+  onViewPoultry?: (poultryId: string) => void;
   poultries: Poultry[];
 }
 
@@ -59,6 +69,8 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
     const {
       onClickImage,
       poultries,
+      onViewPoultry,
+      onEditPoultry
     } = this.props;
 
     return (
@@ -66,6 +78,22 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
         <Slider {...CAROUSEL_SETTINGS}>
           {poultries.map(poultry => (
             <StyledItem key={poultry.id}>
+              <StyledIcons>
+                {onEditPoultry && (
+                  <StyledIcon>
+                    <Round onClick={() => onEditPoultry(poultry.id)} backgroundColor={Colors.White}>
+                      <AiFillEdit />
+                    </Round>
+                  </StyledIcon>
+                )}
+                {onViewPoultry && (
+                  <StyledIcon>
+                    <Round onClick={() => onViewPoultry(poultry.id)} backgroundColor={Colors.White}>
+                      <AiFillEye />
+                    </Round>
+                  </StyledIcon>
+                )}
+              </StyledIcons>
               <SquareImage
                 src={poultry.mainImage}
                 alt={poultry.name}
