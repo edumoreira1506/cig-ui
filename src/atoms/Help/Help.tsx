@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StyledContainer } from './Help.styles';
 
 export interface HelpProps {
