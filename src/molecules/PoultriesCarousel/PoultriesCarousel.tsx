@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
 
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
-import { Round } from 'atoms';
+import Round from '../../atoms/Round/Round';
 import { Colors } from '../../constants';
 
 import {
