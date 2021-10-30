@@ -1,6 +1,6 @@
 import ReactImageGallery, { ReactImageGalleryProps } from 'react-image-gallery';
 
-import 'react-image-gallery/styles/css/image-gallery.css';
+import './ImageGallery.css';
 
 import { StyledContainer } from './ImageGallery.styles';
 
