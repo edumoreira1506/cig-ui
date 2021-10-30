@@ -8,4 +8,6 @@ export interface FieldProps {
   required?: boolean;
   disabled?: boolean;
   onBlur?: () => void;
+  max?: number;
+  min?: number;
 }

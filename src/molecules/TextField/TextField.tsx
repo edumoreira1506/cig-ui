@@ -12,7 +12,9 @@ export default function TextField({
   placeholder,
   inputTestId,
   required = false,
-  disabled = false
+  disabled = false,
+  max,
+  min
 }: FieldProps) {
   const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => onChange(e.target.value), [onChange]);
 
@@ -28,6 +30,8 @@ export default function TextField({
         value={value}
         onChange={handleChange}
         disabled={disabled}
+        maxLength={max}
+        minLength={min}
       />
     </StyledContainer>
   );

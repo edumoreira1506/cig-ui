@@ -39,7 +39,9 @@ export default function Input({
   mask,
   requiredMessage,
   disabled = false,
-  helpMessage
+  helpMessage,
+  max,
+  min
 }: InputProps) {
   const [showRequiredMessage, setShowRequiredMessage] = React.useState(false);
 
@@ -70,7 +72,9 @@ export default function Input({
       autoComplete,
       onBlur: handleBlur,
       requiredError: showRequiredMessage,
-      disabled
+      disabled,
+      max,
+      min
     };
 
     if (formatNumber) {
@@ -95,6 +99,8 @@ export default function Input({
       component: StyledInput
     };
   }, [
+    max,
+    min,
     disabled,
     required,
     inputTestId,
