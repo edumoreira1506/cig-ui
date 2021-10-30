@@ -2,6 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import PoultriesCarousel from './PoultriesCarousel';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 export default {
   title: 'Molecules/PoultriesCarousel',
   component: PoultriesCarousel,

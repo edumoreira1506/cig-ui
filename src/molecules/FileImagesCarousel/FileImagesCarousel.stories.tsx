@@ -2,6 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import FileImagesCarousel from './FileImagesCarousel';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 export default {
   title: 'Molecules/FileImagesCarousel',
   component: FileImagesCarousel,

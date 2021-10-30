@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
+import { AiFillEye, AiFillEdit } from 'react-icons/ai';
 
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
 import Round from '../../atoms/Round/Round';
@@ -13,10 +14,6 @@ import {
   StyledIcon,
   StyledIcons
 } from './PoultriesCarousel.styles';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { AiFillEye, AiFillEdit } from 'react-icons/ai';
 
 interface Poultry extends IPoultry {
   mainImage: string;

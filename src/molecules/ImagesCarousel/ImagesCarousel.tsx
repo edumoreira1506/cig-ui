@@ -6,9 +6,6 @@ import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareIma
 
 import { StyledContainer, StyledItem } from './ImagesCarousel.styles';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 export interface FileImagesCarouselProps {
   images: {
     src: SquareImageProps['src'];
