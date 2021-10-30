@@ -73,8 +73,8 @@ export default function Input({
       onBlur: handleBlur,
       requiredError: showRequiredMessage,
       disabled,
-      max,
-      min
+      maxLength: max,
+      minLength: min
     };
 
     if (formatNumber) {
