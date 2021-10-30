@@ -2,7 +2,7 @@
   "name": "@cig-platform/ui",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "version": "0.1.57",
+  "version": "0.1.58",
   "dependencies": {
     "@cig-platform/types": "^0.0.14",
     "@testing-library/jest-dom": "^5.11.4",
@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "start": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
-    "build": "yarn tsc src/index.ts --jsx react-jsx --outDir build --declaration",
+    "build": "yarn tsc src/index.ts --jsx react-jsx --outDir build --declaration && cp src/atoms/ImageGallery/ImageGallery.css build/atoms/ImageGallery/ImageGallery.css",
     "lint": "eslint src",
     "heroku-postbuild": "yarn build:storybook",
     "prepare": "npm run build",
