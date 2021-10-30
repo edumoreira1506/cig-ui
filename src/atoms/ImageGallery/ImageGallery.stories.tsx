@@ -2,6 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ImageGallery from './ImageGallery';
 
+import 'react-image-gallery/styles/css/image-gallery.css';
+
 export default {
   title: 'Atoms/ImageGallery',
   component: ImageGallery,
