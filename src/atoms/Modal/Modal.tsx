@@ -17,6 +17,7 @@ export default function Modal({ children, isOpen, onClose, className }: ModalPro
       onRequestClose={onClose}
       style={{ overlay: { background: Colors.BlackTransparent, zIndex: 1000 } }}
       className={className}
+      ariaHideApp={false}
     >
       {children}
     </ReactModal>
