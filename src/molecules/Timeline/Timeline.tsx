@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Card, { CardProps } from '../../atoms/Card/Card';
 
 import { StyledContainer, StyledItem } from './Timeline.styles';

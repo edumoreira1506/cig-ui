@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 
 import { StyledBody, StyledCTA, StyledContainer, StyledHeader } from './Card.styles';
 
 export interface CardProps {
   description: string;
   date: Date;
-  icon?: ReactNode;
+  icon?: React.ReactNode;
   onClick?: () => void;
   ctaText?: string;
 }
