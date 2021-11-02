@@ -9,6 +9,7 @@ export const StyledContainer = styled.div`
   padding: 10px;
   box-sizing: border-box;
   font-family: ${MAIN_FONT};
+  background-color: ${Colors.White};
 `;
 
 export const StyledHeader = styled.div`
