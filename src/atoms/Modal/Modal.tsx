@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import ReactModal, { Props } from 'react-modal';
+import ReactModal from 'react-modal';
 
 import { Colors } from '../../constants/styles';
 
-export interface ModalProps extends Props {
+export interface ModalProps extends ReactModal.Props {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
