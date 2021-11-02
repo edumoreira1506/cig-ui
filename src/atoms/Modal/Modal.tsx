@@ -10,7 +10,7 @@ export interface ModalProps extends Props {
   className?: string;
 }
 
-export default function Modal({ children, isOpen, onClose, className }: ModalProps) {
+export default function Modal({ children, isOpen, onClose, className, ...props }: ModalProps) {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -18,6 +18,7 @@ export default function Modal({ children, isOpen, onClose, className }: ModalPro
       style={{ overlay: { background: Colors.BlackTransparent, zIndex: 1000 } }}
       className={className}
       ariaHideApp={false}
+      {...props}
     >
       {children}
     </ReactModal>
