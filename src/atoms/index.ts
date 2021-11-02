@@ -6,6 +6,7 @@ export { default as ImageGallery } from './ImageGallery/ImageGallery';
 export { default as Label } from './Label/Label';
 export { default as LinkButton } from './LinkButton/LinkButton';
 export { default as Loading } from './Loading/Loading';
+export { default as Modal } from './Modal/Modal';
 export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
 export { default as RoundImage } from './RoundImage/RoundImage';
 export { default as SandwichButton } from './SandwichButton/SandwichButton';
