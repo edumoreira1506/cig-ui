@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { createMinWidthMediaQuery } from 'utils';
 
+import { createMinWidthMediaQuery } from '../../utils';
 import { Colors } from '../../constants/styles';
 
 const timeline = keyframes`
