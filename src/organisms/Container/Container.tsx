@@ -34,6 +34,11 @@ export default function Container({
     setMenuIsOpen(false);
   }, []);
 
+  const handleMenuClick = useCallback((title: string) => {
+    onMenuClick(title);
+    setMenuIsOpen(false);
+  }, [onMenuClick]);
+
   return (
     <StyledContainer>
       <StyledHeaderContainer>
@@ -47,7 +52,7 @@ export default function Container({
         />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
-        <Sidebar onClick={onMenuClick} items={items} isOpen={menuIsOpen} />
+        <Sidebar onClick={handleMenuClick} items={items} isOpen={menuIsOpen} />
       </StyledSidebarContainer>
       <StyledContent onClick={handleContentClick} menuIsOpen={menuIsOpen}>
         {children}
