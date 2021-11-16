@@ -70,6 +70,24 @@ describe('Container', () => {
     expect(onMenuClick).toHaveBeenCalled();
   });
 
+  it('closes the menu after click in menu item', () => {
+    const items = [
+      {
+        title: 'Example',
+        icon: 'Icon'
+      }
+    ];
+
+    render(<Container {...DEFAULT_PROPS} items={items} />);
+
+    userEvent.click(screen.getByText(items[0].title));
+
+    const sandwichButton = screen.getByRole('checkbox');
+
+    expect(sandwichButton).not.toBeChecked();
+    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+  });
+
   it('opens the menu', () => {
     render(<Container {...DEFAULT_PROPS} />);
 
