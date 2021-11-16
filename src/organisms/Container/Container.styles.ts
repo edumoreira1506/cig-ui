@@ -27,6 +27,7 @@ export const StyledContent = styled.div`
   padding-top: 50px;
   transition: width 0.4s ease;
   width: 100%;
+  min-height: calc(100vh - 82px);
 
   ${({ menuIsOpen }: { menuIsOpen: boolean }) => `
     ${menuIsOpen && `${createMinWidthMediaQuery(`
