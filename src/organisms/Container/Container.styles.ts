@@ -14,9 +14,9 @@ export const StyledHeaderContainer = styled.div`
 
 export const StyledSidebarContainer = styled.div`
   position: fixed;
-  left: 20px;
   bottom: 0;
   z-index: 10;
+  left: 0;
 
   & > ul {
     height: calc(100% - 60px);

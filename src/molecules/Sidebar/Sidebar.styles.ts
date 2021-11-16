@@ -9,7 +9,7 @@ export const StyledContainer = styled.ul`
   bottom: 0;
   max-width: 170px;
   background-color: ${Colors.DarkBlue};
-  transform: translateX(-110%);
+  transform: translateX(-100%);
   transition: ease 0.4s;
   padding: 5px 15px;
   width: calc(55% - 30px);
@@ -17,7 +17,7 @@ export const StyledContainer = styled.ul`
   margin: 0;
 
   ${({ isOpen }: { isOpen: SidebarProps['isOpen'] }) => isOpen && `
-    transform: translateX(-10%);
+    transform: none;
     box-shadow: ${DEFAULT_BOX_SHADOW};
   `}
 `;
