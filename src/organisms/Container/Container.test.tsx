@@ -85,7 +85,7 @@ describe('Container', () => {
     const sandwichButton = screen.getByRole('checkbox');
 
     expect(sandwichButton).not.toBeChecked();
-    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'translateX(-100%)' });
   });
 
   it('opens the menu', () => {
@@ -98,7 +98,7 @@ describe('Container', () => {
     userEvent.click(sandwichButton);
 
     expect(sandwichButton).toBeChecked();
-    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'translateX(-10%)' });
+    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'none' });
   });
 
   it('closes the menu', () => {
@@ -114,7 +114,7 @@ describe('Container', () => {
 
     expect(sandwichButton).not.toBeChecked();
 
-    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'translateX(-100%)' });
   });
 
   it('closes the menu when click on content', () => {
@@ -132,6 +132,6 @@ describe('Container', () => {
 
     expect(sandwichButton).not.toBeChecked();
 
-    expect(screen.getByTestId('sidabar-container')).not.toHaveStyle({ transform: 'translateX(-10%)' });
+    expect(screen.getByTestId('sidabar-container')).toHaveStyle({ transform: 'translateX(-100%)' });
   });
 });
