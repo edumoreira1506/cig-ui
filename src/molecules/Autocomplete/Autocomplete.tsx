@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { Input } from 'molecules';
-import { InputProps } from 'molecules/Input/Input';
-
+import Input, { InputProps } from '../../molecules/Input/Input';
 import { StyledContainer, StyledOptions } from './Autocomplete.styles';
-import { List } from 'atoms';
+import List from '../../atoms/List/List';
 
 interface AutocompleteProps {
   items: string[];
