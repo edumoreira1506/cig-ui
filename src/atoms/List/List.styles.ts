@@ -11,6 +11,7 @@ export const StyledList = styled.ul`
   flex-direction: column;
   border: solid 1px ${Colors.LightGrey};
   border-radius: ${DEFAULT_BORDER_RADIUS};
+  box-sizing: border-box;
 `;
 
 export const StyledItem = styled.li`
