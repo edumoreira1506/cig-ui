@@ -12,6 +12,7 @@ export const StyledList = styled.ul`
   border: solid 1px ${Colors.LightGrey};
   border-radius: ${DEFAULT_BORDER_RADIUS};
   box-sizing: border-box;
+  background-color: ${Colors.White};
 `;
 
 export const StyledItem = styled.li`
