@@ -16,10 +16,8 @@ export default function Autocomplete({ items, onChange, inputProps = {} }: Autoc
   const handleChangeInputValue = useCallback((newValue: number | string) => setInputValue(newValue.toString()), []);
 
   useEffect(() => {
-    if (!inputValue) return;
-    
     onChange(inputValue);
-  }, [inputValue]);
+  }, [inputValue, onChange]);
 
   return (
     <StyledContainer>
