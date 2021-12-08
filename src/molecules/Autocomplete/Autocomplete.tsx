@@ -12,8 +12,18 @@ interface AutocompleteProps {
 
 export default function Autocomplete({ items, onChange, inputProps = {} }: AutocompleteProps) {
   const [inputValue, setInputValue] = useState('');
+  const [showOptions, setShowOptions] = useState(true);
 
-  const handleChangeInputValue = useCallback((newValue: number | string) => setInputValue(newValue.toString()), []);
+  const handleChangeInputValue = useCallback((newValue: number | string) => {
+    if (!showOptions) setShowOptions(true);
+
+    setInputValue(newValue.toString());
+  }, [showOptions]);
+
+  const handleItemClick = useCallback((newValue: number | string) => {
+    setInputValue(newValue.toString());
+    setShowOptions(false);
+  }, []);
 
   useEffect(() => {
     onChange(inputValue);
@@ -26,9 +36,9 @@ export default function Autocomplete({ items, onChange, inputProps = {} }: Autoc
         onChange={handleChangeInputValue}
         {...inputProps}
       />
-      {Boolean(items.length) && (
+      {Boolean(items.length && showOptions) && (
         <StyledOptions>
-          <List items={items} onItemClick={handleChangeInputValue} />
+          <List items={items} onItemClick={handleItemClick} />
         </StyledOptions>
       )}
     </StyledContainer>
