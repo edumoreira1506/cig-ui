@@ -13,6 +13,7 @@ export { default as RoundImage } from './RoundImage/RoundImage';
 export { default as SandwichButton } from './SandwichButton/SandwichButton';
 export { default as SquareFileInput } from './SquareFileInput/SquareFileInput';
 export { default as Subtitle } from './Subtitle/Subtitle';
+export { default as Table } from './Table/Table';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Title } from './Title/Title';
 export { default as Round } from './Round/Round';
