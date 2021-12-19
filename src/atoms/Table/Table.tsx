@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, Fragment } from 'react';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { BiUpArrow } from 'react-icons/bi';
 
@@ -52,7 +52,7 @@ export default function Table({
       </thead>
       <tbody>
         {rows.map((row, index) => (
-          <>
+          <Fragment key={`row-${index}`}>
             <StyledTableLine key={index}>
               {row.items.map((item) => (
                 <StyledTableItem key={item}>
@@ -61,7 +61,7 @@ export default function Table({
               ))}
               {hasExpandColumn && row.expandedContent && (
                 <SetyldExpandItem expanded={expandedRows.includes(index)} onClick={() => handleToggleRow(index)}>
-                  <BiUpArrow />
+                  <BiUpArrow data-testid="expand-row" />
                 </SetyldExpandItem>
               )}
             </StyledTableLine>
@@ -72,7 +72,7 @@ export default function Table({
                 </td>
               </StyledExpandedArea>
             )}
-          </>
+          </Fragment>
         ))}
       </tbody>
     </StyledTable>
