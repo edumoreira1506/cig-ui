@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Colors, DEFAULT_BORDER_RADIUS, MAIN_FONT } from '../../constants';
+import { Colors, DEFAULT_BORDER_RADIUS, DEFAULT_TRANSITION, MAIN_FONT } from '../../constants';
 
 export const StyledTable = styled.table`
   width: 100%;
@@ -30,4 +30,24 @@ export const StyledTableHeader = styled.th`
 export const StyledTableItem = styled.td`
   outline: solid 1px white;
   color: ${Colors.HalfGrey};
+`;
+
+export const SetyldExpandItem = styled.td`
+  outline: solid 1px white;
+  color: ${Colors.HalfGrey};
+  cursor: pointer;
+
+  & > svg {
+    transition: ${DEFAULT_TRANSITION};
+    transform: rotate(180deg);
+
+    ${({ expanded }: { expanded: boolean }) => expanded && css`
+      transform: none;
+    `}
+  }
+`;
+
+export const StyledExpandedArea = styled.tr`
+  text-align: center;
+  height: 100px;
 `;
