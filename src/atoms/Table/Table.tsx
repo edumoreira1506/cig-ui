@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 import { StyledTable, StyledTableHeader, StyledTableItem, StyledTableLine } from './Table.styles';
 
 interface TableProps {
-  columns?: string[];
+  columns?: string[] | ReactNode[];
   rows?: string[][];
 }
 
@@ -12,8 +14,8 @@ export default function Table({
   return (
     <StyledTable>
       <StyledTableLine>
-        {columns.map((column) => (
-          <StyledTableHeader key={column}>
+        {columns.map((column, index) => (
+          <StyledTableHeader key={`header-${index}`}>
             {column}
           </StyledTableHeader>
         ))}
