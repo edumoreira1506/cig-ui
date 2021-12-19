@@ -36,6 +36,7 @@ export const SetyldExpandItem = styled.td`
   outline: solid 1px white;
   color: ${Colors.HalfGrey};
   cursor: pointer;
+  background-color: ${Colors.MediumGrey};
 
   & > svg {
     transition: ${DEFAULT_TRANSITION};
@@ -50,4 +51,5 @@ export const SetyldExpandItem = styled.td`
 export const StyledExpandedArea = styled.tr`
   text-align: center;
   height: 100px;
+  background-color: ${Colors.MediumGrey};
 `;
