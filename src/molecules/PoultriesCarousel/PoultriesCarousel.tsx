@@ -12,7 +12,8 @@ import {
   StyledContainer,
   StyledItem,
   StyledIcon,
-  StyledIcons
+  StyledIcons,
+  StyledName
 } from './PoultriesCarousel.styles';
 
 interface Poultry extends IPoultry {
@@ -40,24 +41,9 @@ const CAROUSEL_SETTINGS = {
     {
       breakpoint: 768,
       settings: {
-        arrows: false,
         slidesToShow: 3,
       }
     },
-    {
-      breakpoint: 500,
-      settings: {
-        arrows: false,
-        slidesToShow: 2.6,
-      }
-    },
-    {
-      breakpoint: 380,
-      settings: {
-        arrows: false,
-        slidesToShow: 1.8,
-      }
-    }
   ]
 };
 
@@ -91,6 +77,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                   </StyledIcon>
                 )}
               </StyledIcons>
+              <StyledName>{poultry.name}</StyledName>
               <SquareImage
                 src={poultry.mainImage}
                 alt={poultry.name}

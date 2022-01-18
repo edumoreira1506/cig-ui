@@ -20,8 +20,8 @@ export const Example = Template.bind({});
 Example.args = {
   poultries: Array(10).fill({
     mainImage: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
-    name: '',
-    id: ''
+    id: '',
+    name: 'Claudinha'
   }),
   onViewPoultry: console.log,
   onClickImage: console.log,
