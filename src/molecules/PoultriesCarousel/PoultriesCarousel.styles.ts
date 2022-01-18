@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { createMinWidthMediaQuery } from 'utils';
 
-import { Colors, DEFAULT_TRANSITION } from '../../constants';
+import { Colors, DEFAULT_BORDER_RADIUS, DEFAULT_TRANSITION } from '../../constants';
 
 export const StyledContainer = styled.div`
   width: 100%;
@@ -74,4 +74,20 @@ export const StyledIcon = styled.div`
   svg {
     width: 70%;
   }
+`;
+
+export const StyledName = styled.p`
+  position: absolute;
+  bottom: 0;
+  height: 30%;
+  width: calc(100% - 10px);
+  margin: 0;
+  text-align: left;
+  background-color: ${Colors.LightGrey};
+  border-bottom-left-radius: ${DEFAULT_BORDER_RADIUS};
+  border-bottom-right-radius: ${DEFAULT_BORDER_RADIUS};
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 5px;
 `;

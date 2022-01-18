@@ -12,7 +12,8 @@ import {
   StyledContainer,
   StyledItem,
   StyledIcon,
-  StyledIcons
+  StyledIcons,
+  StyledName
 } from './PoultriesCarousel.styles';
 
 interface Poultry extends IPoultry {
@@ -76,6 +77,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                   </StyledIcon>
                 )}
               </StyledIcons>
+              <StyledName>{poultry.name}</StyledName>
               <SquareImage
                 src={poultry.mainImage}
                 alt={poultry.name}
