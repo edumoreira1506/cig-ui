@@ -40,24 +40,9 @@ const CAROUSEL_SETTINGS = {
     {
       breakpoint: 768,
       settings: {
-        arrows: false,
         slidesToShow: 3,
       }
     },
-    {
-      breakpoint: 500,
-      settings: {
-        arrows: false,
-        slidesToShow: 2.6,
-      }
-    },
-    {
-      breakpoint: 380,
-      settings: {
-        arrows: false,
-        slidesToShow: 1.8,
-      }
-    }
   ]
 };
 

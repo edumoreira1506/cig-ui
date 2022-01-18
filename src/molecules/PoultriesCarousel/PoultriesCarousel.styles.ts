@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { createMinWidthMediaQuery } from 'utils';
 
 import { Colors, DEFAULT_TRANSITION } from '../../constants';
 
 export const StyledContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 130px;
 
   .slick-slider, .slick-list, .slick-track, .slick-slide {
     height: 100%;
@@ -36,11 +37,19 @@ export const StyledContainer = styled.div`
   }
 
   .slick-next {
-    right: 0;
+    right: -25px;
+
+    ${createMinWidthMediaQuery(`
+      right: 0;
+    `)}
   }
 
   .slick-prev {
-    left: 0;
+    left: -25px;
+
+    ${createMinWidthMediaQuery(`
+      left: 0;
+    `)}
   }
 `;
 
