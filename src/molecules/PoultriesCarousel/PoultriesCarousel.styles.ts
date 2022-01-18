@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { createMinWidthMediaQuery } from 'utils';
 
+import { createMinWidthMediaQuery } from '../../utils';
 import { Colors, DEFAULT_BORDER_RADIUS, DEFAULT_TRANSITION } from '../../constants';
 
 export const StyledContainer = styled.div`
