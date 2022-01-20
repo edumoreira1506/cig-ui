@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Colors } from '../../constants/styles';
 import SandwitchButton, { SandwitchButtonProps } from '../../atoms/SandwichButton/SandwichButton';
@@ -35,7 +35,37 @@ export default function Header({
 }: HeaderProps ) {
   const [isOpenShortcuts, setIsOpenShortcuts] = useState(false);
 
+  const shortcutRef = useRef<any>();
+
   const toggleShortcuts = useCallback(() => setIsOpenShortcuts(prevIsOpenShortcuts => !prevIsOpenShortcuts), []);
+
+  const onDocumentClick = useCallback((e) => {
+    if (!isOpenShortcuts || !shortcutRef.current) return;
+
+    const xPosition = e.screenX;
+    const yPosition = e.screenY;
+    const {
+      top: topElementPosition,
+      left: leftElementPosition,
+      height: heightElement,
+      width: widthElement
+    } = shortcutRef.current?.getBoundingClientRect?.() ?? {};
+
+    const isClickingInsideTheShortcutArea = (
+      xPosition >= leftElementPosition && xPosition <= leftElementPosition + widthElement &&
+      yPosition >= topElementPosition && yPosition <= topElementPosition + heightElement
+    );
+
+    if (!isClickingInsideTheShortcutArea) setIsOpenShortcuts(false);
+  }, [isOpenShortcuts]);
+
+  useEffect(() => {
+    document.addEventListener('click', onDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', onDocumentClick);
+    };
+  }, [onDocumentClick]);
 
   return (
     <StyledHeader>
@@ -45,7 +75,7 @@ export default function Header({
         <StyledImageContainer>
           <RoundImage onClick={toggleShortcuts} borderWidth={2} src={userImage} alt={userName} />
           {Boolean(shortcuts.length) && onClickShortcut && isOpenShortcuts && (
-            <StyledShortcutContainer>
+            <StyledShortcutContainer ref={shortcutRef}>
               {shortcuts.map(shortcut => (
                 <StyledShortcut
                   key={shortcut}
