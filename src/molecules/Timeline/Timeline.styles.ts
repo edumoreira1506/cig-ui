@@ -29,7 +29,7 @@ export const StyledContainer = styled.ul`
     animation: ${timeline} 8s ease;
     top: 0;
     content: '';
-    background-color: ${Colors.LightGrey};
+    background-color: ${Colors.DarkBlue};
     left: 30px;
     width: 4px;
     height: 100%;
@@ -50,8 +50,8 @@ export const StyledItem = styled.li`
   &::after {
     position: absolute;
     content: '';
-    background-color: ${Colors.White};
-    border: solid 4px ${Colors.LightGrey};
+    background-color: ${Colors.DarkBlue};
+    border: solid 4px ${Colors.DarkBlue};
     width: 8px;
     height: 8px;
     border-radius: 100%;
