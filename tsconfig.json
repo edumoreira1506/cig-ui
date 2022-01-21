@@ -19,13 +19,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "outDir": "./build",
+    "outDir": "build",
     "rootDir": "./src",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "declaration": true
   },
+  "files": [
+    "./src/index.ts"
+  ],
   "include": [
+    "./src/svg.d.ts",
     "src/**/*.tsx",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/*.ts"
   ],
   "exclude": [
     "src/**/*.test.js",
