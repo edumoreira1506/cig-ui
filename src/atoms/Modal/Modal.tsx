@@ -2,8 +2,7 @@ import { ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
 import { Colors } from '../../constants/styles';
-
-import './Modal.css';
+import { ModalGlobalStyle } from './Modal.styles';
 
 export interface ModalProps extends ReactModal.Props {
   children: ReactNode;
@@ -30,6 +29,7 @@ export default function Modal({ children, isOpen, onClose, className, ...props }
       closeTimeoutMS={200}
       {...props}
     >
+      <ModalGlobalStyle />
       {children}
     </ReactModal>
   );

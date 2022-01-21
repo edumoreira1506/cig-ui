@@ -1,9 +1,25 @@
 import styled from 'styled-components';
+
 import { createMinWidthMediaQuery } from '../../utils';
+import logo from '../../images/logo.svg';
+
 
 export const StyledContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  position: relative;
+
+  &::before {
+    background-image: url(${logo});
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 220% 100%;
+    width: 100%;
+    height: 100%; 
+    content: "";
+    opacity: 0.15;
+    position: fixed;
+  }
 `;
 
 export const StyledHeaderContainer = styled.div`
