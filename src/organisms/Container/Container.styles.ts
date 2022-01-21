@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { createMinWidthMediaQuery } from '../../utils';
 import logo from '../../images/logo.svg';
 
