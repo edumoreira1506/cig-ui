@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { StyledItem } from './SquareLink.styles';
 
 export interface SquareLinkProps {
   href: string;
+  children: ReactNode;
 }
 
 const SquareLink: FC<SquareLinkProps> = ({ href, children }) => (
