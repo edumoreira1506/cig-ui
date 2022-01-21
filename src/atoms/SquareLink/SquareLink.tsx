@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import { StyledItem } from './SquareLink.styles';
 
 export interface SquareLinkProps {
-  href: string;
+  href?: string;
   children: ReactNode;
   onClick?: () => void;
 }
