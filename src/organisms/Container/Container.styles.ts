@@ -20,6 +20,7 @@ export const StyledContainer = styled.div`
     content: "";
     opacity: 0.15;
     position: fixed;
+    z-index: -1;
   }
 `;
 
