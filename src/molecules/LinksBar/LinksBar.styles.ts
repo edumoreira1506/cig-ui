@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.ul`
   position: fixed;
-  top: 15px;
+  top: 60px;
   right: 15px;
   margin: 0;
   padding: 0;
