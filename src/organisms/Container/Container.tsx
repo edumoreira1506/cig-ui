@@ -3,7 +3,12 @@ import { ReactNode, useCallback, useState } from 'react';
 import Header, { HeaderProps } from '../../molecules/Header/Header';
 import Sidebar, { SidebarProps } from '../../molecules/Sidebar/Sidebar';
 
-import { StyledContainer, StyledSidebarContainer, StyledHeaderContainer, StyledContent } from './Container.styles';
+import {
+  StyledContainer,
+  StyledSidebarContainer,
+  StyledHeaderContainer,
+  StyledContent,
+} from './Container.styles';
 
 export interface ContainerProps {
   children: ReactNode;
@@ -13,6 +18,7 @@ export interface ContainerProps {
   onMenuClick: SidebarProps['onClick'];
   shortcuts: HeaderProps['shortcuts'];
   onShortcutClick: HeaderProps['onClickShortcut'];
+  logoUrl?: string;
 }
 
 export default function Container({
@@ -22,7 +28,8 @@ export default function Container({
   items,
   onMenuClick,
   shortcuts,
-  onShortcutClick
+  onShortcutClick,
+  logoUrl
 }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -40,7 +47,7 @@ export default function Container({
   }, [onMenuClick]);
 
   return (
-    <StyledContainer>
+    <StyledContainer logoUrl={logoUrl}>
       <StyledHeaderContainer>
         <Header
           sandwichButtonIsToggled={menuIsOpen}

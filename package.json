@@ -2,7 +2,7 @@
   "name": "@cig-platform/ui",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "version": "0.1.83",
+  "version": "0.1.84",
   "dependencies": {
     "@cig-platform/types": "^0.0.14",
     "@testing-library/jest-dom": "^5.11.4",
@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "start": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
-    "build": "yarn tsc -p ./tsconfig.json && cp -r ./src/images ./build/images",
+    "build": "yarn tsc -p ./tsconfig.json",
     "lint": "eslint src",
     "heroku-postbuild": "yarn build:storybook",
     "prepare": "npm run build",
