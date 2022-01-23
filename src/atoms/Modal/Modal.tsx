@@ -9,6 +9,7 @@ export interface ModalProps extends ReactModal.Props {
   isOpen: boolean;
   onClose: () => void;
   className?: string;
+  animation?: 'bottom' | 'left';
 }
 
 const modalStyle = {
@@ -18,7 +19,14 @@ const modalStyle = {
   }
 };
 
-export default function Modal({ children, isOpen, onClose, className, ...props }: ModalProps) {
+export default function Modal({
+  children,
+  isOpen,
+  onClose,
+  className,
+  animation = 'left',
+  ...props
+}: ModalProps) {
   return (
     <ReactModal
       isOpen={isOpen}
@@ -29,7 +37,7 @@ export default function Modal({ children, isOpen, onClose, className, ...props }
       closeTimeoutMS={200}
       {...props}
     >
-      <ModalGlobalStyle />
+      <ModalGlobalStyle animation={animation} />
       {children}
     </ReactModal>
   );
