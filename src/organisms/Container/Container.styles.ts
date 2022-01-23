@@ -1,8 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { createMinWidthMediaQuery } from '../../utils';
-import logo from '../../images/logo.svg';
-
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -10,7 +8,10 @@ export const StyledContainer = styled.div`
   position: relative;
 
   &::before {
-    background-image: url(${logo});
+    ${({ logoUrl }: { logoUrl?: string }) => css`
+      background-image: url(${logoUrl});
+    `}
+
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 220% 100%;
