@@ -1,18 +1,48 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export const ModalGlobalStyle = createGlobalStyle`
-  .ReactModal__Overlay {
-    transform: translateX(-100px);
-    transition: all 200ms ease-in;
-  }
+ ${({ animation }: { animation: string }) => css`
+    .ReactModal__Overlay {
+      transition: all 200ms ease-in;
 
-  .ReactModal__Overlay--after-open {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+      ${animation === 'left' && css`
+        transform: translateX(-100px);
+      `}
 
-  .ReactModal__Overlay--before-close {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
+      ${animation === 'bottom' && css`
+        .ReactModal__Content {
+          transition: all 200ms ease-in;
+          transform: translateY(120%);
+        }
+      `}
+    }
+
+    .ReactModal__Overlay--after-open {
+      opacity: 1;
+
+      ${animation === 'left' && css`
+        transform: translateX(0px);
+      `}
+
+      ${animation === 'bottom' && css`
+        .ReactModal__Content {
+          transform: none;
+        }
+      `}
+    }
+
+    .ReactModal__Overlay--before-close {
+      opacity: 0;
+
+      ${animation === 'left' && css`
+        transform: translateX(-100px);
+      `}
+
+      ${animation === 'bottom' && css`
+        .ReactModal__Content {
+          transform: translateY(120%);
+        }
+      `}
+    }
+ `}
 `;

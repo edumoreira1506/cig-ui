@@ -9,8 +9,15 @@ export default {
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
-export const Example = Template.bind({});
-Example.args = {
+export const Left = Template.bind({});
+Left.args = {
   children: <h1>Modal content</h1>,
   isOpen: true,
+};
+
+export const Bottom = Template.bind({});
+Bottom.args = {
+  children: <h1>Modal content</h1>,
+  isOpen: true,
+  animation: 'bottom'
 };
