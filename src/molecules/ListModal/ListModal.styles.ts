@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-import { Colors } from '../../constants/styles';
+import { Colors, MAIN_FONT } from '../../constants/styles';
 
 export const StyledContainer = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   width: 100%;
+  font-family: ${MAIN_FONT};
 `;
 
 export const StyledListItem = styled.li`
@@ -17,6 +18,7 @@ export const StyledListItem = styled.li`
   justify-content: center;
   border-top: solid 1px ${Colors.LightGrey};
   color: ${Colors.DarkGrey};
+  cursor: pointer;
 
   &:first-child {
     border: none;
