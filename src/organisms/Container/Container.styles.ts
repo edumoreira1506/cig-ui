@@ -18,7 +18,7 @@ export const StyledContainer = styled.div`
     width: 100%;
     height: 100%; 
     content: "";
-    opacity: 0.15;
+    opacity: 0.04;
     position: fixed;
     z-index: -1;
   }
