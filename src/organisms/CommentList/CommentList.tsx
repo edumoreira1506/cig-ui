@@ -9,13 +9,15 @@ import { StyledComment, StyledNewComment } from './CommentList.styles';
 interface CommentListProps {
   comments?: CommentItemProps[];
   onComment?: (comment: string) => void;
+  onAnswer?: (comment: string, commentId: string) => void;
   commentNameButton?: string;
 }
 
 const CommentList: VFC<CommentListProps> = ({
   comments = [],
   onComment,
-  commentNameButton
+  commentNameButton,
+  onAnswer
 }: CommentListProps) => {
   const [comment, setComment] = useState('');
 
@@ -32,7 +34,11 @@ const CommentList: VFC<CommentListProps> = ({
     <>
       {comments.map(comment => (
         <StyledComment key={comment.content}>
-          <CommentItem {...comment} />
+          <CommentItem
+            {...comment}
+            onAnswer={answer => onAnswer?.(answer, comment?.identifier ?? '')}
+            answerNameButton="Responder"
+          />
         </StyledComment>
       ))}
   

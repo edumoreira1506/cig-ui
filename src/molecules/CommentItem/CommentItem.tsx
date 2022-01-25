@@ -23,6 +23,7 @@ interface Comment {
   content: string;
   image: string;
   date: Date;
+  identifier?: string;
 }
 
 export interface CommentItemProps extends Comment {
@@ -52,6 +53,7 @@ const CommentItem: VFC<CommentItemProps> = ({
 
     onAnswer?.(answer);
     setAnswer('');
+    setShowAnswerForm(false);
   }, [answer, onAnswer]);
 
   return (

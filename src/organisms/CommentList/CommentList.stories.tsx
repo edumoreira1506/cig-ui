@@ -54,5 +54,6 @@ Example.args = {
     }
   ],
   onComment: window.alert,
-  commentNameButton: 'Comentar'
+  commentNameButton: 'Comentar',
+  onAnswer: console.log
 };
