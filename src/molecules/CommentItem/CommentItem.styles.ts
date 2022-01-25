@@ -42,3 +42,20 @@ export const StyledDate = styled.div`
 `;
 
 export const StyledContent = styled.p``;
+
+export const StyledAnswersList = styled.ul`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  list-style: none;
+`;
+
+export const StyledAnswerItem = styled.li`
+  list-style: none;
+  width: 85%;
+  margin-bottom: 15px;
+  border-left: 1px solid ${Colors.LightGrey};
+  padding-left: 15px;
+`;
