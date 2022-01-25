@@ -41,7 +41,10 @@ export const StyledDate = styled.div`
   ont-size: 0.8em;
 `;
 
-export const StyledContent = styled.p``;
+export const StyledContent = styled.p`
+  width: 100%;
+  text-align: left;
+`;
 
 export const StyledAnswersList = styled.ul`
   margin: 0;
