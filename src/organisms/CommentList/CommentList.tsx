@@ -36,7 +36,7 @@ const CommentList: VFC<CommentListProps> = ({
         <StyledComment key={comment.content}>
           <CommentItem
             {...comment}
-            onAnswer={answer => onAnswer?.(answer, comment?.identifier ?? '')}
+            onAnswer={onAnswer ? answer => onAnswer(answer, comment?.identifier ?? '') : undefined}
             answerNameButton="Responder"
           />
         </StyledComment>
