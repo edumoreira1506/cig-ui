@@ -62,3 +62,10 @@ export const StyledAnswerItem = styled.li`
   border-left: 1px solid ${Colors.LightGrey};
   padding-left: 15px;
 `;
+
+export const StyledNewAnswer = styled.form``;
+
+export const StyledExpandCommentButton = styled.div`
+  width: 125px;
+  margin-bottom: 10px;
+`;
