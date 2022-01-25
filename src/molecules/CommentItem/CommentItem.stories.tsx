@@ -32,5 +32,7 @@ Example.args = {
       date: new Date(),
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a iaculis quam, condimentum volutpat est.',
     }
-  ]
+  ],
+  onAnswer: window.alert,
+  answerNameButton: 'Responder'
 };

@@ -1,7 +1,8 @@
-import { VFC } from 'react';
+import { useCallback, useState, VFC } from 'react';
 
-import { RoundImage } from '../../atoms';
+import { Button, FormField, RoundImage } from '../../atoms';
 import { Colors } from '../../constants/styles';
+import { TextField } from '../../molecules';
 
 import {
   StyledContainer,
@@ -12,7 +13,9 @@ import {
   StyledTexts,
   StyledText,
   StyledAnswersList,
-  StyledAnswerItem
+  StyledAnswerItem,
+  StyledNewAnswer,
+  StyledExpandCommentButton
 } from './CommentItem.styles';
 
 interface Comment {
@@ -20,10 +23,13 @@ interface Comment {
   content: string;
   image: string;
   date: Date;
+  identifier?: string;
 }
 
 export interface CommentItemProps extends Comment {
   answers?: Comment[];
+  onAnswer?: (answer: string) => void;
+  answerNameButton?: string;
 }
 
 const CommentItem: VFC<CommentItemProps> = ({
@@ -31,39 +37,78 @@ const CommentItem: VFC<CommentItemProps> = ({
   date,
   image,
   name,
-  answers = []
-}: CommentItemProps) => (
-  <>
-    <StyledContainer>
-      <StyledHeader>
-        <StyledTexts>
-          <StyledImage>
-            <RoundImage borderColor={Colors.DarkGrey} borderWidth={1} src={image} alt={name} />
-          </StyledImage>
+  answers = [],
+  onAnswer,
+  answerNameButton
+}: CommentItemProps) => {
+  const [showAnswerForm, setShowAnswerForm] = useState(false);
+  const [answer, setAnswer] = useState('');
 
-          <StyledText>
-            {name}
-          </StyledText>
-        </StyledTexts>
-        <StyledDate>
-          {new Intl.DateTimeFormat('pt-BR').format(date)}
-        </StyledDate>
-      </StyledHeader>
-      <StyledContent>
-        {content}
-      </StyledContent>
-    </StyledContainer>
+  const toggleShowAnswerForm = useCallback(() => setShowAnswerForm((prevShowAnswerForm) => !prevShowAnswerForm), []);
 
-    {Boolean(answers.length) && (
-      <StyledAnswersList>
-        {answers.map(answer => (
-          <StyledAnswerItem key={answer.content}>
-            <CommentItem {...answer} />
-          </StyledAnswerItem>
-        ))}
-      </StyledAnswersList>
-    )}
-  </>
-);
+  const handleChangeAnswer = useCallback((newValue: number | string) => setAnswer(newValue.toString()), []);
+
+  const handleSubmitAnswer = useCallback((e: React.FormEvent<HTMLFormElement> | React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    onAnswer?.(answer);
+    setAnswer('');
+    setShowAnswerForm(false);
+  }, [answer, onAnswer]);
+
+  return (
+    <>
+      <StyledContainer>
+        <StyledHeader>
+          <StyledTexts>
+            <StyledImage>
+              <RoundImage borderColor={Colors.DarkGrey} borderWidth={1} src={image} alt={name} />
+            </StyledImage>
+  
+            <StyledText>
+              {name}
+            </StyledText>
+          </StyledTexts>
+          <StyledDate>
+            {new Intl.DateTimeFormat('pt-BR').format(date)}
+          </StyledDate>
+        </StyledHeader>
+        <StyledContent>
+          {content}
+        </StyledContent>
+      </StyledContainer>
+  
+      {Boolean(answers.length) && (
+        <StyledAnswersList>
+          {answers.map(answer => (
+            <StyledAnswerItem key={answer.content}>
+              <CommentItem {...answer} />
+            </StyledAnswerItem>
+          ))}
+        </StyledAnswersList>
+      )}
+  
+      {Boolean(onAnswer && answerNameButton) && (
+        <>
+          <StyledExpandCommentButton>
+            <Button onClick={toggleShowAnswerForm}>
+              {showAnswerForm ? 'Cancelar' : 'Responder'}
+            </Button>
+          </StyledExpandCommentButton>
+          {showAnswerForm && (
+            <StyledNewAnswer onSubmit={handleSubmitAnswer}>
+              <FormField>
+                <TextField onChange={handleChangeAnswer} value={answer} />
+              </FormField>
+              <Button onClick={handleSubmitAnswer}>
+                {answerNameButton}
+              </Button>
+            </StyledNewAnswer>
+          )}
+        </>
+      )}
+    </>
+  );
+};
 
 export default CommentItem;
