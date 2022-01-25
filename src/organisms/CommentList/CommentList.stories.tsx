@@ -52,5 +52,7 @@ Example.args = {
         }
       ]
     }
-  ]
+  ],
+  onComment: window.alert,
+  commentNameButton: 'Comentar'
 };
