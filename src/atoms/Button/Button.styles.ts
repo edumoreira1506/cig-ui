@@ -26,6 +26,7 @@ export const StyledButton = styled.button`
 
   &[disabled] {
     cursor: not-allowed;
+    background-color: ${Colors.LightGrey};
   }
 
   ${({ isLoading, alignment }: { isLoading: ButtonProps['isLoading']; alignment: ButtonProps['alignment'] }) => `
