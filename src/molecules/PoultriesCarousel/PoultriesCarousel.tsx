@@ -17,7 +17,7 @@ import {
 } from './PoultriesCarousel.styles';
 
 interface Poultry extends IPoultry {
-  mainImage: string;
+  mainImage?: string;
 }
 
 export interface FileImagesCarouselProps {
