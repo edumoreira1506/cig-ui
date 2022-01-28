@@ -25,6 +25,7 @@ export interface FileImagesCarouselProps {
   onEditPoultry?: (poultryId: string) => void;
   onViewPoultry?: (poultryId: string) => void;
   poultries: Poultry[];
+  fallbackImage: string;
 }
 
 const CAROUSEL_SETTINGS = {
@@ -53,7 +54,8 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
       onClickImage,
       poultries,
       onViewPoultry,
-      onEditPoultry
+      onEditPoultry,
+      fallbackImage
     } = this.props;
 
     return (
@@ -79,7 +81,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
               </StyledIcons>
               <StyledName>{poultry.name}</StyledName>
               <SquareImage
-                src={poultry.mainImage}
+                src={poultry.mainImage ?? fallbackImage}
                 alt={poultry.name}
                 onClick={() => onClickImage?.(poultry.id)}
               />
