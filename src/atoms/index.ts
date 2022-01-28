@@ -1,5 +1,6 @@
 export { default as Button } from './Button/Button';
 export { default as Card } from './Card/Card';
+export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as FormField } from './FormField/FormField';
 export { default as Help } from './Help/Help';
 export { default as ImageGallery } from './ImageGallery/ImageGallery';
