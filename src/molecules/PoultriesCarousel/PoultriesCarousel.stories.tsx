@@ -26,4 +26,24 @@ Example.args = {
   onViewPoultry: console.log,
   onClickImage: console.log,
   onEditPoultry: console.log,
+  fallbackImage: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'
+};
+
+export const UsingFallback = Template.bind({});
+UsingFallback.args = {
+  poultries: [
+    {
+      mainImage: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
+      id: '',
+      name: 'Claudinha'
+    },
+    {
+      id: '',
+      name: 'Claudinho'
+    }
+  ],
+  onViewPoultry: console.log,
+  onClickImage: console.log,
+  onEditPoultry: console.log,
+  fallbackImage: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'
 };
