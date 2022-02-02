@@ -15,7 +15,7 @@ import {
   StyledTextsContent
 } from './DealInfo.styles';
 
-type DealInfoProps = {
+export type DealInfoProps = {
   date: Date;
   image?: string;
   status: 'IN_PROGRESS' | 'FINISHED' | 'CANCELLED';
@@ -37,7 +37,7 @@ const statusTitle = {
   CANCELLED: 'Cancelado'
 };
 
-const DealInfo: VFC<DealInfoProps> = ({
+export const DealInfo: VFC<DealInfoProps> = ({
   date,
   image,
   status,
@@ -74,5 +74,3 @@ const DealInfo: VFC<DealInfoProps> = ({
     </StyledContainer>
   );
 };
-
-export default DealInfo;

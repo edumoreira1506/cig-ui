@@ -11,3 +11,4 @@ export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as TextField } from './TextField/TextField';
 export { default as ImagesCarousel } from './ImagesCarousel/ImagesCarousel';
 export { default as Timeline } from './Timeline/Timeline';
+export * from './DealInfo/DealInfo';
