@@ -55,7 +55,7 @@ export const DealInfo: VFC<DealInfoProps> = ({
       <StyledHeader>{date.toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</StyledHeader>
       <StyledBody>
         <StyledImage>
-          <img src={image ?? ''} alt={poultry.name} />
+          <img src={image ?? 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'} alt={poultry.name} />
         </StyledImage>
         <StyledTextsContent>
           <StyledStatus color={statusColors[status]}>
