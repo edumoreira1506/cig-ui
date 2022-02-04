@@ -22,7 +22,7 @@ export type DealInfoProps = {
   poultry: IPoultry;
   advertising: IAdvertising;
   breeder: IBreeder;
-  onViewDeal: (advertisingId: string) => void;
+  onViewDeal?: (advertisingId: string) => void;
 }
 
 const statusColors = {
@@ -47,16 +47,18 @@ export const DealInfo: VFC<DealInfoProps> = ({
   onViewDeal
 }: DealInfoProps) => {
   const handleViewDeal = useCallback(() => {
-    onViewDeal(advertising.id);
+    onViewDeal?.(advertising.id);
   }, [onViewDeal, advertising?.id]);
 
   return (
     <StyledContainer>
       <StyledHeader>{date.toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</StyledHeader>
+
       <StyledBody>
         <StyledImage>
           <img src={image ?? 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'} alt={poultry.name} />
         </StyledImage>
+
         <StyledTextsContent>
           <StyledStatus color={statusColors[status]}>
             {statusTitle[status]}
@@ -65,11 +67,14 @@ export const DealInfo: VFC<DealInfoProps> = ({
           <StyledInfo>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)}</StyledInfo>
           <StyledInfo>Negociação com {breeder.name}</StyledInfo>
         </StyledTextsContent>
-        <StyledButtons>
-          <Button onClick={handleViewDeal}>
+
+        {onViewDeal && (
+          <StyledButtons>
+            <Button onClick={handleViewDeal}>
             Visualizar
-          </Button>
-        </StyledButtons>
+            </Button>
+          </StyledButtons>
+        )}
       </StyledBody>
     </StyledContainer>
   );
