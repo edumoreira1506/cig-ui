@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import DealInfo from './DealInfo';
+import { DealInfo } from './DealInfo';
 
 export default {
   title: 'Molecules/DealInfo',
