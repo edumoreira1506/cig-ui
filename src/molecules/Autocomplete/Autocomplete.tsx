@@ -20,10 +20,12 @@ export default function Autocomplete({ items, onChange, inputProps = {} }: Autoc
     setInputValue(newValue.toString());
   }, [showOptions]);
 
-  const handleItemClick = useCallback((newValue: number | string) => {
-    setInputValue(newValue.toString());
+  const handleItemClick = useCallback((newValueKey: number | string) => {
+    const newItem = items.find(i => i.key === newValueKey);
+
+    setInputValue(newItem?.content?.toString() ?? '');
     setShowOptions(false);
-  }, []);
+  }, [items]);
 
   useEffect(() => {
     onChange(inputValue);

@@ -15,5 +15,18 @@ const Template: ComponentStory<typeof List> = (args) => (
 
 export const Example = Template.bind({});
 Example.args = {
-  items: ['Primeiro', 'Segundo', 'Terceiro']
+  items: [
+    {
+      content: 'Primeiro',
+      key: '0'
+    },
+    {
+      content: 'Segundo',
+      key: '1'
+    },
+    {
+      content: 'Terceiro',
+      key: '2'
+    }
+  ]
 };

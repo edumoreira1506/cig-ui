@@ -1,4 +1,4 @@
-import { StyledItem, StyledList } from './List.styles';
+import { StyledItem, StyledList, StyledItemImage } from './List.styles';
 
 type ListItem = {
   content: string;
@@ -16,6 +16,10 @@ export default function List({ items, onItemClick }: ListProps) {
     <StyledList>
       {items.map(item => (
         <StyledItem key={item.key} onClick={() => onItemClick(item.key)}>
+          {item.image && (
+            <StyledItemImage src={item.image} alt={item.content} />
+          )}
+
           {item.content}
         </StyledItem>
       ))}
