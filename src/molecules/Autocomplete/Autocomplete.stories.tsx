@@ -15,5 +15,19 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => (
 
 export const Example = Template.bind({});
 Example.args = {
-  items: ['Primeiro', 'Segundo', 'Terceiro']
+  items: [
+    {
+      content: 'Primeiro',
+      key: '0',
+      image: 'https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png'
+    },
+    {
+      content: 'Segundo',
+      key: '1',
+    },
+    {
+      content: 'Terceiro',
+      key: '2'    
+    }
+  ]
 };

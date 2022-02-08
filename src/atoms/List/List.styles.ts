@@ -22,6 +22,9 @@ export const StyledItem = styled.li`
   border-bottom: solid 1px ${Colors.LightGrey};
   cursor: pointer;
   transition: ${DEFAULT_TRANSITION};
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   &:hover {
     background-color: ${Colors.LightGrey};
@@ -31,4 +34,13 @@ export const StyledItem = styled.li`
   &:last-child {
     border: none;
   }
+`;
+
+export const StyledItemImage = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-right: 8px;
+  border: solid 1px ${Colors.DarkBlue};
 `;

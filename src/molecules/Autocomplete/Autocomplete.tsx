@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 
 import Input, { InputProps } from '../../molecules/Input/Input';
 import { StyledContainer, StyledOptions } from './Autocomplete.styles';
-import List from '../../atoms/List/List';
+import List, { ListProps } from '../../atoms/List/List';
 
 interface AutocompleteProps {
-  items: string[];
-  onChange: (value: string) => void;
+  items: ListProps['items'];
+  onChange: ListProps['onItemClick'];
   inputProps: Omit<InputProps, 'value' | 'onChange' | 'type'>
 }
 
@@ -20,10 +20,12 @@ export default function Autocomplete({ items, onChange, inputProps = {} }: Autoc
     setInputValue(newValue.toString());
   }, [showOptions]);
 
-  const handleItemClick = useCallback((newValue: number | string) => {
-    setInputValue(newValue.toString());
+  const handleItemClick = useCallback((newValueKey: number | string) => {
+    const newItem = items.find(i => i.key === newValueKey);
+
+    setInputValue(newItem?.content?.toString() ?? '');
     setShowOptions(false);
-  }, []);
+  }, [items]);
 
   useEffect(() => {
     onChange(inputValue);
