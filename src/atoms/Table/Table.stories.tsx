@@ -46,3 +46,11 @@ WithExpand.args = {
   ],
   hasExpandColumn: true,
 };
+
+export const EmptyState = Template.bind({});
+EmptyState.args = {
+  columns: ['Primeira', 'Segunda', 'Terceira', 'Quarta'],
+  rows: [
+  ],
+  emptyStateText: 'Não há itens'
+};

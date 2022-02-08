@@ -18,12 +18,14 @@ interface TableProps {
     expandedContent?: string;
   }[];
   hasExpandColumn?: boolean;
+  emptyStateText?: string;
 }
 
 export default function Table({
   columns = [],
   rows = [],
-  hasExpandColumn = false
+  hasExpandColumn = false,
+  emptyStateText
 }: TableProps) {
   const [expandedRows, setExpandedRows] = useState<number[]>([]);
 
@@ -51,6 +53,14 @@ export default function Table({
         </StyledTableLine>
       </thead>
       <tbody>
+        {Boolean(!rows.length && emptyStateText) && (
+          <StyledExpandedArea>
+            <td colSpan={columns.length + 1}>
+              {emptyStateText}
+            </td>
+          </StyledExpandedArea>
+        )}
+        
         {rows.map((row, index) => (
           <Fragment key={`row-${index}`}>
             <StyledTableLine key={index}>
