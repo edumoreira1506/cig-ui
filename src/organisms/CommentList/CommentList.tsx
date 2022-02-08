@@ -51,7 +51,7 @@ const CommentList: VFC<CommentListProps> = ({
       {Boolean(onComment && commentNameButton) && (
         <StyledNewComment onSubmit={handleSubmitComment}>
           <FormField>
-            <TextField onChange={handleChangeComment} value={comment} />
+            <TextField placeholder='Escrever comentário...' onChange={handleChangeComment} value={comment} />
           </FormField>
           <Button onClick={handleSubmitComment}>
             {commentNameButton}

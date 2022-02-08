@@ -98,7 +98,7 @@ const CommentItem: VFC<CommentItemProps> = ({
           {showAnswerForm && (
             <StyledNewAnswer onSubmit={handleSubmitAnswer}>
               <FormField>
-                <TextField onChange={handleChangeAnswer} value={answer} />
+                <TextField placeholder='Escrever resposta...' onChange={handleChangeAnswer} value={answer} />
               </FormField>
               <Button onClick={handleSubmitAnswer}>
                 {answerNameButton}
