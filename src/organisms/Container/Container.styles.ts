@@ -53,3 +53,11 @@ export const StyledContent = styled.div`
     `)}`}
   `}
 `;
+
+export const StyledLoading = styled.span`
+  position: fixed;
+  right: 0;
+  top: 35px;
+  transform: scale(0.6) translateX(80px);
+  z-index: 999999;
+`;

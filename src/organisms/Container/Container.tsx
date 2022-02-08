@@ -2,12 +2,15 @@ import { ReactNode, useCallback, useState } from 'react';
 
 import Header, { HeaderProps } from '../../molecules/Header/Header';
 import Sidebar, { SidebarProps } from '../../molecules/Sidebar/Sidebar';
+import { Loading } from '../../atoms';
+import { Colors } from '../../constants/styles';
 
 import {
   StyledContainer,
   StyledSidebarContainer,
   StyledHeaderContainer,
   StyledContent,
+  StyledLoading
 } from './Container.styles';
 
 export interface ContainerProps {
@@ -19,6 +22,7 @@ export interface ContainerProps {
   shortcuts: HeaderProps['shortcuts'];
   onShortcutClick: HeaderProps['onClickShortcut'];
   logoUrl?: string;
+  isLoading?: boolean;
 }
 
 export default function Container({
@@ -29,7 +33,8 @@ export default function Container({
   onMenuClick,
   shortcuts,
   onShortcutClick,
-  logoUrl
+  logoUrl,
+  isLoading = false,
 }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -48,6 +53,11 @@ export default function Container({
 
   return (
     <StyledContainer logoUrl={logoUrl}>
+      {isLoading && (
+        <StyledLoading>
+          <Loading color={Colors.DarkBlue} />
+        </StyledLoading>
+      )}
       <StyledHeaderContainer>
         <Header
           sandwichButtonIsToggled={menuIsOpen}
