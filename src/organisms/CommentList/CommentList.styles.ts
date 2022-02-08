@@ -5,3 +5,11 @@ export const StyledComment = styled.div`
 `;
 
 export const StyledNewComment = styled.form``;
+
+export const StyledEmptyState = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 15px 0;
+`;

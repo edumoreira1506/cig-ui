@@ -4,7 +4,7 @@ import CommentItem, { CommentItemProps } from '../../molecules/CommentItem/Comme
 import { TextField } from '../../molecules';
 import { Button, FormField } from '../../atoms';
 
-import { StyledComment, StyledNewComment } from './CommentList.styles';
+import { StyledComment, StyledNewComment, StyledEmptyState } from './CommentList.styles';
 
 interface CommentListProps {
   comments?: CommentItemProps[];
@@ -32,6 +32,12 @@ const CommentList: VFC<CommentListProps> = ({
 
   return (
     <>
+      {Boolean(!comments.length) && (
+        <StyledEmptyState>
+        Não há comentários
+        </StyledEmptyState>
+      )}
+
       {comments.map(comment => (
         <StyledComment key={comment.content}>
           <CommentItem

@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import CommentList from './CommentList';
 
@@ -53,7 +54,15 @@ Example.args = {
       ]
     }
   ],
-  onComment: window.alert,
+  onComment: action('onComment'),
   commentNameButton: 'Comentar',
-  onAnswer: console.log
+  onAnswer: action('onAnswer')
+};
+
+export const EmptyState = Template.bind({});
+EmptyState.args = {
+  comments: [],
+  onComment: action('onComment'),
+  commentNameButton: 'Comentar',
+  onAnswer: action('onAnswer')
 };
