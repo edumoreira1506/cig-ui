@@ -67,3 +67,8 @@ export const StyledItemTitle = styled.p`
     color: ${color};
   `}
 `;
+
+export const StyledItemDescription = styled.p`
+  margin: 5px 0 0;
+  font-size: 0.8em;
+`;
