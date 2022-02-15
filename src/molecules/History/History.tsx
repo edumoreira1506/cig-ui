@@ -12,6 +12,7 @@ import {
   StyledItemIcon,
   StyledItemTexts,
   StyledItemTitle,
+  StyledItemDescription,
 } from './History.styles';
 
 type HistoryProps = {
@@ -48,6 +49,19 @@ export const History: VFC<HistoryProps> = ({
         </StyledItemIcon>
         <StyledItemTexts>
           <StyledItemTitle color={colors.placed}>Realizado</StyledItemTitle>
+
+          {Boolean(placedEvent?.metadata?.value) && (
+            <StyledItemDescription>
+              Valor da proposta: <b>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(placedEvent?.metadata?.value / 100)}</b>
+
+              {Boolean(placedEvent?.metadata?.description) && (
+                <>
+                  <br />
+                  {placedEvent?.metadata.description}
+                </>
+              )}
+            </StyledItemDescription>
+          )}
         </StyledItemTexts>
       </StyledItem>
 

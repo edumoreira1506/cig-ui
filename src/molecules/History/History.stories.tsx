@@ -20,6 +20,10 @@ Placed.args = {
   events: [
     {
       value: DealEventValueEnum.placed,
+      metadata: {
+        value: 15000,
+        description: 'Vou chamá-lo no whats app para conversarmos em relação ao envio'
+      },
       createdAt: new Date(),
     }
   ]
@@ -30,6 +34,10 @@ Confirmed.args = {
   events: [
     {
       value: DealEventValueEnum.placed,
+      metadata: {
+        value: 15000,
+        description: 'Vou chamá-lo no whats app para conversarmos em relação ao envio'
+      },
       createdAt: new Date(),
     },
     {
@@ -44,6 +52,10 @@ Finished.args = {
   events: [
     {
       value: DealEventValueEnum.placed,
+      metadata: {
+        value: 15000,
+        description: 'Vou chamá-lo no whats app para conversarmos em relação ao envio'
+      },
       createdAt: new Date(),
     },
     {
@@ -62,6 +74,10 @@ Cancelled.args = {
   events: [
     {
       value: DealEventValueEnum.placed,
+      metadata: {
+        value: 15000,
+        description: 'Vou chamá-lo no whats app para conversarmos em relação ao envio'
+      },
       createdAt: new Date(),
     },
     {
