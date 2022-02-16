@@ -30,8 +30,8 @@ export const History: VFC<HistoryProps> = ({
   const colors = useMemo(() => {
     return {
       placed: placedEvent && !cancelledEvent ? Colors.DarkGreyBlue : Colors.LightGrey,
-      confirmed: confirmedEvent && !cancelledEvent ? Colors.LightRed : Colors.LightGrey,
-      finished: finishedEvent && !cancelledEvent ? Colors.HalfGrey : Colors.LightGrey,
+      confirmed: confirmedEvent && !cancelledEvent ? Colors.DarkGreyBlue : Colors.LightGrey,
+      finished: finishedEvent && !cancelledEvent ? Colors.DarkGreyBlue : Colors.LightGrey,
     };
   }, [placedEvent, cancelledEvent, confirmedEvent, finishedEvent]);
 
