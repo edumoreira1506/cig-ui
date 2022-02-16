@@ -26,8 +26,8 @@ export type DealInfoProps = {
 }
 
 const statusColors = {
-  IN_PROGRESS: Colors.LightGrey,
-  FINISHED: Colors.DarkBlue,
+  IN_PROGRESS: Colors.LightBlue,
+  FINISHED: Colors.SuccessGreen,
   CANCELLED: Colors.LightRed
 };
 
