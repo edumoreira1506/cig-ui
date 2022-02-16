@@ -20,6 +20,10 @@ export const StyledButton = styled.button`
   align-items: center;
   transition: background-color ease 0.5s;
 
+  svg {
+    margin-right: 5px;
+  }
+
   &:hover {
     background-color: ${Colors.DarkBlueHover};
   }
