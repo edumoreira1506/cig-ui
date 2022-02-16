@@ -19,6 +19,7 @@ type PoultryCardProps = {
   price: number;
   subtitle: string;
   description: string;
+  subtitleColor?: string;
 }
 
 export const PoultryCard: VFC<PoultryCardProps> = ({
@@ -26,7 +27,8 @@ export const PoultryCard: VFC<PoultryCardProps> = ({
   price,
   subtitle,
   title,
-  image = POULTRY_FALLBACK_IMAGE
+  image = POULTRY_FALLBACK_IMAGE,
+  subtitleColor
 }: PoultryCardProps) => (
   <StyledContainer>
     <StyledImageContainer>
@@ -35,7 +37,7 @@ export const PoultryCard: VFC<PoultryCardProps> = ({
     <StyledTextContainer>
       <StyledName>{title}</StyledName>
       <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price / 100)}</StyledPrice>
-      <StyledSubtitle>{subtitle}</StyledSubtitle>
+      <StyledSubtitle color={subtitleColor}>{subtitle}</StyledSubtitle>
       <StyledDescription>{description}</StyledDescription>
     </StyledTextContainer>
   </StyledContainer>

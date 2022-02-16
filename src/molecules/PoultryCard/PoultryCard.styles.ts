@@ -39,6 +39,7 @@ export const StyledPrice = styled.p`
 
 export const StyledSubtitle = styled.p`
   margin: 0;
+  color: ${({ color }) => color || Colors.Black};
 `;
 
 export const StyledDescription = styled.p`
