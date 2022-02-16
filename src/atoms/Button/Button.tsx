@@ -14,6 +14,8 @@ export interface ButtonProps {
   children?: React.ReactNode;
   alignment?: 'center' | 'left';
   icon?: React.ReactNode;
+  color?: string;
+  hoverColor?: string;
 }
 
 export default function Button({
@@ -24,12 +26,22 @@ export default function Button({
   isLoading = false,
   children,
   alignment = 'center',
-  icon
+  icon,
+  color,
+  hoverColor
 }: ButtonProps) {
   const buttonContent = React.useMemo(() => children ?? label, [label, children]);
 
   return (
-    <StyledButton alignment={alignment} isLoading={isLoading} type={type} onClick={onClick} disabled={disabled}>
+    <StyledButton
+      color={color}
+      hoverColor={hoverColor}
+      alignment={alignment}
+      isLoading={isLoading}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {isLoading
         ? <Loading color={Colors.White} />
         : (

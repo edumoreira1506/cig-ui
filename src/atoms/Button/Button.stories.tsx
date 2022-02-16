@@ -32,3 +32,10 @@ WithIcon.args = {
   label: 'Click me!',
   icon: <AiFillAlert />
 };
+
+export const CustomColor = Template.bind({});
+CustomColor.args = {
+  label: 'Click me!',
+  color: 'red',
+  hoverColor: 'black'
+};

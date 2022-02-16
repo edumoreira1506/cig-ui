@@ -4,11 +4,18 @@ import { MAIN_FONT, Colors, DEFAULT_BORDER_RADIUS } from '../../constants/styles
 
 import { ButtonProps } from './Button';
 
+type StyledButtonProps = {
+  hoverColor?: string;
+  isLoading?: ButtonProps['isLoading'];
+  alignment?: ButtonProps['alignment'];
+  color?: string;
+}
+
 export const StyledButton = styled.button`
   font-family: ${MAIN_FONT};
   width: 100%;
   height: 30px;
-  background-color: ${Colors.DarkBlue};
+  background-color: ${({ color }: StyledButtonProps) => color || Colors.DarkBlue};
   border: none;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.White};
@@ -25,7 +32,7 @@ export const StyledButton = styled.button`
   }
 
   &:hover {
-    background-color: ${Colors.DarkBlueHover};
+    background-color: ${({ hoverColor }: StyledButtonProps) => hoverColor || Colors.DarkBlueHover};
   }
 
   &[disabled] {
@@ -33,7 +40,7 @@ export const StyledButton = styled.button`
     background-color: ${Colors.LightGrey};
   }
 
-  ${({ isLoading, alignment }: { isLoading: ButtonProps['isLoading']; alignment: ButtonProps['alignment'] }) => `
+  ${({ isLoading, alignment }: StyledButtonProps) => `
     justify-content: ${alignment};
 
     ${isLoading && `
