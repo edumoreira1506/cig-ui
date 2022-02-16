@@ -1,7 +1,7 @@
 import { useCallback, VFC } from 'react';
 import { IAdvertising, IBreeder, IPoultry } from '@cig-platform/types';
 
-import { Colors } from '../../constants';
+import { Colors, POULTRY_FALLBACK_IMAGE } from '../../constants';
 import { Button } from '../../atoms';
 
 import { 
@@ -39,7 +39,7 @@ const statusTitle = {
 
 export const DealInfo: VFC<DealInfoProps> = ({
   date,
-  image,
+  image = POULTRY_FALLBACK_IMAGE,
   status,
   poultry,
   advertising,
@@ -56,7 +56,7 @@ export const DealInfo: VFC<DealInfoProps> = ({
 
       <StyledBody>
         <StyledImage>
-          <img src={image ?? 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'} alt={poultry.name} />
+          <img src={image} alt={poultry.name} />
         </StyledImage>
 
         <StyledTextsContent>

@@ -19,3 +19,5 @@ export const DEFAULT_TRANSITION = 'ease 0.2s';
 export const DEFAULT_BOX_SHADOW = '3px 0px 15px -2px rgba(0,0,0,0.72)';
 
 export const DEFAULT_BORDER_RADIUS = '5px';
+
+export const POULTRY_FALLBACK_IMAGE = 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg';
