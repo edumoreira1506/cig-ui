@@ -4,6 +4,7 @@ import PoultriesCarousel from './PoultriesCarousel';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { POULTRY_FALLBACK_IMAGE } from '../../constants';
 
 export default {
   title: 'Molecules/PoultriesCarousel',
@@ -26,7 +27,7 @@ Example.args = {
   onViewPoultry: console.log,
   onClickImage: console.log,
   onEditPoultry: console.log,
-  fallbackImage: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'
+  fallbackImage: POULTRY_FALLBACK_IMAGE
 };
 
 export const UsingFallback = Template.bind({});
@@ -45,5 +46,5 @@ UsingFallback.args = {
   onViewPoultry: console.log,
   onClickImage: console.log,
   onEditPoultry: console.log,
-  fallbackImage: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg'
+  fallbackImage: POULTRY_FALLBACK_IMAGE
 };

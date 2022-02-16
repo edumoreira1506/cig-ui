@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { DealInfo } from './DealInfo';
+import { POULTRY_FALLBACK_IMAGE } from '../../constants';
 
 export default {
   title: 'Molecules/DealInfo',
@@ -28,7 +29,7 @@ InProgress.args = {
   breeder: {
     name: 'Criatório do Toninho'
   },
-  image: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg',
+  image: POULTRY_FALLBACK_IMAGE,
   onViewDeal: action('onViewDeal')
 };
 
@@ -46,7 +47,7 @@ Finished.args = {
   breeder: {
     name: 'Criatório do Toninho'
   },
-  image: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg',
+  image: POULTRY_FALLBACK_IMAGE,
   onViewDeal: action('onViewDeal')
 };
 
@@ -64,6 +65,6 @@ Cancelled.args = {
   breeder: {
     name: 'Criatório do Toninho'
   },
-  image: 'https://farmhousepoultry.ca/wp-content/uploads/2016/03/Product_ImageComingSoon_592x592-380x400.jpg',
+  image: POULTRY_FALLBACK_IMAGE,
   onViewDeal: action('onViewDeal')
 };
