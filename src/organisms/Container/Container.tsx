@@ -20,7 +20,7 @@ export interface ContainerProps {
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
   shortcuts: HeaderProps['shortcuts'];
-  onSearch: HeaderProps['onSearch'];
+  onSearch?: HeaderProps['onSearch'];
   onShortcutClick: HeaderProps['onClickShortcut'];
   logoUrl?: string;
   isLoading?: boolean;
