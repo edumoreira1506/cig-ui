@@ -1,7 +1,8 @@
-import { VFC } from 'react';
+import React, { VFC } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import { Round } from '..';
+import { Colors } from '../../constants';
 
 import { StyledContainer } from './FavoriteButton.styles';
 
@@ -15,7 +16,7 @@ export const FavoriteButton: VFC<FavoriteButtonProps> = ({
   onToggleFavorite
 }: FavoriteButtonProps) => (
   <StyledContainer onClick={onToggleFavorite} favorited={favorited}>
-    <Round>
+    <Round backgroundColor={Colors.White}>
       {favorited ? <AiFillHeart /> : <AiOutlineHeart />}
     </Round>
   </StyledContainer>
