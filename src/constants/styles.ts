@@ -3,6 +3,7 @@ export enum Colors {
   MediumGrey = '#a7a7a7',
   LightGrey = '#d7d7d7',
   HalfGrey = '#4e4e4e',
+  VeryLightGrey = '#dadada',
   DarkBlue = '#2a3c5a',
   White = '#ffffff',
   DarkGreyBlue = '#2b3c5a',

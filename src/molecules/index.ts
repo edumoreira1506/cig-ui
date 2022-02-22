@@ -15,3 +15,4 @@ export { default as ImagesCarousel } from './ImagesCarousel/ImagesCarousel';
 export { default as Timeline } from './Timeline/Timeline';
 export * from './DealInfo/DealInfo';
 export * from './FeaturedCarousel/FeaturedCarousel';
+export * from './AdvertisingCarousel/AdvertisingCarousel';

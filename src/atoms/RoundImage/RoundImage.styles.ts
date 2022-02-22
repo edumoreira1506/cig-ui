@@ -11,7 +11,7 @@ export const StyledContainer = styled.figure`
   ${({ borderColor, borderWidth }: { borderColor: string; borderWidth: number }) => `
     border-width: ${borderWidth}px;
     border-color: ${borderColor};
-    border-style: inset;
+    border-style: solid;
     width: calc(100% - ${borderWidth * 2}px);
     height: calc(100% - ${borderWidth * 2}px);
   `}
