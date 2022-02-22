@@ -4,6 +4,7 @@ import { IDealEvent } from '@cig-platform/types';
 import { DealEventValueEnum } from '@cig-platform/enums';
 
 import { Colors } from '../../constants';
+import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 
 import {
   StyledContainer,
@@ -52,7 +53,7 @@ export const History: VFC<HistoryProps> = ({
 
           {Boolean(placedEvent?.metadata?.value) && (
             <StyledItemDescription>
-              Valor da proposta: <b>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(placedEvent?.metadata?.value / 100)}</b>
+              Valor da proposta: <b>{centsToBrazilianFormat(placedEvent?.metadata?.value)}</b>
 
               {Boolean(placedEvent?.metadata?.description) && (
                 <>

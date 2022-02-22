@@ -1,6 +1,7 @@
 import React, { VFC } from 'react';
 import Slider from 'react-slick';
 
+import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 import Button from '../../atoms/Button/Button';
 import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
 
@@ -66,7 +67,7 @@ export const FeaturedCarousel: VFC<FeaturedCarouselProps> = ({
 
             <StyledDetailsArea>
               <StyledItemTitle>{item.title}</StyledItemTitle>
-              <StyledItemPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price / 100)}</StyledItemPrice>
+              <StyledItemPrice>{centsToBrazilianFormat(item.price)}</StyledItemPrice>
               <StyledItemButton>
                 <Button onClick={() => onSeeMore(item.identifier)}>
                   Saiba Mais

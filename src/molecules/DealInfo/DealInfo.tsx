@@ -3,6 +3,7 @@ import { IAdvertising, IBreeder, IPoultry } from '@cig-platform/types';
 
 import { Colors, POULTRY_FALLBACK_IMAGE } from '../../constants';
 import { Button } from '../../atoms';
+import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 
 import { 
   StyledBody,
@@ -64,7 +65,7 @@ export const DealInfo: VFC<DealInfoProps> = ({
             {statusTitle[status]}
           </StyledStatus>
           <StyledInfo>{poultry?.name}</StyledInfo>
-          <StyledInfo>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)}</StyledInfo>
+          <StyledInfo>{centsToBrazilianFormat(advertising.price)}</StyledInfo>
           <StyledInfo>Negociação com {breeder.name}</StyledInfo>
         </StyledTextsContent>
 

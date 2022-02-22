@@ -1,5 +1,6 @@
 import { VFC } from 'react';
 
+import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 import { POULTRY_FALLBACK_IMAGE } from '../../constants';
 
 import {
@@ -36,7 +37,7 @@ export const PoultryCard: VFC<PoultryCardProps> = ({
     </StyledImageContainer>
     <StyledTextContainer>
       <StyledName>{title}</StyledName>
-      <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price / 100)}</StyledPrice>
+      <StyledPrice>{centsToBrazilianFormat(price)}</StyledPrice>
       <StyledSubtitle color={subtitleColor}>{subtitle}</StyledSubtitle>
       <StyledDescription>{description}</StyledDescription>
     </StyledTextContainer>
