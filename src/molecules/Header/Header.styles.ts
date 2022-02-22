@@ -5,6 +5,7 @@ import {
   MAIN_FONT,
   DEFAULT_BORDER_RADIUS,
   DEFAULT_BOX_SHADOW,
+  DEFAULT_TRANSITION,
 } from '../../constants/styles';
 
 export const StyledHeader = styled.header`
@@ -61,4 +62,53 @@ export const StyledShortcutContainer = styled.ul`
 export const StyledShortcut = styled.li`
   font-weight: bold;
   font-family: ${MAIN_FONT};
+`;
+
+export const StyledIcons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StyledSearchIcon = styled.button`
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  justify-content: center;
+  color: ${({ isOpen }: { isOpen: boolean }) => isOpen ? Colors.VeryLightGrey : Colors.White};
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    z-index: 2;
+  }
+`;
+
+export const StyledSearchArea = styled.form`
+  transition: width ${DEFAULT_TRANSITION};
+  width: ${({ isOpen }: { isOpen: boolean }) => isOpen ? '230px' : 0};
+  overflow: hidden;
+  position: absolute;
+  left: 10px;
+  background-color: white;
+  border: none;
+`;
+
+export const StyledSearchInput = styled.input`
+  background: none;
+  border: none;
+  width: calc(100% - 36px);
+  color: ${Colors.VeryLightGrey};
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: ${Colors.VeryLightGrey};
+  }
 `;

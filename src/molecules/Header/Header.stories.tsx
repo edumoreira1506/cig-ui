@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Header from './Header';
 
@@ -17,5 +18,7 @@ Example.args = {
   },
   title: 'CIG',
   shortcuts: ['Sair'],
-  onClickShortcut: console.log
+  onClickShortcut: action('onClickShortcut'),
+  onSearch: action('onSearch'),
+  onToggleMenu: action('onToggleMenu'),
 };
