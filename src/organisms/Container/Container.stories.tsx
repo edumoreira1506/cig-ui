@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { AiFillQuestionCircle, AiFillHome, AiFillWechat, AiFillInfoCircle } from 'react-icons/ai';
 import { GiChicken, GiShoppingCart } from 'react-icons/gi';
 import { IoMdMegaphone } from 'react-icons/io';
@@ -61,8 +62,9 @@ Example.args = {
       title: 'Suporte'
     }
   ],
-  onClick: console.log,
-  onMenuClick: console.log,
-  onShortcutClick: console.log,
+  onClick: action('onClick'),
+  onMenuClick: action('onMenuClick'),
+  onShortcutClick: action('onShortcutClick'),
+  onSearch: action('onSearch'),
   shortcuts: ['Sair'] 
 };

@@ -20,6 +20,7 @@ export interface ContainerProps {
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
   shortcuts: HeaderProps['shortcuts'];
+  onSearch: HeaderProps['onSearch'];
   onShortcutClick: HeaderProps['onClickShortcut'];
   logoUrl?: string;
   isLoading?: boolean;
@@ -35,6 +36,7 @@ export default function Container({
   onShortcutClick,
   logoUrl,
   isLoading = false,
+  onSearch
 }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -66,6 +68,7 @@ export default function Container({
           user={user}
           shortcuts={shortcuts}
           onClickShortcut={onShortcutClick}
+          onSearch={onSearch}
         />
       </StyledHeaderContainer>
       <StyledSidebarContainer>

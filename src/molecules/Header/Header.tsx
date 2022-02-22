@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 import { Colors } from '../../constants/styles';
 import SandwitchButton, { SandwitchButtonProps } from '../../atoms/SandwichButton/SandwichButton';
@@ -11,6 +12,10 @@ import {
   StyledTitle,
   StyledShortcutContainer,
   StyledShortcut,
+  StyledIcons,
+  StyledSearchIcon,
+  StyledSearchArea,
+  StyledSearchInput
 } from './Header.styles';
 
 export interface HeaderProps {
@@ -23,6 +28,7 @@ export interface HeaderProps {
   sandwichButtonIsToggled: boolean;
   onClickShortcut?: (shortcut: string) => void;
   shortcuts?: string[];
+  onSearch?: (query: string) => void;
 }
 
 export default function Header({
@@ -31,13 +37,24 @@ export default function Header({
   onToggleMenu,
   sandwichButtonIsToggled,
   shortcuts = [],
-  onClickShortcut
+  onClickShortcut,
+  onSearch
 }: HeaderProps ) {
   const [isOpenShortcuts, setIsOpenShortcuts] = useState(false);
+  const [isOpenSearchArea, setIsOpenSearchArea] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
+  const searchRef = useRef<any>();
   const shortcutRef = useRef<any>();
 
   const toggleShortcuts = useCallback(() => setIsOpenShortcuts(prevIsOpenShortcuts => !prevIsOpenShortcuts), []);
+  const toggleSearchArea = useCallback(() => setIsOpenSearchArea(prevIsOpenSearchArea => {
+    if (!prevIsOpenSearchArea) {
+      searchRef.current?.focus();
+    }
+
+    return !prevIsOpenSearchArea;
+  }), [searchRef]);
 
   const onDocumentClick = useCallback((e) => {
     if (!isOpenShortcuts || !shortcutRef.current) return;
@@ -59,6 +76,12 @@ export default function Header({
     if (!isClickingInsideTheShortcutArea) setIsOpenShortcuts(false);
   }, [isOpenShortcuts]);
 
+  const handleSubmitSearch = useCallback((e) => {
+    e.preventDefault();
+
+    onSearch?.(searchValue);
+  }, [searchValue, onSearch]);
+
   useEffect(() => {
     document.addEventListener('click', onDocumentClick);
 
@@ -70,7 +93,28 @@ export default function Header({
   return (
     <StyledHeader>
       <StyledContainer>
-        <SandwitchButton onToggle={onToggleMenu} color={Colors.White} toggled={sandwichButtonIsToggled} />
+        <StyledIcons>
+          <SandwitchButton onToggle={onToggleMenu} color={Colors.White} toggled={sandwichButtonIsToggled} />
+          {onSearch && (
+            <StyledSearchIcon isOpen={isOpenSearchArea} onClick={toggleSearchArea}>
+              <AiOutlineSearch />
+
+              <StyledSearchArea
+                isOpen={isOpenSearchArea}
+                onClick={e => e.stopPropagation()}
+                onSubmit={handleSubmitSearch}
+              >
+                <StyledSearchInput
+                  value={searchValue}
+                  onChange={e => setSearchValue(e.target.value)}
+                  placeholder="Estou buscando..."
+                  type="search"
+                  ref={searchRef}
+                />
+              </StyledSearchArea>
+            </StyledSearchIcon>
+          )}
+        </StyledIcons>
         <StyledTitle>{title}</StyledTitle>
         <StyledImageContainer>
           <RoundImage onClick={toggleShortcuts} borderWidth={2} src={userImage} alt={userName} />
