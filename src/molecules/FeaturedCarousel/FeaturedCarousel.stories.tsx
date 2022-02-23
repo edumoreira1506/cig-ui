@@ -24,7 +24,8 @@ Example.args = {
       title: 'Lorem ipsum dolor set',
       price: 15000,
       identifier: 0,
-      image: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg'
+      image: 'https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg',
+      favorited: true
     },
     {
       title: 'Ali baba catsu or',

@@ -61,6 +61,13 @@ export const StyledImageContainer = styled.figure`
   border-radius: 10px;
   overflow: hidden;
   margin: 5px;
+  position: relative;
+`;
+
+export const StyledFavoriteButton = styled.div`
+  position: absolute;
+  right: 5px;
+  top: 5px;
 `;
 
 export const StyledImage = styled.img`

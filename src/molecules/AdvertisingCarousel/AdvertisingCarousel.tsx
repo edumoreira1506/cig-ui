@@ -3,7 +3,8 @@ import { IoIosArrowForward } from 'react-icons/io';
 import Slider from 'react-slick';
 
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
-import { RoundImage } from '../../atoms';
+import RoundImage from '../../atoms/RoundImage/RoundImage';
+import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
 import { Colors } from '../../constants';
 
 import {
@@ -19,6 +20,7 @@ import {
   StyledTitle,
   StyledViewAll,
   StyledItem,
+  StyledFavoriteButton
 } from './AdvertisingCarousel.styles';
 
 const CAROUSEL_SETTINGS = {
@@ -31,20 +33,22 @@ const CAROUSEL_SETTINGS = {
   arrows: false,
 };
 
-type AdvertisingCarouselItem = {
+export type AdvertisingCarouselItem = {
   price: number;
   description: string;
   breederImage?: string;
   image?: string;
   identifier: string;
+  favorited?: boolean;
 }
 
-type AdvertisingCarouselProps = {
+export type AdvertisingCarouselProps = {
   title: string;
   onViewAll: () => void;
   advertisings: AdvertisingCarouselItem[];
   placeholderImage: string;
   onViewAdvertising: (identifier: string) => void;
+  onFavorite?: (identifier: string) => void;
 }
 
 export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
@@ -52,7 +56,8 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
   onViewAll,
   advertisings,
   placeholderImage,
-  onViewAdvertising
+  onViewAdvertising,
+  onFavorite
 }: AdvertisingCarouselProps) => (
   <StyledContainer>
     <StyledHeader>
@@ -70,6 +75,12 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
           <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising(advertising.identifier)}>
             <StyledImageContainer>
               <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+
+              {onFavorite && (
+                <StyledFavoriteButton>
+                  <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
+                </StyledFavoriteButton>
+              )}
             </StyledImageContainer>
 
             <StyledTexts>
