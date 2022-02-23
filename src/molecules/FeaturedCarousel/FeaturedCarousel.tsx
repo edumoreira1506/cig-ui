@@ -19,14 +19,15 @@ import {
   StyledItemTitle,
 } from './FeaturedCarousel.styles';
 
-type FeaturedCarouselItem = {
+export type FeaturedCarouselItem = {
   title: string;
   price: number;
   image?: string;
   identifier: string;
+  favorited?: boolean
 }
 
-type FeaturedCarouselProps = {
+export type FeaturedCarouselProps = {
   onFavorite?: (identifier: string) => void;
   placeholderImage: string;
   items: FeaturedCarouselItem[];
@@ -57,7 +58,10 @@ export const FeaturedCarousel: VFC<FeaturedCarouselProps> = ({
           <StyledItem key={item.identifier}>
             {Boolean(onFavorite) && (
               <StyledFavoriteButton>
-                <FavoriteButton onToggleFavorite={() => onFavorite?.(item.identifier)} />
+                <FavoriteButton
+                  onToggleFavorite={() => onFavorite?.(item.identifier)}
+                  favorited={Boolean(item.favorited)}
+                />
               </StyledFavoriteButton>
             )}
 
