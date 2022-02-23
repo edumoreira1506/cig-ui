@@ -66,8 +66,8 @@ export const StyledImageContainer = styled.figure`
 
 export const StyledFavoriteButton = styled.div`
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 5px;
+  top: 5px;
 `;
 
 export const StyledImage = styled.img`

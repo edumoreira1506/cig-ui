@@ -75,6 +75,12 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
           <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising(advertising.identifier)}>
             <StyledImageContainer>
               <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+
+              {onFavorite && (
+                <StyledFavoriteButton>
+                  <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
+                </StyledFavoriteButton>
+              )}
             </StyledImageContainer>
 
             <StyledTexts>
@@ -89,12 +95,6 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
                 borderWidth={1}
                 borderColor={Colors.White}
               />
-
-              {onFavorite && (
-                <StyledFavoriteButton>
-                  <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
-                </StyledFavoriteButton>
-              )}
             </StyledBreederImageContainer>
           </StyledItem>
         ))}
