@@ -3,7 +3,8 @@ import { IoIosArrowForward } from 'react-icons/io';
 import Slider from 'react-slick';
 
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
-import { RoundImage } from '../../atoms';
+import RoundImage from '../../atoms/RoundImage/RoundImage';
+import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
 import { Colors } from '../../constants';
 
 import {
@@ -19,6 +20,7 @@ import {
   StyledTitle,
   StyledViewAll,
   StyledItem,
+  StyledFavoriteButton
 } from './AdvertisingCarousel.styles';
 
 const CAROUSEL_SETTINGS = {
@@ -37,6 +39,7 @@ export type AdvertisingCarouselItem = {
   breederImage?: string;
   image?: string;
   identifier: string;
+  favorited?: boolean;
 }
 
 export type AdvertisingCarouselProps = {
@@ -45,6 +48,7 @@ export type AdvertisingCarouselProps = {
   advertisings: AdvertisingCarouselItem[];
   placeholderImage: string;
   onViewAdvertising: (identifier: string) => void;
+  onFavorite?: (identifier: string) => void;
 }
 
 export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
@@ -52,7 +56,8 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
   onViewAll,
   advertisings,
   placeholderImage,
-  onViewAdvertising
+  onViewAdvertising,
+  onFavorite
 }: AdvertisingCarouselProps) => (
   <StyledContainer>
     <StyledHeader>
@@ -84,6 +89,12 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
                 borderWidth={1}
                 borderColor={Colors.White}
               />
+
+              {onFavorite && (
+                <StyledFavoriteButton>
+                  <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
+                </StyledFavoriteButton>
+              )}
             </StyledBreederImageContainer>
           </StyledItem>
         ))}

@@ -18,6 +18,7 @@ export const Example = Template.bind({});
 Example.args = {
   onViewAll: action('onViewAll'),
   onViewAdvertising: action('onViewAdvertising'),
+  onFavorite: action('onFavorite'),
   placeholderImage: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com/breeders/profile/placeholder-user.png',
   title: 'Frangos',
   advertisings: [
@@ -26,7 +27,8 @@ Example.args = {
       description: 'Lorem ipsum dolor set ali baba...',
       breederImage: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',
       image: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',
-      identifier: '0'
+      identifier: '0',
+      favorited: true
     },
     {
       price: 15000,
