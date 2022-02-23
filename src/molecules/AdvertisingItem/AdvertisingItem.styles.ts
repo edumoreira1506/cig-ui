@@ -17,6 +17,10 @@ export const StyledContainer = styled.button`
   font-family: ${MAIN_FONT};
   align-items: flex-start;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const StyledImageContainer = styled.figure`
@@ -25,6 +29,7 @@ export const StyledImageContainer = styled.figure`
   height: 130px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   overflow: hidden;
+  position: relative;
 `;
 
 export const StyledImage = styled.img`
@@ -56,4 +61,10 @@ export const StyledDescription = styled.p`
   margin: 15px 0 0 0;
   font-size: 0.8em;
   color: ${Colors.HalfGrey};
+`;
+
+export const StyledFavoriteButton = styled.span`
+  position: absolute;
+  right: 0;
+  top: 0;
 `;

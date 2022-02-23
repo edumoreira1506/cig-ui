@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof AdvertisingItem> = (args) => (
 export const Example = Template.bind({});
 Example.args = {
   onViewAdvertising: action('onViewAdvertising'),
+  onToggleFavorite: action('onToggleFavorite'),
   placeholderImage: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com/breeders/profile/placeholder-user.png',
   title: 'Claudinha da Silva',
   price: 15000,

@@ -1,6 +1,7 @@
 import { VFC } from 'react';
 
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
+import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
 
 import {
   StyledContainer,
@@ -9,7 +10,8 @@ import {
   StyledImage,
   StyledImageContainer,
   StyledPrice,
-  StyledTitle
+  StyledTitle,
+  StyledFavoriteButton
 } from './AdvertisingItem.styles';
 
 export type AdvertisingItemProps = {
@@ -19,6 +21,8 @@ export type AdvertisingItemProps = {
   price: number;
   description: string;
   image?: string;
+  onToggleFavorite?: () => void;
+  favorited?: boolean;
 }
 
 export const AdvertisingItem: VFC<AdvertisingItemProps> = ({
@@ -27,11 +31,19 @@ export const AdvertisingItem: VFC<AdvertisingItemProps> = ({
   placeholderImage,
   price,
   title,
-  image
+  image,
+  onToggleFavorite,
+  favorited = false
 }: AdvertisingItemProps) => (
   <StyledContainer onClick={onViewAdvertising}>
     <StyledImageContainer>
       <StyledImage alt="" src={image ?? placeholderImage} />
+
+      {onToggleFavorite && (
+        <StyledFavoriteButton>
+          <FavoriteButton onToggleFavorite={onToggleFavorite} favorited={favorited} />
+        </StyledFavoriteButton>
+      )}
     </StyledImageContainer>
     <StyledContent>
       <StyledTitle>{title}</StyledTitle>

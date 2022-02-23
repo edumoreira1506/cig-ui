@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { useCallback, VFC } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 import { Round } from '..';
@@ -14,10 +14,17 @@ type FavoriteButtonProps = {
 export const FavoriteButton: VFC<FavoriteButtonProps> = ({
   favorited = false,
   onToggleFavorite
-}: FavoriteButtonProps) => (
-  <StyledContainer onClick={onToggleFavorite} favorited={favorited}>
-    <Round backgroundColor={Colors.White}>
-      {favorited ? <AiFillHeart /> : <AiOutlineHeart />}
-    </Round>
-  </StyledContainer>
-);
+}: FavoriteButtonProps) => {
+  const handleToggleFavorite = useCallback((e) => {
+    e.stopPropagation();
+    onToggleFavorite();
+  }, [onToggleFavorite]);
+
+  return (
+    <StyledContainer onClick={handleToggleFavorite} favorited={favorited}>
+      <Round backgroundColor={Colors.White}>
+        {favorited ? <AiFillHeart /> : <AiOutlineHeart />}
+      </Round>
+    </StyledContainer>
+  );
+};
