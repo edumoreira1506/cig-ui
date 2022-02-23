@@ -31,7 +31,7 @@ const CAROUSEL_SETTINGS = {
   arrows: false,
 };
 
-type AdvertisingCarouselItem = {
+export type AdvertisingCarouselItem = {
   price: number;
   description: string;
   breederImage?: string;
@@ -39,7 +39,7 @@ type AdvertisingCarouselItem = {
   identifier: string;
 }
 
-type AdvertisingCarouselProps = {
+export type AdvertisingCarouselProps = {
   title: string;
   onViewAll: () => void;
   advertisings: AdvertisingCarouselItem[];
