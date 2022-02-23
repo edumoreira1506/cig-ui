@@ -14,6 +14,7 @@ export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
 export { default as RoundImage } from './RoundImage/RoundImage';
 export { default as SandwichButton } from './SandwichButton/SandwichButton';
 export { default as SquareLink } from './SquareLink/SquareLink';
+export * from './SquareButton/SquareButton';
 export { default as SquareFileInput } from './SquareFileInput/SquareFileInput';
 export { default as Subtitle } from './Subtitle/Subtitle';
 export { default as Table } from './Table/Table';
