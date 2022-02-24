@@ -1,6 +1,7 @@
 export { default as Autocomplete } from './Autocomplete/Autocomplete';
 export { default as CommentItem } from './CommentItem/CommentItem';
 export { default as FileImagesCarousel } from './FileImagesCarousel/FileImagesCarousel';
+export * from './Filter/Filter';
 export { default as Header } from './Header/Header';
 export * from './History/History';
 export { default as Input } from './Input/Input';
