@@ -76,11 +76,14 @@ export default function Header({
     if (!isClickingInsideTheShortcutArea) setIsOpenShortcuts(false);
   }, [isOpenShortcuts]);
 
+  const closeSearchArea = useCallback(() => setIsOpenSearchArea(false), []);
+
   const handleSubmitSearch = useCallback((e) => {
     e.preventDefault();
 
     onSearch?.(searchValue);
-  }, [searchValue, onSearch]);
+    closeSearchArea();
+  }, [searchValue, onSearch, closeSearchArea]);
 
   useEffect(() => {
     document.addEventListener('click', onDocumentClick);
@@ -110,6 +113,7 @@ export default function Header({
                   placeholder="Estou buscando..."
                   type="search"
                   ref={searchRef}
+                  onBlur={closeSearchArea}
                 />
               </StyledSearchArea>
             </StyledSearchIcon>
