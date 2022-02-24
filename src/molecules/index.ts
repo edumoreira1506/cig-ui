@@ -9,6 +9,7 @@ export { default as ListModal } from './ListModal/ListModal';
 export { default as PoultriesCarousel } from './PoultriesCarousel/PoultriesCarousel';
 export * from './PoultryCard/PoultryCard';
 export { default as Select } from './Select/Select';
+export * from './SelectedList/SelectedList';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as TextField } from './TextField/TextField';
 export { default as ImagesCarousel } from './ImagesCarousel/ImagesCarousel';
