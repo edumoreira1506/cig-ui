@@ -48,6 +48,7 @@ export type AdvertisingCarouselProps = {
   advertisings: AdvertisingCarouselItem[];
   placeholderImage: string;
   onViewAdvertising: (identifier: string) => void;
+  onViewBreeder: (identifer: string) => void;
   onFavorite?: (identifier: string) => void;
 }
 
@@ -57,7 +58,8 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
   advertisings,
   placeholderImage,
   onViewAdvertising,
-  onFavorite
+  onFavorite,
+  onViewBreeder
 }: AdvertisingCarouselProps) => (
   <StyledContainer>
     <StyledHeader>
@@ -88,7 +90,10 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
               <StyledDescription>{advertising.description}</StyledDescription>
             </StyledTexts>
 
-            <StyledBreederImageContainer>
+            <StyledBreederImageContainer onClick={e => {
+              e.stopPropagation();
+              onViewBreeder(advertising.identifier);
+            }}>
               <RoundImage
                 src={advertising.breederImage ?? placeholderImage}
                 alt=""
