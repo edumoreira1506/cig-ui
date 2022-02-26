@@ -18,6 +18,7 @@ export const Example = Template.bind({});
 Example.args = {
   onViewAll: action('onViewAll'),
   onViewAdvertising: action('onViewAdvertising'),
+  onViewBreeder: action('onViewBreeder'),
   onFavorite: action('onFavorite'),
   placeholderImage: 'https://cig-maketplace.s3.sa-east-1.amazonaws.com/breeders/profile/placeholder-user.png',
   title: 'Frangos',
