@@ -2,6 +2,8 @@ import { VFC } from 'react';
 
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
+import RoundImage from '../../atoms/RoundImage/RoundImage';
+import { Colors } from '../../constants/styles';
 
 import {
   StyledContainer,
@@ -11,7 +13,8 @@ import {
   StyledImageContainer,
   StyledPrice,
   StyledTitle,
-  StyledFavoriteButton
+  StyledFavoriteButton,
+  StyledBreederImageContainer
 } from './AdvertisingItem.styles';
 
 export type AdvertisingItemProps = {
@@ -21,7 +24,9 @@ export type AdvertisingItemProps = {
   price: number;
   description: string;
   image?: string;
+  breederImage?: string;
   onToggleFavorite?: () => void;
+  onViewBreeder: () => void;
   favorited?: boolean;
 }
 
@@ -33,7 +38,9 @@ export const AdvertisingItem: VFC<AdvertisingItemProps> = ({
   title,
   image,
   onToggleFavorite,
-  favorited = false
+  favorited = false,
+  breederImage,
+  onViewBreeder
 }: AdvertisingItemProps) => (
   <StyledContainer onClick={onViewAdvertising}>
     <StyledImageContainer>
@@ -53,6 +60,17 @@ export const AdvertisingItem: VFC<AdvertisingItemProps> = ({
       <StyledDescription>
         {description}
       </StyledDescription>
+      <StyledBreederImageContainer onClick={e => {
+        e.stopPropagation();
+        onViewBreeder();
+      }}>
+        <RoundImage
+          src={breederImage ?? placeholderImage}
+          alt=""
+          borderWidth={1}
+          borderColor={Colors.White}
+        />
+      </StyledBreederImageContainer>
     </StyledContent>
   </StyledContainer>
 );

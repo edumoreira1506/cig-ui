@@ -68,3 +68,8 @@ export const StyledFavoriteButton = styled.span`
   right: 0;
   top: 0;
 `;
+
+export const StyledBreederImageContainer = styled.div`
+  width: 30px;
+  margin-top: 12px;
+`;
