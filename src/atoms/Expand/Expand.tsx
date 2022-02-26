@@ -27,10 +27,10 @@ export const Expand: VFC<ExpandProps> = ({
   , []);
 
   useEffect(() => {
-    if (typeof expand === 'boolean' && expand !== isExpanded) {
-      setIsExpanded(expand);
+    if (typeof expand === 'boolean') {
+      setIsExpanded(prevIsExpanded => prevIsExpanded !== expand ? expand : prevIsExpanded);
     }
-  }, [expand, isExpanded]);
+  }, [expand]);
 
   return (
     <StyledContainer>
