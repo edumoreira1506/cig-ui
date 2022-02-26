@@ -66,5 +66,6 @@ Example.args = {
   onMenuClick: action('onMenuClick'),
   onShortcutClick: action('onShortcutClick'),
   onSearch: action('onSearch'),
+  onClickTitle: action('onClickTitle'),
   shortcuts: ['Sair'] 
 };

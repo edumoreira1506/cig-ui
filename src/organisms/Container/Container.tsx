@@ -17,6 +17,7 @@ export interface ContainerProps {
   children: ReactNode;
   title: HeaderProps['title'];
   user: HeaderProps['user'];
+  onClickTitle: HeaderProps['onClickTitle'];
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
   shortcuts: HeaderProps['shortcuts'];
@@ -36,7 +37,8 @@ export default function Container({
   onShortcutClick,
   logoUrl,
   isLoading = false,
-  onSearch
+  onSearch,
+  onClickTitle
 }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -69,6 +71,7 @@ export default function Container({
           shortcuts={shortcuts}
           onClickShortcut={onShortcutClick}
           onSearch={onSearch}
+          onClickTitle={onClickTitle}
         />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
