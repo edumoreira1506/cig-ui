@@ -22,5 +22,6 @@ Example.args = {
       <li>Marcelo</li>
     </ul>
   ),
-  title: 'Título Teste'
+  title: 'Título Teste',
+  expand: false
 };
