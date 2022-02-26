@@ -21,4 +21,5 @@ Example.args = {
   onClickShortcut: action('onClickShortcut'),
   onSearch: action('onSearch'),
   onToggleMenu: action('onToggleMenu'),
+  onClickTitle: action('onClickTitle'),
 };
