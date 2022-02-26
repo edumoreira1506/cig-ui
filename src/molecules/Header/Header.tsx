@@ -29,6 +29,7 @@ export interface HeaderProps {
   onClickShortcut?: (shortcut: string) => void;
   shortcuts?: string[];
   onSearch?: (query: string) => void;
+  onClickTitle?: () => void;
 }
 
 export default function Header({
@@ -38,7 +39,8 @@ export default function Header({
   sandwichButtonIsToggled,
   shortcuts = [],
   onClickShortcut,
-  onSearch
+  onSearch,
+  onClickTitle
 }: HeaderProps ) {
   const [isOpenShortcuts, setIsOpenShortcuts] = useState(false);
   const [isOpenSearchArea, setIsOpenSearchArea] = useState(false);
@@ -119,7 +121,7 @@ export default function Header({
             </StyledSearchIcon>
           )}
         </StyledIcons>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledTitle onClick={onClickTitle}>{title}</StyledTitle>
         <StyledImageContainer>
           <RoundImage onClick={toggleShortcuts} borderWidth={2} src={userImage} alt={userName} />
           {Boolean(shortcuts.length) && onClickShortcut && isOpenShortcuts && (

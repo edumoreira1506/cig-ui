@@ -34,12 +34,15 @@ export const StyledImageContainer = styled.div`
   cursor: pointer;
 `;
 
-export const StyledTitle = styled.p`
+export const StyledTitle = styled.button`
   color: ${Colors.White};
   font-weight: bold;
   font-size: 1.5em;
   margin: 0;
   padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
   font-family: ${MAIN_FONT};
 `;
 
