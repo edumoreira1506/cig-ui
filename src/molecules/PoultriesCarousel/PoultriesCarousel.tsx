@@ -3,6 +3,7 @@ import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-ico
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
 import { AiFillEye, AiFillEdit } from 'react-icons/ai';
+import { isMobile } from 'react-device-detect';
 
 import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
 import Round from '../../atoms/Round/Round';
@@ -24,6 +25,7 @@ export interface FileImagesCarouselProps {
   onClickImage: SquareImageProps['onClick'];
   onEditPoultry?: (poultryId: string) => void;
   onViewPoultry?: (poultryId: string) => void;
+  onFinishSlides?: () => void;
   poultries: Poultry[];
   fallbackImage: string;
 }
@@ -49,6 +51,21 @@ const CAROUSEL_SETTINGS = {
 };
 
 export default class FileImagesCarousel extends Component<FileImagesCarouselProps> {
+  constructor(props: FileImagesCarouselProps) {
+    super(props);
+
+    this.onChangeSlide = this.onChangeSlide.bind(this);
+  }
+
+  onChangeSlide(slide: number) {
+    const poultriesAmount = this.props.poultries.length;
+    const poultriesShown = isMobile ? 3 : 8;
+
+    if (slide === poultriesAmount - poultriesShown) {
+      this.props.onFinishSlides?.();
+    }
+  }
+
   render() {
     const {
       onClickImage,
@@ -60,7 +77,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
 
     return (
       <StyledContainer>
-        <Slider {...CAROUSEL_SETTINGS}>
+        <Slider {...CAROUSEL_SETTINGS} afterChange={this.onChangeSlide}>
           {poultries.map(poultry => (
             <StyledItem key={poultry.id}>
               <StyledIcons>
