@@ -61,7 +61,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
     const poultriesAmount = this.props.poultries.length;
     const poultriesShown = isMobile ? 3 : 8;
 
-    if (slide === poultriesAmount - poultriesShown) {
+    if (slide === poultriesAmount - poultriesShown - 1) {
       this.props.onFinishSlides?.();
     }
   }

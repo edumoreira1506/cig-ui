@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import PoultriesCarousel from './PoultriesCarousel';
 
@@ -24,9 +25,10 @@ Example.args = {
     id: '',
     name: 'Claudinha'
   }),
-  onViewPoultry: console.log,
-  onClickImage: console.log,
-  onEditPoultry: console.log,
+  onViewPoultry: action('onViewPoultry'),
+  onClickImage: action('onClickImage'),
+  onEditPoultry: action('onEditPoultry'),
+  onFinishSlides: action('onFinishSlides'),
   fallbackImage: POULTRY_FALLBACK_IMAGE
 };
 
@@ -43,8 +45,9 @@ UsingFallback.args = {
       name: 'Claudinho'
     }
   ],
-  onViewPoultry: console.log,
-  onClickImage: console.log,
-  onEditPoultry: console.log,
+  onViewPoultry: action('onViewPoultry'),
+  onClickImage: action('onClickImage'),
+  onEditPoultry: action('onEditPoultry'),
+  onFinishSlides: action('onFinishSlides'),
   fallbackImage: POULTRY_FALLBACK_IMAGE
 };
