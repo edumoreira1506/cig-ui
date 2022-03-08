@@ -6,6 +6,7 @@ export interface SquareLinkProps {
   href?: string;
   children: ReactNode;
   onClick?: () => void;
+  identifier?: string;
 }
 
 const SquareLink: FC<SquareLinkProps> = ({ href, children, onClick }) => (
