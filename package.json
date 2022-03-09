@@ -5,6 +5,7 @@
   "version": "0.1.133",
   "dependencies": {
     "@cig-platform/enums": "^0.0.5",
+    "@cig-platform/factories": "^0.0.20",
     "@cig-platform/types": "^0.0.33",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
