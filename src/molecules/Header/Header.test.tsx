@@ -88,4 +88,16 @@ describe('Header', () => {
     expect(onClickShortcut).toHaveBeenCalledWith(secondShortcut);
     expect(onClickShortcut).toHaveBeenCalledTimes(2);
   });
+
+  it('calls onSearch', () => {
+    const onSearch = jest.fn();
+    const keyword = 'aba';
+
+    render(<Header {...DEFAULT_PROPS} onSearch={onSearch} />);
+
+    userEvent.click(screen.getByTestId('search-header-icon'));
+    userEvent.type(screen.getByDisplayValue(''), `${keyword}{enter}`);
+
+    expect(onSearch).toHaveBeenCalledWith(keyword);
+  });
 });
