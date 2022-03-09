@@ -21,7 +21,7 @@ export const FavoriteButton: VFC<FavoriteButtonProps> = ({
   }, [onToggleFavorite]);
 
   return (
-    <StyledContainer onClick={handleToggleFavorite} favorited={favorited}>
+    <StyledContainer onClick={handleToggleFavorite} favorited={favorited} data-testid="favorite-button">
       <Round backgroundColor={Colors.White}>
         {favorited ? <AiFillHeart /> : <AiOutlineHeart />}
       </Round>
