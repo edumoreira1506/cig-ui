@@ -14,7 +14,12 @@ const Checkbox: VFC<CheckboxProps> = ({
   label
 }: CheckboxProps) => (
   <StyledContainer>
-    <StyledCheckbox onClick={onToggle} type="checkbox" checked={checked} />
+    <StyledCheckbox
+      onClick={onToggle}
+      type="checkbox"
+      checked={checked}
+      onChange={() => undefined}
+    />
 
     {label && <StyledLabel>{label}</StyledLabel>}
   </StyledContainer>

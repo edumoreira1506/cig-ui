@@ -84,14 +84,14 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                 {onEditPoultry && (
                   <StyledIcon>
                     <Round onClick={() => onEditPoultry(poultry.id)} backgroundColor={Colors.White}>
-                      <AiFillEdit />
+                      <AiFillEdit data-testid="edit-poultry" />
                     </Round>
                   </StyledIcon>
                 )}
                 {onViewPoultry && (
                   <StyledIcon>
                     <Round onClick={() => onViewPoultry(poultry.id)} backgroundColor={Colors.White}>
-                      <AiFillEye />
+                      <AiFillEye data-testid="view-poultry" />
                     </Round>
                   </StyledIcon>
                 )}

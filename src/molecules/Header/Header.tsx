@@ -101,7 +101,7 @@ export default function Header({
         <StyledIcons>
           <SandwitchButton onToggle={onToggleMenu} color={Colors.White} toggled={sandwichButtonIsToggled} />
           {onSearch && (
-            <StyledSearchIcon isOpen={isOpenSearchArea} onClick={toggleSearchArea}>
+            <StyledSearchIcon data-testid="search-header-icon" isOpen={isOpenSearchArea} onClick={toggleSearchArea}>
               <AiOutlineSearch />
 
               <StyledSearchArea
