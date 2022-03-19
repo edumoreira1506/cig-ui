@@ -14,7 +14,13 @@ export default function SquareFileInput({ onUpload, uploadMessage }: FileInputPr
 
   return (
     <StyledContainer>
-      <StyledInput data-testid="square-file-input" onChange={handleUpload} type="file" />
+      <StyledInput
+        data-testid="square-file-input"
+        onChange={handleUpload}
+        type="file"
+        accept="image/*"
+        capture="user"
+      />
       <StyledIcon>
         <BsFillCloudArrowUpFill />
       </StyledIcon>

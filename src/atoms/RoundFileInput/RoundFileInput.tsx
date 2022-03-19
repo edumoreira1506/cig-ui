@@ -42,7 +42,13 @@ export default function RoundFileInput({ onUpload, file, baseUrl, imagePlacehold
       )}
       <StyledImageContainer>
         <StyledImage src={imagePath} alt={imagePath} />
-        <StyledInput data-testid="file-input" onChange={handleUpload} type="file" />
+        <StyledInput
+          data-testid="file-input"
+          onChange={handleUpload}
+          type="file"
+          accept="image/*"
+          capture="user"
+        />
       </StyledImageContainer>
     </StyledContainer>
   );
