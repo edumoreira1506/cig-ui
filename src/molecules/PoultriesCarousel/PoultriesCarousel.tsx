@@ -2,10 +2,10 @@ import { Component } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
-import { AiFillEye, AiFillEdit } from 'react-icons/ai';
+import { AiFillEdit } from 'react-icons/ai';
 import { isMobile } from 'react-device-detect';
 
-import SquareImage, { SquareImageProps } from '../../atoms/SquareImage/SquareImage';
+import SquareImage from '../../atoms/SquareImage/SquareImage';
 import Round from '../../atoms/Round/Round';
 import { Colors } from '../../constants';
 
@@ -22,7 +22,6 @@ interface Poultry extends IPoultry {
 }
 
 export interface FileImagesCarouselProps {
-  onClickImage: SquareImageProps['onClick'];
   onEditPoultry?: (poultryId: string) => void;
   onViewPoultry?: (poultryId: string) => void;
   onFinishSlides?: () => void;
@@ -68,7 +67,6 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
 
   render() {
     const {
-      onClickImage,
       poultries,
       onViewPoultry,
       onEditPoultry,
@@ -88,19 +86,12 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                     </Round>
                   </StyledIcon>
                 )}
-                {onViewPoultry && (
-                  <StyledIcon>
-                    <Round onClick={() => onViewPoultry(poultry.id)} backgroundColor={Colors.White}>
-                      <AiFillEye data-testid="view-poultry" />
-                    </Round>
-                  </StyledIcon>
-                )}
               </StyledIcons>
               <StyledName>{poultry.name}</StyledName>
               <SquareImage
                 src={poultry.mainImage ?? fallbackImage}
                 alt={poultry.name}
-                onClick={() => onClickImage?.(poultry.id)}
+                onClick={() => onViewPoultry?.(poultry.id)}
               />
             </StyledItem>
           ))}
