@@ -5,7 +5,6 @@ import PoultriesCarousel from './PoultriesCarousel';
 import userEvent from '@testing-library/user-event';
 
 const DEFAULT_PROPS = {
-  onClickImage: jest.fn(),
   poultries: [],
   fallbackImage: 'fallback-image.png'
 };
@@ -41,20 +40,8 @@ describe('<PoultriesCarousel />', () => {
 
     render(<PoultriesCarousel {...DEFAULT_PROPS} poultries={[poultry]} onViewPoultry={onViewPoultry} />);
 
-    userEvent.click(screen.getByTestId('view-poultry'));
-
-    expect(onViewPoultry).toHaveBeenCalledWith(poultry.id);
-  });
-
-
-  it('calls onViewPoultry', () => {
-    const onClickImage = jest.fn();
-    const poultry = poultryFactory();
-
-    render(<PoultriesCarousel {...DEFAULT_PROPS} poultries={[poultry]} onClickImage={onClickImage} />);
-
     userEvent.click(screen.getByAltText(poultry.name));
 
-    expect(onClickImage).toHaveBeenCalledWith(poultry.id);
+    expect(onViewPoultry).toHaveBeenCalledWith(poultry.id);
   });
 });
