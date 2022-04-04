@@ -7,11 +7,12 @@ export interface SquareLinkProps {
   children: ReactNode;
   onClick?: () => void;
   identifier?: string;
+  target?: string;
 }
 
-const SquareLink: FC<SquareLinkProps> = ({ href, children, onClick }) => (
+const SquareLink: FC<SquareLinkProps> = ({ href, children, onClick, target = '_blank' }) => (
   <StyledItem>
-    <a target="_blank" href={href} rel="noreferrer" onClick={onClick}>
+    <a target={target} href={href} rel="noreferrer" onClick={onClick}>
       {children}
     </a>
   </StyledItem>

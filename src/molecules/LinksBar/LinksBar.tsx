@@ -10,7 +10,7 @@ interface LinksBarProps {
 const LinksBar: VFC<LinksBarProps> = ({ items }: LinksBarProps) => (
   <StyledContainer>
     {items.map((item) => (
-      <SquareLink key={item.href ?? item.identifier} href={item.href} onClick={item.onClick}>
+      <SquareLink target={item.target} key={item.href ?? item.identifier} href={item.href} onClick={item.onClick}>
         {item.children}
       </SquareLink>
     ))}
