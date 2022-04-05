@@ -6,6 +6,7 @@ export * from './FavoriteButton/FavoriteButton';
 export { default as FormField } from './FormField/FormField';
 export { default as Help } from './Help/Help';
 export { default as ImageGallery } from './ImageGallery/ImageGallery';
+export * from './InfoCounter/InfoCounter';
 export { default as Label } from './Label/Label';
 export { default as LinkButton } from './LinkButton/LinkButton';
 export { default as List } from './List/List';
