@@ -10,4 +10,5 @@ export const StyledOptions = styled.div`
   top: calc(100% + 8px);
   max-height: 120px;
   overflow: hidden auto;
+  z-index: 2;
 `;
