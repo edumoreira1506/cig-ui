@@ -12,6 +12,7 @@ export { default as LinkButton } from './LinkButton/LinkButton';
 export { default as List } from './List/List';
 export { default as Loading } from './Loading/Loading';
 export { default as Modal } from './Modal/Modal';
+export * from './PaginatedTable';
 export { default as RoundFileInput } from './RoundFileInput/RoundFileInput';
 export { default as RoundImage } from './RoundImage/RoundImage';
 export { default as SandwichButton } from './SandwichButton/SandwichButton';
