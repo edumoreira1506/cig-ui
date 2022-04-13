@@ -23,4 +23,5 @@ export { default as Subtitle } from './Subtitle/Subtitle';
 export { default as Table } from './Table/Table';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Title } from './Title/Title';
+export * from './Tag';
 export { default as Round } from './Round/Round';
