@@ -66,7 +66,7 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
           {rows.map((row, index) => (
             <StyledTableLine key={index}>
               {row.items.map((item) => (
-                <StyledTableItem key={item}>
+                <StyledTableItem key={`${item}-${index}`}>
                   {item}
                 </StyledTableItem>
               ))}
