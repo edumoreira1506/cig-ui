@@ -66,7 +66,7 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
           {rows.map((row, index) => (
             <StyledTableLine key={index}>
               {row.items.map((item) => (
-                <StyledTableItem key={item}>
+                <StyledTableItem key={`${item}-${index}`}>
                   {item}
                 </StyledTableItem>
               ))}
@@ -77,7 +77,7 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
                     {customActions.map((customAction, customActionIndex) => (
                       <StyledIcon
                         onClick={() => handleClickCustomAction(customActionIndex, row?.identifier ?? '')}
-                        key={customAction.icon?.toString()}
+                        key={`${customAction.icon?.toString()}-${customActionIndex}`}
                       >
                         {customAction.icon}
                       </StyledIcon>
