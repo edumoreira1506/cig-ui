@@ -5,7 +5,9 @@ import {
   StyledTable,
   StyledTableHeader,
   StyledTableItem,
-  StyledTableLine
+  StyledTableLine,
+  StyledIcon,
+  StyledIcons
 } from './PaginatedTable.styles';
 
 export type PaginatedTableProps = {
@@ -14,9 +16,13 @@ export type PaginatedTableProps = {
   columns?: string[] | ReactNode[];
   rows?: {
     items: string[];
-    expandedContent?: string;
+    identifier?: string;
   }[];
   totalPages: number;
+  customActions?: {
+    onClick: (identifier: string) => void;
+    icon: ReactNode;
+  }[]
 }
 
 export const PaginatedTable: VFC<PaginatedTableProps> = ({
@@ -24,9 +30,19 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
   onPaginate,
   columns = [],
   rows  = [],
-  totalPages
+  totalPages,
+  customActions = []
 }: PaginatedTableProps) => {
   const handlePageChange = useCallback(({ selected }: { selected: number }) => onPaginate(selected), [onPaginate]);
+
+  const handleClickCustomAction = useCallback((customActionIndex: number, identifier: string) => {
+    const row = rows.find(r => r?.identifier === identifier);
+    const customAction = customActions?.find((_: ReactNode, index: number) => index === customActionIndex);
+
+    if (row?.identifier && customAction) {
+      customAction.onClick(row.identifier);
+    }
+  }, [rows, customActions]);
 
   return (
     <>
@@ -38,6 +54,12 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
                 {column}
               </StyledTableHeader>
             ))}
+
+            {customActions && (
+              <StyledTableHeader>
+                Ações
+              </StyledTableHeader>
+            )}
           </StyledTableLine>
         </thead>
         <tbody>
@@ -48,6 +70,21 @@ export const PaginatedTable: VFC<PaginatedTableProps> = ({
                   {item}
                 </StyledTableItem>
               ))}
+
+              {Boolean(customActions.length) && (
+                <StyledTableItem>
+                  <StyledIcons>
+                    {customActions.map((customAction, customActionIndex) => (
+                      <StyledIcon
+                        onClick={() => handleClickCustomAction(customActionIndex, row?.identifier ?? '')}
+                        key={customAction.icon?.toString()}
+                      >
+                        {customAction.icon}
+                      </StyledIcon>
+                    ))}
+                  </StyledIcons>
+                </StyledTableItem>
+              )}
             </StyledTableLine>
           ))}
         </tbody>

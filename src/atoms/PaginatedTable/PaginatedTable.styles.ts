@@ -67,3 +67,22 @@ export const StyledTableItem = styled.td`
   outline: solid 1px white;
   color: ${Colors.HalfGrey};
 `;
+
+export const StyledIcons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledIcon = styled.div`
+  cursor: pointer;
+  background-color: ${Colors.MediumGrey};
+  color: ${Colors.Black};
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  padding: 5px;
+  margin-right: 2px;
+
+  &:last-child {
+    margin: none;
+  }
+`;
