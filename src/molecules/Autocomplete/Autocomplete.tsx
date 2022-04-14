@@ -7,12 +7,14 @@ import List, { ListProps } from '../../atoms/List/List';
 interface AutocompleteProps {
   items: ListProps['items'];
   onChange: ListProps['onItemClick'];
-  inputProps: Omit<InputProps, 'value' | 'onChange' | 'type'>
+  inputProps: Omit<InputProps, 'value' | 'onChange' | 'type' | 'onFocus'>
 }
 
 export default function Autocomplete({ items, onChange, inputProps = {} }: AutocompleteProps) {
   const [inputValue, setInputValue] = useState('');
-  const [showOptions, setShowOptions] = useState(true);
+  const [showOptions, setShowOptions] = useState(false);
+
+  const openOptions = useCallback(() => setShowOptions(true), []);
 
   const handleChangeInputValue = useCallback((newValue: number | string) => {
     if (!showOptions) setShowOptions(true);
@@ -36,6 +38,7 @@ export default function Autocomplete({ items, onChange, inputProps = {} }: Autoc
       <Input
         value={inputValue}
         onChange={handleChangeInputValue}
+        onFocus={openOptions}
         {...inputProps}
       />
       {Boolean(items.length && showOptions) && (

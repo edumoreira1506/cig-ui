@@ -41,7 +41,8 @@ export default function Input({
   disabled = false,
   helpMessage,
   max,
-  min
+  min,
+  onFocus
 }: InputProps) {
   const [showRequiredMessage, setShowRequiredMessage] = React.useState(false);
 
@@ -74,7 +75,8 @@ export default function Input({
       requiredError: showRequiredMessage,
       disabled,
       maxLength: max,
-      minLength: min
+      minLength: min,
+      onFocus
     };
 
     if (formatNumber) {
@@ -114,7 +116,8 @@ export default function Input({
     formatNumber,
     handleChangeInputValue,
     handleBlur,
-    showRequiredMessage
+    showRequiredMessage,
+    onFocus
   ]);
 
   return (
