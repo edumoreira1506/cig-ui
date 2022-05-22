@@ -14,4 +14,5 @@ export const Example = Template.bind({});
 Example.args = {
   value: new Date(),
   onChange: action('onChange'),
+  label: 'Campo de data',
 };
