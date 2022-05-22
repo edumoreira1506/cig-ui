@@ -23,7 +23,7 @@ export interface InputProps extends FieldProps {
   requiredMessage?: string;
   helpMessage?: string;
   onClick?: () => void;
-  ref: any;
+  ref?: any;
 }
 
 export default function Input({
