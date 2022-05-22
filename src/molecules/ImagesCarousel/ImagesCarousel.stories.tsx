@@ -2,9 +2,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ImagesCarousel from './ImagesCarousel';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 export default {
   title: 'Molecules/ImagesCarousel',
   component: ImagesCarousel,

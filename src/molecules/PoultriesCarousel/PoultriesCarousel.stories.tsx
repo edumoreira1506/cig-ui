@@ -3,8 +3,6 @@ import { action } from '@storybook/addon-actions';
 
 import PoultriesCarousel from './PoultriesCarousel';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { POULTRY_FALLBACK_IMAGE } from '../../constants';
 
 export default {

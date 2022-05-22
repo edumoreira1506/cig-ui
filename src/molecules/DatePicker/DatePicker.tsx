@@ -4,8 +4,6 @@ import ReactDatePicker from 'react-datepicker';
 import { Input } from '..';
 import { InputProps } from '../Input/Input';
 
-import 'react-datepicker/dist/react-datepicker.css';
-
 type DatePickerProps = InputProps & {
   value: Date;
   onChange: (date: Date) => void;
