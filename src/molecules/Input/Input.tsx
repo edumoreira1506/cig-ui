@@ -22,6 +22,8 @@ export interface InputProps extends FieldProps {
   mask?: string;
   requiredMessage?: string;
   helpMessage?: string;
+  onClick?: () => void;
+  ref?: any;
 }
 
 export default function Input({
@@ -42,7 +44,9 @@ export default function Input({
   helpMessage,
   max,
   min,
-  onFocus
+  onFocus,
+  onClick,
+  ref
 }: InputProps) {
   const [showRequiredMessage, setShowRequiredMessage] = React.useState(false);
 
@@ -76,7 +80,9 @@ export default function Input({
       disabled,
       maxLength: max,
       minLength: min,
-      onFocus
+      onFocus,
+      onClick,
+      ref
     };
 
     if (formatNumber) {
@@ -117,7 +123,9 @@ export default function Input({
     handleChangeInputValue,
     handleBlur,
     showRequiredMessage,
-    onFocus
+    onFocus,
+    onClick,
+    ref
   ]);
 
   return (
