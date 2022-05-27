@@ -43,7 +43,7 @@ export default function Modal({
       <ModalGlobalStyle animation={animation} />
 
       {displayActions && (
-        <StyledCloseButton onClick={onClose}>
+        <StyledCloseButton onClick={onClose} aria-label='Fechar'>
           <AiFillCloseCircle />
         </StyledCloseButton>
       )}
