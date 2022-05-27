@@ -85,12 +85,11 @@ Cancelled.args = {
       createdAt: new Date(),
     },
     {
-      value: DealEventValueEnum.received,
-      createdAt: new Date(),
-    },
-    {
       value: DealEventValueEnum.cancelled,
       createdAt: new Date(),
+      metadata: {
+        reason: 'Ave morreu'
+      }
     }
   ]
 };
