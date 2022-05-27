@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import ReactModal from 'react-modal';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 import { Colors } from '../../constants/styles';
-import { ModalGlobalStyle } from './Modal.styles';
+import { ModalGlobalStyle, StyledCloseButton } from './Modal.styles';
 
 export interface ModalProps extends ReactModal.Props {
   children: ReactNode;
@@ -10,6 +11,7 @@ export interface ModalProps extends ReactModal.Props {
   onClose: () => void;
   className?: string;
   animation?: 'bottom' | 'left';
+  displayActions?: boolean;
 }
 
 const modalStyle = {
@@ -25,6 +27,7 @@ export default function Modal({
   onClose,
   className,
   animation = 'left',
+  displayActions = false,
   ...props
 }: ModalProps) {
   return (
@@ -38,6 +41,13 @@ export default function Modal({
       {...props}
     >
       <ModalGlobalStyle animation={animation} />
+
+      {displayActions && (
+        <StyledCloseButton onClick={onClose}>
+          <AiFillCloseCircle />
+        </StyledCloseButton>
+      )}
+
       {children}
     </ReactModal>
   );
