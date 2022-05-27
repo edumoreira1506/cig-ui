@@ -63,6 +63,12 @@ export const History: VFC<HistoryProps> = ({
               )}
             </StyledItemDescription>
           )}
+
+          {Boolean(cancelledEvent?.metadata?.reason && !placedEvent) && (
+            <StyledItemDescription>
+              Motivo do cancelamento: <b>{cancelledEvent?.metadata.reason}</b>
+            </StyledItemDescription>
+          )}
         </StyledItemTexts>
       </StyledItem>
 
@@ -78,6 +84,12 @@ export const History: VFC<HistoryProps> = ({
         </StyledItemIcon>
         <StyledItemTexts>
           <StyledItemTitle color={colors.confirmed}>Confirmado</StyledItemTitle>
+
+          {Boolean(cancelledEvent?.metadata?.reason && !confirmedEvent && placedEvent) && (
+            <StyledItemDescription>
+              Motivo do cancelamento: <b>{cancelledEvent?.metadata.reason}</b>
+            </StyledItemDescription>
+          )}
         </StyledItemTexts>
       </StyledItem>
 
@@ -93,6 +105,12 @@ export const History: VFC<HistoryProps> = ({
         </StyledItemIcon>
         <StyledItemTexts>
           <StyledItemTitle color={colors.finished}>Finalizado</StyledItemTitle>
+
+          {Boolean(cancelledEvent?.metadata?.reason && !finishedEvent && confirmedEvent && placedEvent) && (
+            <StyledItemDescription>
+              Motivo do cancelamento: <b>{cancelledEvent?.metadata.reason}</b>
+            </StyledItemDescription>
+          )}
         </StyledItemTexts>
       </StyledItem>
     </StyledContainer>

@@ -28,6 +28,7 @@ describe('<History />', () => {
     render(<History {...DEFAULT_PROPS} events={events} />);
 
     expect(screen.getAllByText('Cancelado')).toHaveLength(3);
+    expect(screen.getByText(events[0].metadata.reason)).toBeInTheDocument();
   });
 
   it('renders correctly when is placed', () => {
