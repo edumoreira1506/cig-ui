@@ -1,6 +1,10 @@
-import { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 export const ModalGlobalStyle = createGlobalStyle`
+  .ReactModal__Content {
+    position: relative;
+  }
+
  ${({ animation }: { animation: string }) => css`
     .ReactModal__Overlay {
       transition: all 200ms ease-in;
@@ -46,4 +50,18 @@ export const ModalGlobalStyle = createGlobalStyle`
       `}
     }
  `}
+`;
+
+export const StyledCloseButton = styled.button`
+  position: absolute;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
 `;

@@ -21,3 +21,10 @@ Bottom.args = {
   isOpen: true,
   animation: 'bottom'
 };
+
+export const WithActions = Template.bind({});
+WithActions.args = {
+  children: <h1>Modal content</h1>,
+  isOpen: true,
+  displayActions: true
+};
