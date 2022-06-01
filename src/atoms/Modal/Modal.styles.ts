@@ -16,7 +16,7 @@ export const ModalGlobalStyle = createGlobalStyle`
       ${animation === 'bottom' && css`
         .ReactModal__Content {
           inset: 0;
-          height: 25vh;
+          height: 35vh;
           transform: translateY(100vh);
         }
       `}
@@ -32,8 +32,8 @@ export const ModalGlobalStyle = createGlobalStyle`
       ${animation === 'bottom' && css`
         .ReactModal__Content {
           inset: 0 !important;
-          transform: translateY(75vh);
-          height: 25vh;
+          transform: translateY(65vh);
+          height: 35vh;
         }
       `}
     }
