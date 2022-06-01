@@ -29,8 +29,6 @@ describe('<PoultriesCarousel />', () => {
 
     render(<PoultriesCarousel {...DEFAULT_PROPS} poultries={[poultry]} onEditPoultry={onEditPoultry} />);
 
-    userEvent.click(screen.getByTestId('edit-poultry'));
-
     expect(screen.queryByTestId('edit-poultry')).not.toBeInTheDocument();
   });
 
