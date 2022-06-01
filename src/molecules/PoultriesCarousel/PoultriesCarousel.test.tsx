@@ -23,6 +23,15 @@ describe('<PoultriesCarousel />', () => {
     expect(screen.getByAltText(secondPoultry.name)).toBeInTheDocument();
   });
 
+  it('does not render edit poultry button', () => {
+    const onEditPoultry = jest.fn();
+    const poultry = poultryFactory({ isAlive: false });
+
+    render(<PoultriesCarousel {...DEFAULT_PROPS} poultries={[poultry]} onEditPoultry={onEditPoultry} />);
+
+    expect(screen.queryByTestId('edit-poultry')).not.toBeInTheDocument();
+  });
+
   it('calls onEditPoultry', () => {
     const onEditPoultry = jest.fn();
     const poultry = poultryFactory();
