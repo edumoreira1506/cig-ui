@@ -79,7 +79,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
           {poultries.map(poultry => (
             <StyledItem key={poultry.id}>
               <StyledIcons>
-                {onEditPoultry && (
+                {onEditPoultry && poultry.isAlive && (
                   <StyledIcon>
                     <Round onClick={() => onEditPoultry(poultry.id)} backgroundColor={Colors.White}>
                       <AiFillEdit data-testid="edit-poultry" />
