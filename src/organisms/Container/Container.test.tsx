@@ -13,6 +13,7 @@ const DEFAULT_PROPS = {
   items: [],
   onMenuClick: jest.fn(),
   onShortcutClick: jest.fn(),
+  onClickTitle: jest.fn(),
   shortcuts: []
 };
 
