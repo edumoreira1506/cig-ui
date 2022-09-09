@@ -1,7 +1,7 @@
 import { PoultryGenderEnum } from '@cig-platform/enums';
 import { IPoultry } from '@cig-platform/types';
 import { Container, TreeItemAddDad, TreeItemAddMom, TreeItemExpand } from './Tree.styles';
-import { useMemo, VFC } from 'react';
+import React, { useMemo, VFC } from 'react';
 import ReactFamilyTree from 'react-family-tree';
 import { TreeItemContainer } from './Tree.styles';
 import type { ExtNode } from 'relatives-tree/lib/types';

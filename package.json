@@ -32,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "test": "react-scripts test",
+    "test": "react-scripts test -- --config=jest.config.js",
     "start": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
     "build": "yarn tsc -p ./tsconfig.json",
@@ -89,6 +89,8 @@
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",
     "eslint-plugin-react": "^7.29.3",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.6.2"
   }
 }
