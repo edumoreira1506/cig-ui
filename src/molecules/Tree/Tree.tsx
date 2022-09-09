@@ -5,7 +5,7 @@ import React, { useMemo, VFC } from 'react';
 import ReactFamilyTree from 'react-family-tree';
 import { TreeItemContainer } from './Tree.styles';
 import type { ExtNode } from 'relatives-tree/lib/types';
-import { TreeCard } from 'atoms';
+import { TreeCard } from '../../atoms';
 import { BsGenderFemale, BsGenderMale } from 'react-icons/bs';
 
 export type TreeProps = {
