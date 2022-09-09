@@ -28,6 +28,9 @@ const itemButtonStyle = css`
 
 export const TreeItemExpand = styled.button`
   ${itemButtonStyle}
+
+  right: 50%;
+  transform: translateX(50%);
 `;
 
 export const TreeItemAddDad = styled.button`
