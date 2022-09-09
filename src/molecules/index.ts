@@ -20,3 +20,4 @@ export * from './DealInfo/DealInfo';
 export * from './FeaturedCarousel/FeaturedCarousel';
 export * from './AdvertisingCarousel/AdvertisingCarousel';
 export * from './AdvertisingItem/AdvertisingItem';
+export * from './Tree/Tree';
