@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { FC, Fragment, VFC } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import Slider from 'react-slick';
 
@@ -42,14 +42,20 @@ export type AdvertisingCarouselItem = {
   favorited?: boolean;
 }
 
+type LinkComponentProps = {
+  identifier: 'breeder-link' | 'view-all' | 'view-advertising';
+  params?: Record<string, string>
+}
+
 export type AdvertisingCarouselProps = {
   title: string;
-  onViewAll: () => void;
+  onViewAll?: () => void;
   advertisings: AdvertisingCarouselItem[];
   placeholderImage: string;
-  onViewAdvertising: (identifier: string) => void;
-  onViewBreeder: (identifer: string) => void;
+  onViewAdvertising?: (identifier: string) => void;
+  onViewBreeder?: (identifer: string) => void;
   onFavorite?: (identifier: string) => void;
+  linkComponent?: FC<LinkComponentProps>
 }
 
 export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
@@ -59,7 +65,8 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
   placeholderImage,
   onViewAdvertising,
   onFavorite,
-  onViewBreeder
+  onViewBreeder,
+  linkComponent: LinkComponent = Fragment
 }: AdvertisingCarouselProps) => (
   <StyledContainer>
     <StyledHeader>
@@ -67,16 +74,20 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
         {title}
       </StyledTitle>
       <StyledViewAll onClick={onViewAll}>
-        Ver tudo <IoIosArrowForward />
+        <LinkComponent identifier='view-all'>
+          Ver tudo <IoIosArrowForward />
+        </LinkComponent>
       </StyledViewAll>
     </StyledHeader>
 
     <StyledBody>
       <Slider {...CAROUSEL_SETTINGS}>
         {advertisings.map(advertising => (
-          <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising(advertising.identifier)}>
+          <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising?.(advertising.identifier)}>
             <StyledImageContainer>
-              <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+              <LinkComponent identifier='view-advertising' params={{ identifier: advertising.identifier }}>
+                <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+              </LinkComponent>
 
               {onFavorite && (
                 <StyledFavoriteButton>
@@ -85,21 +96,26 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
               )}
             </StyledImageContainer>
 
-            <StyledTexts>
-              <StyledPrice>{centsToBrazilianFormat(advertising.price)}</StyledPrice>
-              <StyledDescription>{advertising.description}</StyledDescription>
-            </StyledTexts>
+            <LinkComponent identifier='view-advertising' params={{ identifier: advertising.identifier }}>
+              <StyledTexts>
+                <StyledPrice>{centsToBrazilianFormat(advertising.price)}</StyledPrice>
+                <StyledDescription>{advertising.description}</StyledDescription>
+              </StyledTexts>
+            </LinkComponent>
+            
 
             <StyledBreederImageContainer onClick={e => {
               e.stopPropagation();
-              onViewBreeder(advertising.identifier);
+              onViewBreeder?.(advertising.identifier);
             }}>
-              <RoundImage
-                src={advertising.breederImage ?? placeholderImage}
-                alt=""
-                borderWidth={1}
-                borderColor={Colors.White}
-              />
+              <LinkComponent identifier='breeder-link'>
+                <RoundImage
+                  src={advertising.breederImage ?? placeholderImage}
+                  alt=""
+                  borderWidth={1}
+                  borderColor={Colors.White}
+                />
+              </LinkComponent>
             </StyledBreederImageContainer>
           </StyledItem>
         ))}

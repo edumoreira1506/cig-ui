@@ -1,3 +1,4 @@
+import React, { FC } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -8,6 +9,16 @@ export default {
   component: AdvertisingCarousel,
 } as ComponentMeta<typeof AdvertisingCarousel>;
 
+const FakeLinkComponent: FC<{
+  identifier: 'breeder-link'
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+}> = ({ identifier, children }) => (
+  <a target="_blank" href={identifier} rel="noreferrer">
+    {/* <span>{identifier}</span> */}
+    {children}
+  </a>
+);
+
 const Template: ComponentStory<typeof AdvertisingCarousel> = (args) => (
   <div style={{ width: '300px' }}>
     <AdvertisingCarousel {...args} />
@@ -16,6 +27,7 @@ const Template: ComponentStory<typeof AdvertisingCarousel> = (args) => (
 
 export const Example = Template.bind({});
 Example.args = {
+  linkComponent: FakeLinkComponent,
   onViewAll: action('onViewAll'),
   onViewAdvertising: action('onViewAdvertising'),
   onViewBreeder: action('onViewBreeder'),
