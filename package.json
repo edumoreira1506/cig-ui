@@ -2,7 +2,7 @@
   "name": "@cig-platform/ui",
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "dependencies": {
     "@cig-platform/enums": "^0.0.5",
     "@cig-platform/factories": "^0.0.22",

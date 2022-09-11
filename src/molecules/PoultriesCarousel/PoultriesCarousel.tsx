@@ -94,7 +94,7 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                   </StyledIcon>
                 )}
               </StyledIcons>
-              <LinkComponent identifier='view-advertising'>
+              <LinkComponent identifier='view-advertising' params={{ poultryId: poultry.id }}>
                 <StyledName>{poultry.name}</StyledName>
                 <SquareImage
                   src={poultry.mainImage ?? fallbackImage}
