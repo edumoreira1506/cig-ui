@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 import RoundImage from '../../atoms/RoundImage/RoundImage';
 import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
-import { Colors } from '../../constants';
+import { Colors, LinkIdentifiers } from '../../constants';
 
 import {
   StyledBody,
@@ -43,7 +43,7 @@ export type AdvertisingCarouselItem = {
 }
 
 type LinkComponentProps = {
-  identifier: 'breeder-link' | 'view-all' | 'view-advertising';
+  identifier: typeof LinkIdentifiers.VIEW_ADVERTISING | typeof LinkIdentifiers.VIEW_ALL | typeof LinkIdentifiers.BREEDER_LINK;
   params?: Record<string, string>
 }
 
@@ -108,7 +108,7 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
               e.stopPropagation();
               onViewBreeder?.(advertising.identifier);
             }}>
-              <LinkComponent identifier='breeder-link' params={{ identifier: advertising.identifier }}>
+              <LinkComponent identifier={LinkIdentifiers.BREEDER_LINK} params={{ identifier: advertising.identifier }}>
                 <RoundImage
                   src={advertising.breederImage ?? placeholderImage}
                   alt=""
