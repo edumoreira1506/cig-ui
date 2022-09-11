@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, FC, Fragment } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
@@ -7,7 +7,7 @@ import { isMobile } from 'react-device-detect';
 
 import SquareImage from '../../atoms/SquareImage/SquareImage';
 import Round from '../../atoms/Round/Round';
-import { Colors } from '../../constants';
+import { Colors, LinkIdentifiers } from '../../constants';
 
 import {
   StyledContainer,
@@ -21,12 +21,18 @@ interface Poultry extends IPoultry {
   mainImage?: string;
 }
 
+type LinkComponentProps = {
+  identifier: typeof LinkIdentifiers.VIEW_ADVERTISING;
+  params?: Record<string, string>
+}
+
 export interface FileImagesCarouselProps {
   onEditPoultry?: (poultryId: string) => void;
   onViewPoultry?: (poultryId: string) => void;
   onFinishSlides?: () => void;
   poultries: Poultry[];
   fallbackImage: string;
+  linkComponent?: FC<LinkComponentProps>
 }
 
 const CAROUSEL_SETTINGS = {
@@ -70,7 +76,8 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
       poultries,
       onViewPoultry,
       onEditPoultry,
-      fallbackImage
+      fallbackImage,
+      linkComponent: LinkComponent = Fragment
     } = this.props;
 
     return (
@@ -87,12 +94,14 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
                   </StyledIcon>
                 )}
               </StyledIcons>
-              <StyledName>{poultry.name}</StyledName>
-              <SquareImage
-                src={poultry.mainImage ?? fallbackImage}
-                alt={poultry.name}
-                onClick={() => onViewPoultry?.(poultry.id)}
-              />
+              <LinkComponent identifier='view-advertising'>
+                <StyledName>{poultry.name}</StyledName>
+                <SquareImage
+                  src={poultry.mainImage ?? fallbackImage}
+                  alt={poultry.name}
+                  onClick={() => onViewPoultry?.(poultry.id)}
+                />
+              </LinkComponent>
             </StyledItem>
           ))}
         </Slider>
