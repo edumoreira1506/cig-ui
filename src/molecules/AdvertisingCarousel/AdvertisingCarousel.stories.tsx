@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { AdvertisingCarousel } from './AdvertisingCarousel';
+import { LinkIdentifiersType } from '../../constants';
 
 export default {
   title: 'Molecules/AdvertisingCarousel',
@@ -10,7 +11,7 @@ export default {
 } as ComponentMeta<typeof AdvertisingCarousel>;
 
 const FakeLinkComponent: FC<{
-  identifier: 'breeder-link'
+  identifier: LinkIdentifiersType
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 }> = ({ identifier, children }) => (
   <a target="_blank" href={identifier} rel="noreferrer">
