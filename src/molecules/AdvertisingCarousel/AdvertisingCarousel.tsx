@@ -108,7 +108,7 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
               e.stopPropagation();
               onViewBreeder?.(advertising.identifier);
             }}>
-              <LinkComponent identifier='breeder-link'>
+              <LinkComponent identifier='breeder-link' params={{ identifier: advertising.identifier }}>
                 <RoundImage
                   src={advertising.breederImage ?? placeholderImage}
                   alt=""
