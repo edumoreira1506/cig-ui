@@ -20,7 +20,7 @@ export interface ContainerProps {
   onClickTitle: HeaderProps['onClickTitle'];
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
-  linkComponent: SidebarProps['linkComponent'];
+  linkComponent?: SidebarProps['linkComponent'];
   shortcuts: HeaderProps['shortcuts'];
   onSearch?: HeaderProps['onSearch'];
   onShortcutClick: HeaderProps['onClickShortcut'];
