@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useState } from 'react';
+import { Fragment, ReactNode, useCallback, useState } from 'react';
 
 import Header, { HeaderProps } from '../../molecules/Header/Header';
 import Sidebar, { SidebarProps } from '../../molecules/Sidebar/Sidebar';
@@ -20,6 +20,7 @@ export interface ContainerProps {
   onClickTitle: HeaderProps['onClickTitle'];
   items: SidebarProps['items'];
   onMenuClick: SidebarProps['onClick'];
+  linkComponent: SidebarProps['linkComponent'];
   shortcuts: HeaderProps['shortcuts'];
   onSearch?: HeaderProps['onSearch'];
   onShortcutClick: HeaderProps['onClickShortcut'];
@@ -38,7 +39,8 @@ export default function Container({
   logoUrl,
   isLoading = false,
   onSearch,
-  onClickTitle
+  onClickTitle,
+  linkComponent = Fragment
 }: ContainerProps) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -75,7 +77,12 @@ export default function Container({
         />
       </StyledHeaderContainer>
       <StyledSidebarContainer>
-        <Sidebar onClick={handleMenuClick} items={items} isOpen={menuIsOpen} />
+        <Sidebar
+          onClick={handleMenuClick}
+          items={items}
+          isOpen={menuIsOpen}
+          linkComponent={linkComponent}
+        />
       </StyledSidebarContainer>
       <StyledContent onClick={handleContentClick} menuIsOpen={menuIsOpen}>
         {children}

@@ -16,6 +16,11 @@ export const StyledContainer = styled.ul`
   height: calc(100% - 10px);
   margin: 0;
 
+  a {
+    color: inhertit;
+    text-decoration: none;
+  }
+
   ${({ isOpen }: { isOpen: SidebarProps['isOpen'] }) => isOpen && `
     transform: none;
     box-shadow: ${DEFAULT_BOX_SHADOW};
