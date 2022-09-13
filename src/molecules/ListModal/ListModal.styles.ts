@@ -8,6 +8,15 @@ export const StyledContainer = styled.ul`
   list-style: none;
   width: 100%;
   font-family: ${MAIN_FONT};
+
+  & > *:not(li) {
+    border-top: 1px solid rgb(215, 215, 215);
+    display: block;
+
+    &:first-child {
+      border: none;
+    }
+  }
 `;
 
 export const StyledListItem = styled.li`
