@@ -65,7 +65,7 @@ export const StyledItem = styled.div`
     width: 100px;
 
     @media (min-width: 768px) {
-      width: auto;
+      width: 100%;
     }
   }
 `;
