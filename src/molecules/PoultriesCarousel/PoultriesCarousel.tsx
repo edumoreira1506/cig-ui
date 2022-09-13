@@ -1,13 +1,15 @@
-import { Component, FC, Fragment } from 'react';
+import { Component, FC, Fragment, VFC } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
 import { AiFillEdit } from 'react-icons/ai';
 import { isMobile } from 'react-device-detect';
+import { useIsMobile } from '@cig-platform/hooks';
 
 import SquareImage from '../../atoms/SquareImage/SquareImage';
 import Round from '../../atoms/Round/Round';
 import { Colors, LinkIdentifiers } from '../../constants';
+import { ScrollView } from '../../atoms';
 
 import {
   StyledContainer,
@@ -32,7 +34,8 @@ export interface FileImagesCarouselProps {
   onFinishSlides?: () => void;
   poultries: Poultry[];
   fallbackImage: string;
-  linkComponent?: FC<LinkComponentProps>
+  linkComponent?: FC<LinkComponentProps>;
+  isMobile?: boolean;
 }
 
 const CAROUSEL_SETTINGS = {
@@ -55,7 +58,7 @@ const CAROUSEL_SETTINGS = {
   ]
 };
 
-export default class FileImagesCarousel extends Component<FileImagesCarouselProps> {
+class ClassFileImagesCarousel extends Component<FileImagesCarouselProps> {
   constructor(props: FileImagesCarouselProps) {
     super(props);
 
@@ -77,12 +80,21 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
       onViewPoultry,
       onEditPoultry,
       fallbackImage,
-      linkComponent: LinkComponent = Fragment
+      linkComponent: LinkComponent = Fragment,
+      isMobile = false
     } = this.props;
+
+    const { component: Component, props } = isMobile ? ({
+      component: ScrollView,
+      props: {}
+    }) : ({
+      component: Slider,
+      props: { ...CAROUSEL_SETTINGS, afterChange: this.onChangeSlide }
+    });
 
     return (
       <StyledContainer>
-        <Slider {...CAROUSEL_SETTINGS} afterChange={this.onChangeSlide}>
+        <Component {...props}>
           {poultries.map(poultry => (
             <StyledItem key={poultry.id}>
               <StyledIcons>
@@ -104,8 +116,16 @@ export default class FileImagesCarousel extends Component<FileImagesCarouselProp
               </LinkComponent>
             </StyledItem>
           ))}
-        </Slider>
+        </Component>
       </StyledContainer>
     );
   }
 }
+
+const PoultriesCarousel: VFC<FileImagesCarouselProps> = (props) => {
+  const isMobile = useIsMobile();
+  
+  return <ClassFileImagesCarousel {...props} isMobile={isMobile} />;
+};
+
+export default PoultriesCarousel;
