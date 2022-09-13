@@ -2054,6 +2054,14 @@
   dependencies:
     "@cig-platform/types" "^0.0.41"
 
+"@cig-platform/hooks@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cig-platform/hooks/-/hooks-0.0.6.tgz#9c4ff33f558762d89fc0913dc069e18da4e94640"
+  integrity sha512-n+aXd1UBliYsG6UGCJ72LdWMAY/96j1Fe37bPHLRlWebJ4W2dVS7cmsw415VsXcOOO7NBAgNf/L1mNEpCwHfSg==
+  dependencies:
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
 "@cig-platform/types@^0.0.41":
   version "0.0.41"
   resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.41.tgz#36f18829b17adc914f6d840a5551a9c660d05b31"
