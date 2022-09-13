@@ -21,3 +21,4 @@ export * from './FeaturedCarousel/FeaturedCarousel';
 export * from './AdvertisingCarousel/AdvertisingCarousel';
 export * from './AdvertisingItem/AdvertisingItem';
 export * from './Tree/Tree';
+export * from './SocialMediaShareModal/SocialMediaShareModal';
