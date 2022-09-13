@@ -55,6 +55,19 @@ export const StyledContainer = styled.div`
 
 export const StyledItem = styled.div`
   position: relative;
+  height: 130px;
+
+  @media (min-width: 768px) {
+    height: auto;
+  }
+
+  img {
+    width: 100px;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
 `;
 
 export const StyledIcons = styled.div`
