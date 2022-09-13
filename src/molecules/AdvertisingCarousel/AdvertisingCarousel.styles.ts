@@ -10,6 +10,11 @@ export const StyledContainer = styled.div`
     padding: 0 4px;
     box-sizing: border-box;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 export const StyledHeader = styled.div`
@@ -49,19 +54,27 @@ export const StyledBody = styled.ul`
 `;
 
 export const StyledItem = styled.li`
-  width: 100%;
   background-color: ${Colors.VeryLightGrey};
   border-radius: ${DEFAULT_BORDER_RADIUS};
   cursor: pointer;
+  width: 129px;
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const StyledImageContainer = styled.figure`
-  width: calc(100% - 10px);
   height: 140px;
   border-radius: 10px;
   overflow: hidden;
   margin: 5px;
   position: relative;
+  width: calc(129px - 10px);
+
+  @media (min-width: 768px) {
+    width: calc(100% - 10px);
+  }
 `;
 
 export const StyledFavoriteButton = styled.div`

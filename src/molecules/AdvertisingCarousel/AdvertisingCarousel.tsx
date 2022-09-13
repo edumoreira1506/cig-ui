@@ -1,11 +1,13 @@
-import React, { FC, Fragment, VFC } from 'react';
+import React, { FC, Fragment, useMemo, VFC } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import Slider from 'react-slick';
+import { useIsMobile } from '@cig-platform/hooks';
 
 import centsToBrazilianFormat from '../../utils/centsToBrazilianFormat';
 import RoundImage from '../../atoms/RoundImage/RoundImage';
 import { FavoriteButton } from '../../atoms/FavoriteButton/FavoriteButton';
 import { Colors, LinkIdentifiers } from '../../constants';
+import { ScrollView } from '../../atoms';
 
 import {
   StyledBody,
@@ -67,59 +69,71 @@ export const AdvertisingCarousel: VFC<AdvertisingCarouselProps> = ({
   onFavorite,
   onViewBreeder,
   linkComponent: LinkComponent = Fragment
-}: AdvertisingCarouselProps) => (
-  <StyledContainer>
-    <StyledHeader>
-      <StyledTitle>
-        {title}
-      </StyledTitle>
-      <StyledViewAll onClick={onViewAll}>
-        <LinkComponent identifier='view-all'>
-          Ver tudo <IoIosArrowForward />
-        </LinkComponent>
-      </StyledViewAll>
-    </StyledHeader>
+}: AdvertisingCarouselProps) => {
+  const isMobile = useIsMobile();
 
-    <StyledBody>
-      <Slider {...CAROUSEL_SETTINGS}>
-        {advertisings.map(advertising => (
-          <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising?.(advertising.identifier)}>
-            <StyledImageContainer>
+  const { component: Component, props } = useMemo(() => isMobile ? ({
+    component: ScrollView,
+    props: {}
+  }) : ({
+    component: Slider,
+    props: CAROUSEL_SETTINGS
+  }), [isMobile]);
+
+  return (
+    <StyledContainer>
+      <StyledHeader>
+        <StyledTitle>
+          {title}
+        </StyledTitle>
+        <StyledViewAll onClick={onViewAll}>
+          <LinkComponent identifier='view-all'>
+            Ver tudo <IoIosArrowForward />
+          </LinkComponent>
+        </StyledViewAll>
+      </StyledHeader>
+  
+      <StyledBody>
+        <Component {...props}>
+          {advertisings.map(advertising => (
+            <StyledItem key={advertising.identifier} onClick={() => onViewAdvertising?.(advertising.identifier)}>
+              <StyledImageContainer>
+                <LinkComponent identifier='view-advertising' params={{ identifier: advertising.identifier }}>
+                  <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+                </LinkComponent>
+  
+                {onFavorite && (
+                  <StyledFavoriteButton>
+                    <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
+                  </StyledFavoriteButton>
+                )}
+              </StyledImageContainer>
+  
               <LinkComponent identifier='view-advertising' params={{ identifier: advertising.identifier }}>
-                <StyledImage src={advertising?.image ?? placeholderImage} alt="" />
+                <StyledTexts>
+                  <StyledPrice>{centsToBrazilianFormat(advertising.price)}</StyledPrice>
+                  <StyledDescription>{advertising.description}</StyledDescription>
+                </StyledTexts>
               </LinkComponent>
-
-              {onFavorite && (
-                <StyledFavoriteButton>
-                  <FavoriteButton favorited={Boolean(advertising.favorited)} onToggleFavorite={() => onFavorite(advertising.identifier)} />
-                </StyledFavoriteButton>
-              )}
-            </StyledImageContainer>
-
-            <LinkComponent identifier='view-advertising' params={{ identifier: advertising.identifier }}>
-              <StyledTexts>
-                <StyledPrice>{centsToBrazilianFormat(advertising.price)}</StyledPrice>
-                <StyledDescription>{advertising.description}</StyledDescription>
-              </StyledTexts>
-            </LinkComponent>
-            
-
-            <StyledBreederImageContainer onClick={e => {
-              e.stopPropagation();
-              onViewBreeder?.(advertising.identifier);
-            }}>
-              <LinkComponent identifier={LinkIdentifiers.BREEDER_LINK} params={{ identifier: advertising.identifier }}>
-                <RoundImage
-                  src={advertising.breederImage ?? placeholderImage}
-                  alt=""
-                  borderWidth={1}
-                  borderColor={Colors.White}
-                />
-              </LinkComponent>
-            </StyledBreederImageContainer>
-          </StyledItem>
-        ))}
-      </Slider>
-    </StyledBody>
-  </StyledContainer>
-);
+              
+  
+              <StyledBreederImageContainer onClick={e => {
+                e.stopPropagation();
+                onViewBreeder?.(advertising.identifier);
+              }}>
+                <LinkComponent identifier={LinkIdentifiers.BREEDER_LINK} params={{ identifier: advertising.identifier }}>
+                  <RoundImage
+                    src={advertising.breederImage ?? placeholderImage}
+                    alt=""
+                    borderWidth={1}
+                    borderColor={Colors.White}
+                  />
+                </LinkComponent>
+              </StyledBreederImageContainer>
+            </StyledItem>
+          ))}
+        </Component>
+      </StyledBody>
+    </StyledContainer>
+  );
+};
