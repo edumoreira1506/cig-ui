@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import ListModal from './ListModal';
@@ -12,6 +13,11 @@ const Template: ComponentStory<typeof ListModal> = (args) => <ListModal {...args
 export const Example = Template.bind({});
 Example.args = {
   isOpen: true,
+  linkComponent: ({ children }) => (
+    <a>
+      {children}
+    </a>
+  ),
   items: [
     {
       onClick: () => alert('Item 1 clicked'),
