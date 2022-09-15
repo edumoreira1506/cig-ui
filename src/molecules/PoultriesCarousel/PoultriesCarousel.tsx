@@ -1,4 +1,4 @@
-import { Component, FC, Fragment, VFC } from 'react';
+import React, { Component, FC, Fragment, VFC } from 'react';
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import Slider from 'react-slick';
 import { IPoultry } from '@cig-platform/types';
@@ -63,6 +63,13 @@ class ClassFileImagesCarousel extends Component<FileImagesCarouselProps> {
     super(props);
 
     this.onChangeSlide = this.onChangeSlide.bind(this);
+    this.onScrollSlides = this.onScrollSlides.bind(this);
+  }
+
+  onScrollSlides(event: any) {
+    if (event.target.scrollLeft + event.target.offsetWidth === event.target.scrollWidth){
+      this.props.onFinishSlides?.();
+    }
   }
 
   onChangeSlide(slide: number) {
@@ -86,7 +93,7 @@ class ClassFileImagesCarousel extends Component<FileImagesCarouselProps> {
 
     const { component: Component, props } = isMobile ? ({
       component: ScrollView,
-      props: {}
+      props: { onScroll: this.onScrollSlides }
     }) : ({
       component: Slider,
       props: { ...CAROUSEL_SETTINGS, afterChange: this.onChangeSlide }
