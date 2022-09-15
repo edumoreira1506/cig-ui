@@ -50,20 +50,18 @@ export const AdvertisingItem: VFC<AdvertisingItemProps> = ({
   linkComponent: LinkComponent = Fragment
 }: AdvertisingItemProps) => (
   <StyledContainer onClick={onViewAdvertising}>
-    <LinkComponent identifier='breeder-link'>
-      <StyledImageContainer>
-        <StyledImage alt="" src={image ?? placeholderImage} />
+    <StyledImageContainer>
+      <StyledImage alt="" src={image ?? placeholderImage} />
 
-        {onToggleFavorite && (
-          <StyledFavoriteButton>
-            <FavoriteButton onToggleFavorite={onToggleFavorite} favorited={favorited} />
-          </StyledFavoriteButton>
-        )}
-      </StyledImageContainer>
-    </LinkComponent>
+      {onToggleFavorite && (
+        <StyledFavoriteButton>
+          <FavoriteButton onToggleFavorite={onToggleFavorite} favorited={favorited} />
+        </StyledFavoriteButton>
+      )}
+    </StyledImageContainer>
 
     <StyledContent>
-      <LinkComponent identifier='breeder-link'>
+      <LinkComponent identifier='view-advertising'>
         <StyledTitle>{title}</StyledTitle>
         <StyledPrice>
           {centsToBrazilianFormat(price)}
