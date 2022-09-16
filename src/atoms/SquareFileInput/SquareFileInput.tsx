@@ -19,7 +19,6 @@ export default function SquareFileInput({ onUpload, uploadMessage }: FileInputPr
         onChange={handleUpload}
         type="file"
         accept="image/*"
-        capture="environment"
       />
       <StyledIcon>
         <BsFillCloudArrowUpFill />

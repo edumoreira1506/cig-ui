@@ -47,7 +47,6 @@ export default function RoundFileInput({ onUpload, file, baseUrl, imagePlacehold
           onChange={handleUpload}
           type="file"
           accept="image/*"
-          capture="environment"
         />
       </StyledImageContainer>
     </StyledContainer>
