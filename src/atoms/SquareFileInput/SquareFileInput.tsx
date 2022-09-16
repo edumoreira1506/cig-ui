@@ -18,7 +18,7 @@ export default function SquareFileInput({ onUpload, uploadMessage }: FileInputPr
         data-testid="square-file-input"
         onChange={handleUpload}
         type="file"
-        accept="image/*"
+        accept="capture=camera,image/*"
         capture="user"
       />
       <StyledIcon>
