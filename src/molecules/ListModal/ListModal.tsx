@@ -3,7 +3,7 @@ import { FC, Fragment, VFC } from 'react';
 import Modal, { ModalProps } from '../../atoms/Modal/Modal';
 import { LinkIdentifiers } from '../../constants';
 
-import { StyledContainer, StyledListItem } from './ListModal.styles';
+import { GlobalStyles, StyledContainer, StyledListItem } from './ListModal.styles';
 
 type LinkComponentProps = {
   identifier: typeof LinkIdentifiers.LIST_MODAL_LINK;
@@ -28,7 +28,14 @@ const ListModal: VFC<ListModalProps> = ({
   onClose,
   linkComponent: LinkComponent = Fragment
 }: ListModalProps) => (
-  <Modal animation='bottom' isOpen={isOpen} onClose={onClose}>
+  <Modal
+    animation='bottom'
+    isOpen={isOpen}
+    onClose={onClose}
+    className="list-modal"
+  >
+    <GlobalStyles />
+    
     <StyledContainer>
       {items.map(item => (
         <LinkComponent

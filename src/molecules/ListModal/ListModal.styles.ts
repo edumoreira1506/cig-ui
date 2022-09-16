@@ -1,6 +1,14 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { Colors, MAIN_FONT } from '../../constants/styles';
+
+export const GlobalStyles = createGlobalStyle`
+  .list-modal {
+    background-color: ${Colors.White};
+    transform: translateY(60vh);
+    height: 40vh;
+  }
+`;
 
 export const StyledContainer = styled.ul`
   margin: 0;
